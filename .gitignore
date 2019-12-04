@@ -1,11 +1,13 @@
 /bootstrap/compiled.php
 /vendor
+.env
 composer.phar
-composer.lock
 .env.*.php
 .env.php
 .DS_Store
 Thumbs.db
+
+.vscode
 
 *dwsync.xml
 
@@ -16,6 +18,14 @@ public/arquigrafia-avatars/*
 public/packages/darsain/*
 public/arquigrafia-imports/*
 app/storage/original-images/*
+
+# exception to folders above, so the folders
+# themselves are included in the repo
+!public/arquigrafia-images/.gitkeep
+!public/arquigrafia-avatars/.gitkeep
+!public/packages/darsain/.gitkeep
+!public/arquigrafia-imports/.gitkeep
+!app/storage/original-images/.gitkeep
 
 node_modules/*
 
@@ -34,3 +44,12 @@ app/config/local/database.php
 app/config/local/mail.php
 app/config/mail.php
 app/config/app.php
+
+app/storage/views/*
+app/storage/sessions/*
+app/storage/logs/*
+
+!app/storage/views/.gitkeep
+!app/storage/sessions/.gitkeep
+
+.vscode/launch.json

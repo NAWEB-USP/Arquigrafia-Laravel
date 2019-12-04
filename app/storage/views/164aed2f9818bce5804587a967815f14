@@ -1,0 +1,31 @@
+<?php if( $user->equal(Auth::user()) && $gamified ): ?>
+<div id="my_points" class="container row">
+  <div class="twelve columns">
+    <hgroup class="profile_block_title">
+      <h3><i class="points"></i>
+        Minha Pontuação
+      </h3>
+    </hgroup>
+    <div class="profile_box">
+      <?php if( !$userPoints && !$userWaitingPoints && !sizeof($refusedSuggestions)): ?>
+        <p>Você ainda não possui nenhum ponto.</p>
+      <?php else: ?>
+        <p><strong>Pontuação atual:</strong> <?php echo $userPoints; ?></p>
+        <p><strong>Pontuação a ser aprovada:</strong>  <?php echo $userWaitingPoints; ?></p>
+        <a class="num-suggestions-profile" href="<?php echo URL::to('/users/contributions'); ?>">
+          <p><strong>Número de sugestões aceitas:</strong>  <?php echo sizeof($acceptedSuggestions); ?>
+
+        </a>
+        <a class="num-suggestions-profile" href="<?php echo URL::to('/users/contributions'); ?>">
+          <p><strong>Número de sugestões aguardando aprovação:</strong> <?php echo sizeof($waitingSuggestions); ?>
+
+        </a>
+        <a class="num-suggestions-profile" href="<?php echo URL::to('/users/contributions'); ?>">
+          <p><strong>Número de sugestões recusadas:</strong> <?php echo sizeof($refusedSuggestions); ?>
+
+        </a>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>
+<?php endif; ?>

@@ -1,0 +1,455 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - <?php echo $photos->name; ?></title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/checkbox.css" />
+
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/jquery.fancybox.css" />
+
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/jquery.fancybox.pack.js"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/photo.js"></script>
+
+
+<?php $__env->stopSection(); ?>
+
+	<?php $__env->startSection('content'); ?>
+
+    <?php if(Session::get('message')): ?>
+      <div class="container">
+        <div class="twelve columns">
+          <div class="message"><?php echo Session::get('message'); ?></div>
+        </div>
+      </div>
+    <?php endif; ?>
+
+		<!--   MEIO DO SITE - ÁREA DE NAVEGAÇ?Ã?O   -->
+		<div id="content" class="container">
+			<!--   COLUNA ESQUERDA   -->
+			<div class="eight columns">
+				<!--   PAINEL DE VISUALIZACAO - SINGLE   -->
+				<div id="single_view_block">
+					<!--   NOME / STATUS DA FOTO   -->
+					<div>
+						<div class="four columns alpha">
+            	<h1><a href="<?php echo URL::to("/search?q=".$photos->name); ?>">  
+            <?php echo $photos->name; ?>
+
+            </a></h1> 
+
+
+            </div>
+
+
+			<div class="four columns omega">              
+              <span class="right" title="<?php echo $commentsMessage; ?>"><i id="comments"></i> <small><?php echo $commentsCount; ?></small>
+              </span>            
+             
+            </div>
+					</div>
+					<!--   FIM - NOME / STATUS DA FOTO   -->
+					
+          <!--   FOTO   -->
+					<a class="fancybox" href="<?php echo URL::to("/arquigrafia-images")."/".$photos->id."_view.jpg"; ?>" title="<?php echo $photos->name; ?>" ><img class="single_view_image" style="" src="<?php echo URL::to("/arquigrafia-images")."/".$photos->id."_view.jpg"; ?>" /></a>
+ 
+
+				</div>				
+				
+				<!--   BOX DE BOTOES DA IMAGEM   -->
+				<div id="single_view_buttons_box">
+					
+					<?php if (Auth::check()) { ?>
+						
+	            <ul id="single_view_image_buttons">						             
+							
+							<li><a href="<?php echo URL::to('/albums/get/list/' . $photos->id); ?>" title="Adicione aos seus álbuns" id="plus"></a></li>
+            
+							<li><a href="<?php echo asset('photos/download/'.$photos->id); ?>" title="Faça o download" id="download" target="_blank"></a></li>
+           	
+						</ul>
+            
+             <?php } else { ?>
+              <div class="six columns alpha">Faça o login para fazer o download e comentar as imagens.</div>
+            <?php } ?>
+            
+						<ul id="single_view_social_network_buttons">
+						<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4fdf62121c50304d"></script>	
+							<li><a href="#" class="google addthis_button_google_plusone_share"><span class="google"></span></a></li>
+							<li><a href="#" class="facebook addthis_button_facebook"><span class="facebook"></span></a></li>
+							<li><a href="#" class="twitter addthis_button_twitter"><span class="twitter"></span></a></li>
+						</ul>
+					
+				</div>
+				<!--   FIM - BOX DE BOTOES DA IMAGEM   -->
+        
+        <div class="tags">
+        	<h3>Tags:</h3>
+
+					<p>        
+
+          <p>
+          <?php if(isset($tags)): ?>
+            <?php foreach($tags as $tag): ?>
+              <?php if($tag->id == $tags->last()->id): ?> 
+              <a style="" href="<?php echo URL::to("/search?q=".$tag->name); ?>">             
+                <?php echo $tag->name; ?>   </a>          
+              <?php else: ?>              
+              <a href="<?php echo URL::to("/search?q=".$tag->name); ?>">
+                <?php echo $tag->name; ?>, </a>         
+              <?php endif; ?>          
+            <?php endforeach; ?>
+          <?php endif; ?>   
+          
+          </p>
+          </div>
+
+<?php if(!empty($average)): ?>
+  <div id="evaluation_average">
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript">
+      $(function () {     
+        var l1 = [
+            <?php foreach($binomials as $binomial): ?>
+              '<?php echo $binomial->firstOption; ?>',     
+            <?php endforeach; ?>
+        ];      
+        var l2 = [
+            <?php foreach($binomials as $binomial): ?>
+              '<?php echo $binomial->secondOption; ?>',       
+            <?php endforeach; ?>
+        ];    
+       
+        $('#evaluation_average').highcharts({
+            credits: {
+                enabled: false,
+            },
+            chart: {
+                marginRight: 80,          
+            },
+            title: {
+                text: '<b> Média de interpretações d<?php echo $architectureName; ?> </b>'
+            },
+            tooltip: {
+              formatter: function() {
+              return ''+ l1[this.y] + '-' + l2[this.y] + ': <br>' + this.series.name + '= ' + this.x;
+              },
+              crosshairs: [true,true]
+            },
+            xAxis: {
+                lineColor: '#000',
+                min: 0,
+                max: 100,
+            },
+            yAxis: [{
+                lineColor: '#000',
+                lineWidth: 1,            
+                tickAmount: <?php echo $binomials->count(); ?>,              
+                tickPositions: [
+                  <?php $count = 0?>
+                  <?php foreach($binomials as $binomial): ?>
+                    <?php echo $count; ?>,
+                    <?php $count++; ?>
+                  <?php endforeach; ?>
+                ],
+                title: {
+                    text: ''
+                },
+                labels: {
+                  formatter: function() {
+                    return l1[this.value];
+                  }
+                }
+            }, {                
+                lineWidth: 1,
+                tickAmount: <?php echo $binomials->count(); ?>,  
+                tickPositions: [
+                  <?php $count = 0?>
+                  <?php foreach($binomials as $binomial): ?>
+                    <?php echo $count; ?>,
+                    <?php $count++; ?>
+                  <?php endforeach; ?>
+                ],
+                opposite: true,
+                title: {
+                    text: ''
+                },
+                labels: {
+                  formatter: function() {
+                    return l2[this.value];
+                  }
+                },
+            }],
+            series: [{            
+                <?php $count = 0; ?>
+                data: [ 
+                  <?php foreach($average as $avg): ?>
+                    [<?php echo $avg->avgPosition; ?>, <?php echo $count; ?>],                      
+                    <?php $count++ ?>
+                  <?php endforeach; ?>
+                ],
+                yAxis: 1,
+                name: 'Média',            
+                marker: {
+                  symbol: 'circle',
+                  enabled: true
+                },
+                color: '#999999',
+            }, 
+              
+              {            
+                <?php $count = 0; ?> 
+                data: [
+                  <?php if(isset($userEvaluations) && !$userEvaluations->isEmpty()): ?>
+                    <?php foreach($userEvaluations as $userEvaluation): ?>
+                      [<?php echo $userEvaluation->evaluationPosition; ?>, <?php echo $count; ?>], 
+                      <?php $count++ ?>
+                    <?php endforeach; ?>              
+                  <?php endif; ?>
+                ],
+                Axis: 0,          
+                marker: {
+                  symbol: 'circle',
+                  enabled: true
+                },
+                color: '#000000',
+                name: 
+                <?php if (Auth::check() && $owner->id == Auth::user()->id && !Session::has('institutionId')){ ?>
+                  'Suas impressões'
+                <?php }else{ ?>
+                  'Impressões de <?php echo $owner->name; ?>'
+                <?php } ?>
+            }
+           
+            ]
+        });
+      });
+    </script>
+  </div>
+<?php endif; ?>   
+      
+
+		<!-- Photos with similar average  -->
+    <?php if(count($similarPhotos) > 0): ?> 
+    <div id="comments_block" class="eight columns row alpha omega">   
+     
+    <hgroup class="profile_block_title">    
+      <h3><img src="<?php echo asset("img/evaluate.png"); ?>" width="16" height="16"/>
+        Imagens interpretadas com média similar</h3>
+        <span>(<?php echo count($similarPhotos); ?>)
+            <?php if(count($similarPhotos)>1): ?> 
+               Imagens 
+            <?php else: ?>
+               Imagem
+            <?php endif; ?> 
+        </span>
+    </hgroup> 
+      
+      <?php foreach($similarPhotos as $k => $similarPhoto): ?>         
+         <?php if($photos->id != $similarPhoto->id): ?>  
+              
+                <a  class="hovertext" href='<?php echo "/photos/" . $similarPhoto->id . "/showSimilarAverage/"; ?>' class="gallery_photo" title="<?php echo $similarPhoto->name; ?>">                  
+                  <img src="<?php echo URL::to("/arquigrafia-images/" . $similarPhoto->id . "_home.jpg"); ?>" class="gallery_photo" />                 
+                </a>
+                <!--
+                <a href='<?php echo "/photos/" . $similarPhoto->id . "/evaluate"; ?>' class="name">
+                  <div class="innerbox"><?php echo $similarPhoto->name; ?></div>
+                </a>-->
+                
+          <?php endif; ?>
+      <?php endforeach; ?>         
+             
+    		
+    </div> 
+     <?php endif; ?> 
+
+
+			</div>
+			<!--   FIM - COLUNA ESQUERDA   -->
+			<!--   SIDEBAR   -->
+
+			<div id="sidebar" class="four columns">
+
+				<!--   USUARIO   -->
+				
+				<!--   FIM - USUARIO   -->				
+        
+        <!-- AVALIAÇÃO  Suas impressões-->              
+        <?php if($owner->equal(Auth::user()) &&  !Session::has('institutionId')): ?>
+        <h3>Suas impressões d<?php echo $architectureName; ?></h3>
+        <?php else: ?>
+        <h3>Interpretação d<?php echo $architectureName; ?> realizada por <a href="<?php echo URL::to("/users/".$owner->id); ?>" id="name"><?php echo $owner->name; ?></a></h3> 
+        <?php endif; ?>
+	       <br>
+         <?php echo Form::open(array('url' => "photos/{$photos->id}/saveEvaluation")); ?>
+
+         
+         <?php if(Auth::check() && $owner != null && $owner->id == Auth::user()->id && !Session::has('institutionId')): ?>
+         <?php echo Form::checkbox('knownArchitecture', 'yes', $checkedKnowArchitecture); ?>
+
+         <?php else: ?>
+         <?php echo Form::checkbox('knownArchitecture', 'yes', $checkedKnowArchitecture, ['disabled']); ?>
+
+         <?php endif; ?>
+
+         Eu conheço pessoalmente esta arquitetura.
+
+	       <br><br>
+         <?php if(Auth::check() && $owner != null && $owner->id == Auth::user()->id && !Session::has('institutionId')): ?>
+         <?php echo Form::checkbox('areArchitecture', 'yes', $checkedAreArchitecture); ?>
+
+         <?php else: ?>
+         <?php echo Form::checkbox('areArchitecture', 'yes', $checkedAreArchitecture, ['disabled']); ?>
+
+         <?php endif; ?>
+         
+
+         Estou no local.
+
+         <br><br>
+
+        <p>Para cada um dos pares abaixo, quais são as qualidades predominantes na arquitetura que são visíveis nesta imagem?</p>
+               
+        <!-- FORMULÁRIO DE AVALIAÇÃO -->
+        <div id="evaluation_box">         
+        
+          <?php if (Auth::check()) { ?>
+            <script>
+              var baseURL = '<?php echo URL::to('/search'); ?>';
+              function outputUpdate(binomio, val) {                        
+                var left, right;
+                left = document.querySelector('#leftBinomialValue'+binomio);
+                right = document.querySelector('#rightBinomialValue'+binomio);
+                left.value = 100 - val;
+                right.value = val;
+                makeSearchURL(binomio, val);
+              }
+              function makeSearchURL(binomio, val) {
+                var left = document.querySelector('.output#first_' + binomio);
+                var right = document.querySelector('.output#second_' + binomio);
+                left.href = baseURL + '/?bin=' + binomio + '&opt=1&val=' + val;
+                right.href = baseURL + '/?bin=' + binomio + '&opt=2&val=' + val;
+              }
+            </script>
+            <?php $count = $binomials->count() - 1; ?>
+            <?php foreach($binomials->reverse() as $binomial): ?>
+              <?php
+                if ( isset($userEvaluations) && ! $userEvaluations->isEmpty() ) {
+                  $userEvaluation = $userEvaluations->get($count);
+                  $diff = $userEvaluation->evaluationPosition;
+                } else {
+                  $diff = $binomial->defaultValue;
+                }
+              ?>
+              <p>
+                <table border="0" width="230">
+                  <tr>
+                    <td width="110">
+                      <a href="<?php echo URL::to('/search?bin=' . $binomial->id . '&opt=1'); ?>">
+                        <?php echo $binomial->firstOption; ?>
+
+                      </a>
+                      <a class="output" id="first_<?php echo $binomial->id; ?>"
+                        href="<?php echo URL::to('/search?bin=' . $binomial->id . '&opt=1&val=' . $diff); ?>">
+                        (<output for="fader<?php echo $binomial->id; ?>"
+                          id="leftBinomialValue<?php echo $binomial->id; ?>">
+                          <?php echo 100 - $diff; ?>
+
+                        </output>%)
+                      </a>
+                    </td>
+                    <td align="right">
+                      <a href="<?php echo URL::to('/search?bin=' . $binomial->id . '&opt=2'); ?>">
+                        <?php echo $binomial->secondOption; ?>
+
+                      </a>
+                      <a class="output" id="second_<?php echo $binomial->id; ?>"
+                        href="<?php echo URL::to('/search?bin=' . $binomial->id . '&opt=2&val=' . $diff); ?>">
+                        (<output for="fader<?php echo $binomial->id; ?>"
+                          id="rightBinomialValue<?php echo $binomial->id; ?>">
+                          <?php echo $diff; ?>
+
+                        </output>%)
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+                <?php if(Auth::check() && $owner != null && $owner->id == Auth::user()->id && !Session::has('institutionId')): ?>
+                <?php echo Form::input('range', 'value-'.$binomial->id, $diff,
+                  [ 'min' => '0',
+                    'max' => '100',
+                    'oninput' => 'outputUpdate(' . $binomial->id . ', value)' ]); ?>
+
+                <?php else: ?>
+                <?php echo Form::input('range', 'value-'.$binomial->id, $diff,
+                  [ 'min' => '0',
+                    'max' => '100',
+                    'oninput' => 'outputUpdate(' . $binomial->id . ', value)',
+                    'disabled' ]); ?>
+
+                <?php endif; ?>
+              </p>
+              <?php $count-- ?>
+            <?php endforeach; ?>
+              
+               <a href="<?php echo URL::to('/photos/' . $photos->id); ?>" class='btn right'>VOLTAR</a>
+               <?php if(Auth::check() && $owner != null && $owner->id == Auth::user()->id && !Session::has('institutionId')): ?>
+                <?php echo Form::submit('ENVIAR', ['id'=>'evaluation_button','class'=>'btn right']); ?> 
+               <?php endif; ?>
+                
+            <?php echo Form::close(); ?>
+
+            
+            
+          <?php } else { ?>
+            <?php if(empty($average)): ?>               
+              <p>Faça o <a href="<?php echo URL::to('/users/login'); ?>">Login</a> e seja o primeiro a registrar impressões sobre <?php echo $architectureName; ?></p>
+            <?php else: ?>              
+              <p>Faça o <a href="<?php echo URL::to('/users/login'); ?>">Login</a> e registre você também impressões sobre <?php echo $architectureName; ?></p>
+            <?php endif; ?>            
+          <?php } ?>
+       
+
+   <?php if(Auth::check()): ?>
+     <?php if(isset($userEvaluations) && !$userEvaluations->isEmpty() && !Session::get('institutionId')): ?>
+	<?php if($owner != null && $owner->id != Auth::user()->id ): ?>
+            <a href='<?php echo "/photos/" . $photos->id . "/evaluate?f=c"; ?>' title="Interpretar" id="evaluate_button"
+            class="btn">
+              Registre você também impressões sobre <?php echo $architectureName; ?>
+
+            </a> &nbsp;
+          <?php endif; ?>
+        <?php endif; ?>
+     <?php endif; ?>
+ 
+        </div>
+        
+        
+      </br>
+    </br>     
+			<!--   FIM - SIDEBAR   -->
+		</div>
+    
+		<!--   MODAL   -->
+		<div id="mask"></div>
+		<div id="form_window" class="form window">
+			<!-- ÁREA DE LOGIN - JANELA MODAL -->
+			<a class="close" href="#" title="FECHAR">Fechar</a>
+			<div id="registration"></div>
+		</div>
+		<div id="confirmation_window" class="window">
+			<div id="registration_delete">
+				<p></p>
+				<?php echo Form::open(array('url' => '', 'method' => 'delete')); ?>
+
+					<div id="registration_buttons">
+						<input type="submit" class="btn" value="Confirmar" />
+						<a class="btn close" href="#">Cancelar</a>
+					</div>
+				<?php echo Form::close(); ?>
+
+			</div>
+		</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

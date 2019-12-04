@@ -171,7 +171,7 @@
                     </p>
                   </div>
                   <div class="five columns alpha">
-                    <textarea name="tags" id="tags" cols="60" rows="1" style="display: none;"></textarea>
+                    <textarea name="tags" id="tags" cols="40" rows="1" style="display: none;"></textarea>
                   </div>
 
 

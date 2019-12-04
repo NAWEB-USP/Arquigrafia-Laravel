@@ -1,0 +1,74 @@
+<?php if( $field == 'description' ): ?>
+  <h4>Descrição:</h4>
+  <p><?php echo $photo->description; ?></p>
+<?php endif; ?>
+<?php if( $field == 'imageAuthor' ): ?>
+  <h4>Autor da Imagem:</h4>
+  <p>
+    <a href="<?php echo URL::to("/search?q=".$photo->imageAuthor); ?>">
+      <?php echo $photo->imageAuthor; ?>
+
+    </a>
+  </p>
+<?php endif; ?>
+<?php if( $field == 'dataCriacao' ): ?>
+  <h4>Data da Imagem:</h4>
+  <p>
+    <a href="<?php echo URL::to("/search?q=".$photo->dataCriacao."&t=img"); ?>">
+      <?php echo Photo::translate($photo->dataCriacao); ?>
+
+    </a>
+  </p>
+<?php endif; ?>
+<?php if( $field == 'workAuthor' ): ?>
+  <h4>Autor da Obra:</h4>
+  <p>
+    <a href="<?php echo URL::to("/search?q=".$photo->workAuthor); ?>">
+      <?php echo $photo->workAuthor; ?>
+
+    </a>
+  </p>
+<?php endif; ?>
+<?php if( $field == 'workdate' ): ?>
+  <h4>Data da Obra:</h4>
+  <p>
+    <a href="<?php echo URL::to("/search?q=".$photo->workdate."&t=work"); ?>">
+      <?php echo Photo::translate($photo->workdate); ?>
+
+    </a>
+  </p>
+<?php endif; ?>
+<?php if( in_array($field, ['street', 'district', 'city', 'state', 'country']) ): ?>
+  <h4>Endereço:</h4>
+  <p>
+    <?php if(!empty($photo->street) && !empty($photo->city)): ?>
+      <a href="<?php echo URL::to("/search?q=".$photo->street."&city=".$photo->city); ?>">
+        <?php echo $photo->street; ?>,
+      </a>
+    <?php elseif(!empty($photo->street)): ?>
+      <a href="<?php echo URL::to("/search?q=".$photo->street); ?>">
+        <?php echo $photo->street; ?>
+
+      </a>
+      <br />
+    <?php endif; ?>
+
+    <?php if(!empty($photo->city)): ?>
+      <a href="<?php echo URL::to("/search?q=".$photo->city); ?>">
+        <?php echo $photo->city; ?>
+
+      </a>
+      <br />
+    <?php endif; ?>
+
+    <?php if(!empty($photo->state) && !empty($photo->country)): ?>
+      <a href="<?php echo URL::to("/search?q=".$photo->state); ?>"><?php echo $photo->state; ?></a> - <?php echo $photo->country; ?>
+
+    <?php elseif(!empty($photo->state)): ?>
+      <a href="<?php echo URL::to("/search?q=".$photo->state); ?>"><?php echo $photo->state; ?></a>
+    <?php else: ?>
+      <?php echo $photo->country; ?>
+
+    <?php endif; ?>
+  </p>
+<?php endif; ?>

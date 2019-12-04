@@ -1,0 +1,31 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Notificações de <?php echo $user->name; ?></title>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <div id="content" class="container">
+	<?php
+        if (Auth::check()) {
+            $user = Auth::user();
+            $max = count($user->notifications);
+	        $unreadNotifications = $user->notifications()->unread()->get();
+            $readNotifications = $user->notifications()->read()->get();
+	?>
+	<h2 class="notifications-title">
+        Suas notificações:
+        <div id="button-all-container">
+            <p id="read-all-sentence">Marcar todas como lidas:</p>
+            <div class="read-button" title="Marcar todas como lidas" onclick="readAll();"></div>
+        </div>
+    </h2>
+	<?php if($user->notifications->isEmpty()): ?>
+		<p id="no-notifications">Você não possui notificações.</p>
+	<?php else: ?>
+	   <?php echo $__env->make("includes.notes", ['user' => $user, 'max' => $max], array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php endif; ?>
+ 	<?php } ?> 
+    </div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

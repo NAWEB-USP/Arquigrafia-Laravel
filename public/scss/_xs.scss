@@ -1,0 +1,215 @@
+/* skeleton */
+.one-xs.column,
+.one-xs.columns                    { width: 4.66666666667%; }
+.two-xs.columns                    { width: 13.3333333333%; }
+.three-xs.columns                  { width: 22%;            }
+.four-xs.columns                   { width: 30.6666666667%; }
+.five-xs.columns                   { width: 39.3333333333%; }
+.six-xs.columns                    { width: 48%;            }
+.seven-xs.columns                  { width: 56.6666666667%; }
+.eight-xs.columns                  { width: 65.3333333333%; }
+.nine-xs.columns                   { width: 74.0%;          }
+.ten-xs.columns                    { width: 82.6666666667%; }
+.eleven-xs.columns                 { width: 91.3333333333%; }
+.twelve-xs.columns                 { width: 100%; margin-left: 0; }
+
+.one-third-xs.column               { width: 30.6666666667%; }
+.two-thirds-xs.column              { width: 65.3333333333%; }
+
+.one-half-xs.column                { width: 48%; }
+
+/* Offsets */
+.offset-by-one-xs.column,
+.offset-by-one-xs.columns          { margin-left: 8.66666666667%; }
+.offset-by-two-xs.column,
+.offset-by-two-xs.columns          { margin-left: 17.3333333333%; }
+.offset-by-three-xs.column,
+.offset-by-three-xs.columns        { margin-left: 26%;            }
+.offset-by-four-xs.column,
+.offset-by-four-xs.columns         { margin-left: 34.6666666667%; }
+.offset-by-five-xs.column,
+.offset-by-five-xs.columns         { margin-left: 43.3333333333%; }
+.offset-by-six-xs.column,
+.offset-by-six-xs.columns          { margin-left: 52%;            }
+.offset-by-seven-xs.column,
+.offset-by-seven-xs.columns        { margin-left: 60.6666666667%; }
+.offset-by-eight-xs.column,
+.offset-by-eight-xs.columns        { margin-left: 69.3333333333%; }
+.offset-by-nine-xs.column,
+.offset-by-nine-xs.columns         { margin-left: 78.0%;          }
+.offset-by-ten-xs.column,
+.offset-by-ten-xs.columns          { margin-left: 86.6666666667%; }
+.offset-by-eleven-xs.column,
+.offset-by-eleven-xs.columns       { margin-left: 95.3333333333%; }
+
+.offset-by-one-third-xs.column,
+.offset-by-one-third-xs.columns    { margin-left: 34.6666666667%; }
+.offset-by-two-thirds-xs.column,
+.offset-by-two-thirds-xs.columns   { margin-left: 69.3333333333%; }
+
+.offset-by-one-half-xs.column,
+.offset-by-one-half-xs.columns     { margin-left: 52%; }
+
+/* header */
+.header #logo {
+  background: url("../img/logo.chou.2018.png") no-repeat;
+  background-size: contain;
+}
+
+/* busca */
+#search_buttons_area { float: left; height: auto; width: 100%; display: flex; margin-top: 17px/*5px*/;  }
+input.search_bar { height: 24px; width: 100%; padding: 3px 5px; float: left; border: solid 1px #ddd; border-right: none; -webkit-border-top-left-radius: 2px; -webkit-border-bottom-left-radius: 2px; -moz-border-radius-topleft: 5px; -moz-border-radius-bottomleft: 5px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; }
+
+/* Menu hamburger */
+.menu-hamburger{
+position: relative;
+overflow: hidden;
+display: block;
+i.switch{
+  background: url('../img/hamburger.svg') no-repeat center right;
+  height: 60px;
+  width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 5px 0 0 0;
+}
+&.open{
+  i.switch{
+    background: url('../img/close-menu.png') no-repeat center right;
+    height: 60px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0 0 0;
+    vertical-align: middle;
+  }
+}
+}
+.menu{
+display: none;
+  &.active{
+    display: block;
+    z-index: 5;
+    position: absolute;
+    width: 80%;
+    right: 0;
+  }
+}
+.menu-collapse{
+  background-color: rgba(255,255,255,.9);
+  padding-top: 19px;
+  opacity: 0;
+  z-index: -1;
+  height: 100vh;
+  padding-left: 30px;
+  a{
+    text-decoration: none;
+  }
+  h5{
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+  &.show{
+    z-index: 1;
+    opacity: 1;
+    transition: .4s;
+  }
+}
+
+/* painel */
+.panel-back, .panel-next {
+  height: 580px; width: 120px;
+}
+// #panel {
+//   .h1, .h1 .layer {
+//     width: 30vw;
+//     padding-bottom: 20vw;
+//     // height: 104px;
+//   }
+//   .h1 img {
+//     width: 102%; height: auto; margin: -1% 0 0 -1%; position: absolute; left: 0%;
+//   }
+//   .h2, .h2 .layer {
+//     width: 60vw;
+//     padding-bottom: 40vw;
+//     // height: 218px;
+//   }
+//   .h2 img {
+//     width: 102%; height: auto; margin: -1% 0 0 -1%; position: absolute; left: 0%;
+//   }
+//   .h3, .h3 .layer {
+//     width: 93vw;
+//     padding-bottom: 62vw;
+//     // height: 332px;
+//   }
+//   .h3 img {
+//     width: 102%; height: auto; margin: -1% 0 0 -1%; position: absolute; left: 0%;
+//   }
+//   .v1, .v1 .layer {
+//     width: 156px; height: 218px;
+//   }
+//   .v1 img {
+//     width: 186px; height: auto; margin: -10px 0 0 -93px; position: absolute; left: 50%;
+//   }
+// }
+#panel {
+  .h1, .h1 .layer {
+    width: 156px; height: 104px;
+  }
+  .h1 img {
+    width: 186px; height: auto; margin: -10px 0 0 -93px; position: absolute; left: 50%;
+  }
+  .h2, .h2 .layer {
+    width: 322px; height: 218px;
+  }
+  .h2 img {
+    width: 352px; height: auto; margin: -10px 0 0 -176px; position: absolute; left: 50%;
+  }
+  .h3, .h3 .layer {
+    width: 488px; height: 332px;
+  }
+  .h3 img {
+    width: 518px; height: auto; margin: -10px 0 0 -259px; position: absolute; left: 50%;
+  }
+  .v1, .v1 .layer {
+    width: 156px; height: 218px;
+  }
+  .v1 img {
+    width: 186px; height: auto; margin: -10px 0 0 -93px; position: absolute; left: 50%;
+  }
+}
+
+#credits {
+  .footer-links {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 0 0 16px;
+    margin: 8px 0 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  .footer-links a {
+    font-weight: bold;
+    display: inline;
+  }
+  .footer-links li {
+    display: inline;
+  }
+  .footer-last {
+    clear: both;
+    padding-top: 0;
+  }
+  .footer-logos {
+    display: none;
+  }
+}
+
+/* photo upload */
+.photo-upload {
+  input[type="text"], input[type="password"] {
+    width: 98%;
+  }
+}

@@ -1,0 +1,476 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+
+<!-- ISOTOPE -->
+<script src="<?php echo URL::to("/"); ?>/js/jquery.isotope.min.js"></script>
+
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/panel.js"></script>
+
+<!-- AUTOCOMPLETE -->
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.core.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.plugin.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.plugin.tags.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/styletags.css" />
+
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.js"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.core.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.plugin.tags.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.plugin.autocomplete.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.plugin.suggestions.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.plugin.filter.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/tags-autocomplete.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.plugin.ajax.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/tag-list.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/tag-autocomplete-part.js" charset="utf-8"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/city-autocomplete.js" charset="utf-8"></script>
+
+<link rel="stylesheet" href="<?php echo URL::to("/"); ?>/css/jquery-ui/jquery-ui.min.css">
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/jquery-ui/jquery-ui.min.js" charset="utf-8"></script>
+
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.js"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.css" />
+<!-- pages -->
+<script src="<?php echo URL::to('/js/searchPagination.js'); ?>"></script>
+<script src="<?php echo URL::to('/js/albums-covers.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to('/css/tabs.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/album.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/checkbox-edition.css" />
+<script>
+    var paginators = {
+      add: {
+        currentPage: <?php echo $page; ?>,//1,
+        maxPage: <?php echo $maxPage; ?>,
+        url: '<?php echo $url; ?>',
+        loadedPages: [1],
+        selectedItems: 0,
+        searchQuery: '',
+        selected_photos: 0,
+      }
+    };
+    var coverPage = 1;
+    var covers_counter = 0;
+    var update = null;
+
+  </script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php if(isset($message)): ?>
+    <div class="container">
+      <div class="twelve columns">
+        <div class="message"><?php echo $message; ?></div>
+      </div>
+    </div>
+  <?php endif; ?>
+    <!--   MEIO DO SITE - ÁREA DE NAVEGAÇÃO   -->
+    <div id="content">
+      <div class="container">
+        <div id="search_result" class="twelve columns row">
+          <h1>Busca avançada</h1>
+          <div class="twelve columns alpha">
+            <p>
+            Apenas os campos que forem preenchidos abaixo serão considerados na busca,
+             para trazer as imagens que correspondam a todos os critérios informados.
+            </p>
+          </div>
+        </div>
+        <?php echo Form::open(array('url' => 'search/more', 'id'=>'advanceSearch' ,'method' => 'get')); ?>
+
+          <div class="eight columns omega row">
+            <div class="nine columns alpha row">
+              <div class="four columns alpha" style="margin-right: 15px;">
+                <h3>Descrição</h3>
+                <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <?php echo Form::label('name', 'Título da imagem:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('name', Input::get("name"), array('style' => "width: 90%")); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <?php echo Form::label('description', 'Descrição da imagem:'); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <?php echo Form::textarea('description', Input::get("description"),
+                        array('style' => "width: 95.5%", 'rows' => 3)); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('tags_input', 'Tags*:'); ?>
+
+                      <p style="font-size: 7pt">Máximo 5 tags</p>
+                    </td>
+                    <td>
+                      <div class="two columns alpha" style="width: 95% !important;">
+                        <?php echo Form::text('tags_input', null, array('style' => "width: 95%")); ?> <br>
+                        <p>
+                          <button class="btn right" id="add_tag">ADICIONAR TAG</button>
+                        </p>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <textarea name="tags" id="tags" cols="35" rows="1" style="display: none;"></textarea>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <div class="error"></div>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="four columns" style="margin-left: 15px; margin-right: 15px;">
+                <h3>Arquitetura</h3>
+                <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+                  <tr>
+                    <td>
+                      <?php echo Form::label('workdate', 'Data da obra:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('workdate',Input::get("workdate"),
+                        array('id' => 'datePickerWorkDate')); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('dataCriacao', 'Data da imagem:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('dataCriacao',Input::get("dataCriacao"),
+                        array('id' => 'datePickerdataCriacao')); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('dataUpload', 'Data de upload:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('dataUpload',Input::get("dataUpload"),
+                        array('id' => 'datePickerdataUpload')); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('tombo', 'Número de Tombo:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('tombo', Input::get("tombo") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('imageAuthor', 'Autor da imagem:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('imageAuthor', Input::get("imageAuthor") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('workAuthor', 'Autor da obra:'); ?>
+
+                      <p style="font-size: 7pt">Máximo 3 Autores</p>
+                    </td>
+                    <td>
+
+
+                        <div class="two columns alpha" style="width: 88% !important;">
+                        <?php echo Form::text('workAuthor', null , array('style' => "width: 88%")); ?> <br>
+                          <p>
+                            <button class="btn right" id="add_author">ADICIONAR AUTOR</button>
+                          </p>
+                        </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      <textarea name="workAuthor_area" id="workAuthor_area" cols="41" rows="1" style="display: none;"></textarea>
+                    </td>
+                  </tr>
+
+                </table>
+              </div>
+              <!-- 2015-05-06 msy end -->
+            </div>
+            <div class="nine columns alpha row">
+              <div class="four columns alpha" style="margin-right: 15px;">
+                <h3>Localização</h3>
+                <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <?php echo Form::label('country', 'País:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::select('country', [ "Afeganistão"=>"Afeganistão", "África do Sul"=>"África do Sul", "Albânia"=>"Albânia", "Alemanha"=>"Alemanha", "América Samoa"=>"América Samoa", "Andorra"=>"Andorra", "Angola"=>"Angola", "Anguilla"=>"Anguilla", "Antartida"=>"Antartida", "Antigua"=>"Antigua", "Antigua e Barbuda"=>"Antigua e Barbuda", "Arábia Saudita"=>"Arábia Saudita", "Argentina"=>"Argentina", "Aruba"=>"Aruba", "Australia"=>"Australia", "Austria"=>"Austria", "Bahamas"=>"Bahamas", "Bahrain"=>"Bahrain", "Barbados"=>"Barbados", "Bélgica"=>"Bélgica", "Belize"=>"Belize", "Bermuda"=>"Bermuda", "Bhutan"=>"Bhutan", "Bolívia"=>"Bolívia", "Botswana"=>"Botswana", "Brasil"=>"Brasil", "Brunei"=>"Brunei", "Bulgária"=>"Bulgária", "Burundi"=>"Burundi", "Cabo Verde"=>"Cabo Verde", "Camboja"=>"Camboja", "Canadá"=>"Canadá", "Chade"=>"Chade", "Chile"=>"Chile", "China"=>"China", "Cingapura"=>"Cingapura", "Colômbia"=>"Colômbia", "Djibouti"=>"Djibouti", "Dominicana"=>"Dominicana", "Emirados Árabes"=>"Emirados Árabes", "Equador"=>"Equador", "Espanha"=>"Espanha", "Estados Unidos"=>"Estados Unidos", "Fiji"=>"Fiji", "Filipinas"=>"Filipinas", "Finlândia"=>"Finlândia", "França"=>"França", "Gabão"=>"Gabão", "Gaza Strip"=>"Gaza Strip", "Ghana"=>"Ghana", "Gibraltar"=>"Gibraltar", "Granada"=>"Granada", "Grécia"=>"Grécia", "Guadalupe"=>"Guadalupe", "Guam"=>"Guam", "Guatemala"=>"Guatemala", "Guernsey"=>"Guernsey", "Guiana"=>"Guiana", "Guiana Francesa"=>"Guiana Francesa", "Haiti"=>"Haiti", "Holanda"=>"Holanda", "Honduras"=>"Honduras", "Hong Kong"=>"Hong Kong", "Hungria"=>"Hungria", "Ilha Cocos (Keeling)"=>"Ilha Cocos (Keeling)", "Ilha Cook"=>"Ilha Cook", "Ilha Marshall"=>"Ilha Marshall", "Ilha Norfolk"=>"Ilha Norfolk", "Ilhas Turcas e Caicos"=>"Ilhas Turcas e Caicos", "Ilhas Virgens"=>"Ilhas Virgens", "Índia"=>"Índia", "Indonésia"=>"Indonésia", "Inglaterra"=>"Inglaterra", "Irã"=>"Irã", "Iraque"=>"Iraque", "Irlanda"=>"Irlanda", "Irlanda do Norte"=>"Irlanda do Norte", "Islândia"=>"Islândia", "Israel"=>"Israel", "Itália"=>"Itália", "Iugoslávia"=>"Iugoslávia", "Jamaica"=>"Jamaica", "Japão"=>"Japão", "Jersey"=>"Jersey", "Kirgizstão"=>"Kirgizstão", "Kiribati"=>"Kiribati", "Kittsnev"=>"Kittsnev", "Kuwait"=>"Kuwait", "Laos"=>"Laos", "Lesotho"=>"Lesotho", "Líbano"=>"Líbano", "Líbia"=>"Líbia", "Liechtenstein"=>"Liechtenstein", "Luxemburgo"=>"Luxemburgo", "Maldivas"=>"Maldivas", "Malta"=>"Malta", "Marrocos"=>"Marrocos", "Mauritânia"=>"Mauritânia", "Mauritius"=>"Mauritius", "México"=>"México", "Moçambique"=>"Moçambique", "Mônaco"=>"Mônaco", "Mongólia"=>"Mongólia", "Namíbia"=>"Namíbia", "Nepal"=>"Nepal", "Netherlands Antilles"=>"Netherlands Antilles", "Nicarágua"=>"Nicarágua", "Nigéria"=>"Nigéria", "Noruega"=>"Noruega", "Nova Zelândia"=>"Nova Zelândia", "Omã"=>"Omã", "Panamá"=>"Panamá", "Paquistão"=>"Paquistão", "Paraguai"=>"Paraguai", "Peru"=>"Peru", "Polinésia Francesa"=>"Polinésia Francesa", "Polônia"=>"Polônia", "Portugal"=>"Portugal", "Qatar"=>"Qatar", "Quênia"=>"Quênia", "República Dominicana"=>"República Dominicana", "Romênia"=>"Romênia", "Rússia"=>"Rússia", "Santa Helena"=>"Santa Helena", "Santa Kitts e Nevis"=>"Santa Kitts e Nevis", "Santa Lúcia"=>"Santa Lúcia", "São Vicente"=>"São Vicente", "Singapura"=>"Singapura", "Síria"=>"Síria", "Spiemich"=>"Spiemich", "Sudão"=>"Sudão", "Suécia"=>"Suécia", "Suiça"=>"Suiça", "Suriname"=>"Suriname", "Swaziland"=>"Swaziland", "Tailândia"=>"Tailândia", "Taiwan"=>"Taiwan", "Tchecoslováquia"=>"Tchecoslováquia", "Tonga"=>"Tonga", "Trinidad e Tobago"=>"Trinidad e Tobago", "Turksccai"=>"Turksccai", "Turquia"=>"Turquia", "Tuvalu"=>"Tuvalu", "Uruguai"=>"Uruguai", "Vanuatu"=>"Vanuatu", "Wallis e Fortuna"=>"Wallis e Fortuna", "West Bank"=>"West Bank", "Yémen"=>"Yémen", "Zaire"=>"Zaire", "Zimbabwe"=>"Zimbabwe"],"Brasil", array('style' => "width: 168px")); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('state', 'Estado:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::select('state', [""=>"Escolha o Estado", "AC"=>"Acre", "AL"=>"Alagoas", "AM"=>"Amazonas", "AP"=>"Amapá", "BA"=>"Bahia", "CE"=>"Ceará", "DF"=>"Distrito Federal", "ES"=>"Espirito Santo", "GO"=>"Goiás", "MA"=>"Maranhão", "MG"=>"Minas Gerais", "MS"=>"Mato Grosso do Sul", "MT"=>"Mato Grosso", "PA"=>"Pará", "PB"=>"Paraíba", "PE"=>"Pernambuco", "PI"=>"Piauí", "PR"=>"Paraná", "RJ"=>"Rio de Janeiro", "RN"=>"Rio Grande do Norte", "RO"=>"Rondônia", "RR"=>"Roraima", "RS"=>"Rio Grande do Sul", "SC"=>"Santa Catarina", "SE"=>"Sergipe", "SP"=>"São Paulo", "TO"=>"Tocantins"], Input::get("state"), array('style' => "width: 168px") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('city', 'Cidade:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('city', Input::get("city"), array('style' => "width: 160px") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('district', 'Bairro:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('district', Input::get("district"), array('style' => "width: 160px") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::hidden('typeSearch', $typeSearch, array('id'  => 'typeSearch') ); ?>
+
+                      <?php echo Form::label('street', 'Endereço:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::text('street', Input::get("street"), array('style' => "width: 160px") ); ?>
+
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="four columns" style="margin-right: 15px; margin-left: 15px;">
+                <h3>Licença das imagens</h3>
+                <table class="form-table" width="80%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <?php echo Form::label('allowCommercialUses', 'Com uso comercial:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::select('allowCommercialUses',
+                        [""=>"Escolha", "YES"=>"Sim", "NO"=>"Não"],
+                        Input::get("allowCommercialUses") ); ?>
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <?php echo Form::label('allowModifications', 'Permitem alteração:'); ?>
+
+                    </td>
+                    <td>
+                      <?php echo Form::select('allowModifications',
+                        [""=>"Escolha", "YES"=>"Sim", "NO"=>"Não"],
+                        Input::get("allowModifications") ); ?>
+
+                    </td>
+                  </tr>
+                </table>
+
+                <h3>Acervos</h3>
+                <table class="form-table" width="80%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td>
+                      <?php echo Form::label('institution', 'Instituições:'); ?>&nbsp;
+                    </td>
+                    <td>
+                      <?php if(!is_null($institutions)): ?>
+                        <?php echo Form::select('institution_id', array(""=>"Escolha") + $institutions , Input::get('institution_id')); ?>
+
+                      <?php else: ?>
+                        <?php echo Form::select('institution_id', [""=>"Escolha o acervo institutional"], "",array('class' => 'left')); ?>
+
+                      <?php endif; ?>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+            </div>
+            <div class="six columns alpha row">
+              <p><?php echo Form::submit('BUSCAR', ['class'=>'btn']); ?></p>
+            </div>
+          </div>
+          <div class="four columns omega row">
+            <div class="four columns  omega" style="margin-left: 15px;">
+              <h3>Interpretação das imagens</h3>
+              <?php echo Form::checkbox('binomial_check', 1, false); ?>
+
+              <?php echo Form::label('binomial_check', 'Utilizar características da imagem na pesquisa'); ?>
+
+              <br><br>
+              <div id="binomial_container" class="four columns omega row hidden" style="margin-left: 15px;">
+                <p style="text-align: justify">
+                  Ao indicar valores nos binômios abaixo,
+                  você fará uma busca por imagens que possuem resultados semelhantes,
+                  considerando um intervalo de 5 pontos acima
+                  e abaixo do valor que você selecionar.
+                </p>
+                <br>
+                <?php $count = $binomials->count() - 1; ?>
+                <?php foreach($binomials->reverse() as $binomial): ?>
+                  <?php $diff = $binomial->defaultValue ?>
+                  <p>
+                    <table border="0" width="230">
+                      <tr>
+                        <td width="110">
+                            <?php echo $binomial->firstOption; ?>
+
+                            (<output for="fader<?php echo $binomial->id; ?>"
+                              id="leftBinomialValue<?php echo $binomial->id; ?>">
+                              <?php echo 100 - $diff; ?>
+
+                            </output>%)
+                        </td>
+                        <td align="right">
+                            <?php echo $binomial->secondOption; ?>
+
+                            (<output for="fader<?php echo $binomial->id; ?>"
+                              id="rightBinomialValue<?php echo $binomial->id; ?>">
+                              <?php echo $diff; ?>
+
+                            </output>%)
+                        </td>
+                      </tr>
+                    </table>
+                    <?php echo Form::input('range', 'value-'.$binomial->id, $diff,
+                      [ 'min' => '0',
+                        'max' => '100',
+                        'oninput' => 'outputUpdate(' . $binomial->id . ', value)',
+                        'disabled' => true,
+                        'class' => 'binomial_value' ]); ?>
+
+                  </p>
+                  <?php $count-- ?>
+                <?php endforeach; ?>
+              </div>
+            </div>
+          </div>
+        <?php echo Form::close(); ?>
+
+
+      </div>
+      <?php echo Form::hidden('pgVisited', $pageVisited, array('id'  => 'pgVisited') ); ?>
+
+      <?php echo Form::hidden('pageCurrent1', $page, array('id'  => 'pageCurrent1') ); ?>
+
+      <?php echo Form::hidden('urlType', "advance", array('id'  => 'urlType') ); ?>
+
+
+      <?php if(count($photos)): ?>
+        <!--   PAINEL DE IMAGENS - GALERIA - CARROSSEL   -->
+        <!--<div class="wrap">
+          <div id="panel">
+            include('includes.panel')
+          </div>
+  		    <div class="panel-back"></div>
+          <div class="panel-next"></div>
+        </div> -->
+      <!--   FIM - PAINEL DE IMAGENS  -->
+
+      <?php echo $__env->make('includes.result-search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php endif; ?>
+    </div>
+    <!--   FIM - MEIO DO SITE   -->
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('input[name="binomial_check"]').click(function(e) {
+          if ( $(this).prop('checked') ) {
+            $('#binomial_container').removeClass('hidden');
+            $('.binomial_value').prop('disabled', false);
+          } else {
+            $('.binomial_value').prop('disabled', true);
+            $('#binomial_container').addClass('hidden');
+          }
+        });
+
+        <?php if( isset($authorsArea) ): ?>
+          <?php foreach( $authorsArea as $author ): ?>
+            $('#workAuthor_area').textext()[0].tags().addTags([ <?php echo '"' . $author . '"'; ?> ]);
+          <?php endforeach; ?>
+        <?php endif; ?>
+
+
+        $('#tags').textext({ plugins: 'tags' });
+        <?php if( isset($tags) ): ?>
+          <?php foreach( $tags as $tag ): ?>
+            $('#tags').textext()[0].tags().addTags([ <?php echo '"' . $tag . '"'; ?> ]);
+          <?php endforeach; ?>
+        <?php endif; ?>
+
+
+
+      });
+
+
+      $(function() {
+        $( "#datePickerWorkDate" ).datepicker({
+          dateFormat:'dd/mm/yy',
+          keyboardNavigation: true,
+          orientation: "bottom right"
+        });
+        $( "#datePickerdataCriacao" ).datepicker({
+          dateFormat:'dd/mm/yy',
+          keyboardNavigation: true,
+          orientation: "bottom right"
+        });
+        $( "#datePickerdataUpload" ).datepicker({
+          dateFormat:'dd/mm/yy',
+          beforeShow: function(datePickerdataUpload) {
+            $(datePickerdataUpload).css({
+              "position":"relative",
+              "z-index":999999
+            });
+          }
+        });
+      });
+
+      function outputUpdate(binomio, val) {
+        var left, right;
+        left = document.querySelector('#leftBinomialValue'+binomio);
+        right = document.querySelector('#rightBinomialValue'+binomio);
+        left.value = 100 - val;
+        right.value = val;
+      }
+    </script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

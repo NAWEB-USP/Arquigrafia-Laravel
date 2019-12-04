@@ -9,6 +9,14 @@ class Tag extends \Eloquent {
 
   protected $fillable = ['name'];
 
+  public function tag() {
+    return $this->belongsTo('App/Tag');
+  }
+
+  public function tags() {
+    return $this->hasMany('App/Tag');
+  }
+  
   public function photos() {
     return $this->belongsToMany('Photo', 'tag_assignments', 'tag_id', 'photo_id');
   }

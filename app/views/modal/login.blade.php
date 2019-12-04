@@ -25,67 +25,64 @@
       <div class="registration">
          <!-- LOGIN SIMPLES -->
 
-         <div class="four columns offset-by-four">
+         <div class="four columns offset-by-four mb-3">
             <h1>Login</h1>
-            
+
             {{ Form::open() }}
 
                <p>Entre com seu login ou e-mail e em seguida digite sua senha:</p>
-               <br>
-               <div class="two columns alpha">{{ Form::label('login', 'Login ou E-mail:', array('class'=>'right')) }}</div>
-               <div class="two columns omega">{{ Form::text('login', '', array('class'=>'right') ) }}</div>
-               {{ $errors->first('login') }}
-                <p> {{ Form::hidden('firstTime', Session::get('msgRegister')) }}</p>
-               <div class="two columns alpha">{{ Form::label('password', 'Senha:', array('class'=>'right')) }}</div>
-               <div class="two columns omega">{{ Form::password('password', array('class'=>'right') ) }}</div>
+               <p>{{ Form::label('login', 'Login ou E-mail:') }}</p>
+               <p>{{ Form::text('login', '') }}</p>
+               <p class="error">{{ $errors->first('login') }}</p>
 
-               @if(Session::has('login.message'))
-                  <p class="error">{{ Session::pull('login.message') }}</p>
-               @endif
+               {{-- <div class="six columns alpha">{{ Form::label('login', 'Login ou E-mail:', array('class'=>'right')) }}</div>
+               <div class="six columns omega">{{ Form::text('login', '', array('class'=>'right') ) }}</div>
+               {{ $errors->first('login') }} --}}
 
-               <br>
-               <div class="four columns">
-               <div style=""> 
-                 <a href="{{ URL::to("/users/forget/")}}" id="single_view_contact_add">
-                     Esqueceu sua senha? 
-                  </a> 
-               </div>   
-               <div>&nbsp;</div>
-                  
-                  <div class="link_institution">
-                     <a id="institutionLogin" href="/institutionalLogin" id="single_view_contact_add">
-                     Login institucional
-                     </a> 
-                  </div>
-               </div>   
-               <p>{{ Form::submit("LOGIN",array('class'=>'btn right')) }}</p>
-               
+              <p>{{ Form::hidden('firstTime', Session::get('msgRegister')) }}</p>
+              <p>{{ Form::label('password', 'Senha:') }}</p>
+              <p>{{ Form::password('password' ) }}</p>
+               {{-- <div class="six columns alpha">{{ Form::label('password', 'Senha:', array('class'=>'right')) }}</div>
+               <div class="six columns omega">{{ Form::password('password', array('class'=>'right') ) }}</div> --}}
+
+              @if(Session::has('login.message'))
+                <p class="error">{{ Session::pull('login.message') }}</p>
+              @endif
+
+              <p>{{ Form::submit("LOGIN",array('class'=>'btn')) }}</p>
+
+              <p>
+                <a href="{{ URL::to("/users/forget/")}}">Esqueceu sua senha?</a>
+              </p>
+              <p>
+                <a id="institutionLogin" href="/institutionalLogin" id="single_view_contact_add">Login institucional</a>
+              </p>
+
             {{ Form::close() }}
 
-            <p>&nbsp;</p>
-
          </div>
-         
-         <div class="three columns offset-by-four">
+
+         <div class="four columns offset-by-four">
 
             <a href="{{ $fburl }}">
                <div class="login_externo logo">
                   <img id="facebook_login" src="{{ asset('/img/Facebook_logo_square.png') }}">
                </div>
                <div class="login_externo label">
-                  <p> Login com Facebook </p>
+                  <p>Login com Facebook </p>
                </div>
             </a>
+            <br>
             <a id="stoaLogin" href="/stoaLogin" >
                <div class="login_externo logo down">
                   <img src="{{ asset('/img/Logo-stoa.png') }}" width="75">
                </div>
                <div class="login_externo label down">
-                  <p> Login com Stoa </p>
+                  <p>Login com Stoa </p>
                </div>
             </a>
-         </div>  
-             
+         </div>
+
       </div>
    </div>
 
@@ -100,11 +97,11 @@
                <div class="three columns">{{ Form::label('stoa_account', 'Login ou Número USP:') }}</div>
                <div class="three columns">{{ Form::text('stoa_account', '', ['class' => 'right']) }}</div>
                {{ $errors->first('login') }}
-               
+
                <div class="three columns">{{ Form::label('password', 'Senha:') }}</div>
                <div class="three columns">{{ Form::password('password', ['class' => 'right']) }}</div>
                <br>
-               
+
                <div class="three columns">
                   <p>{{ Form::submit("LOGIN",array('class'=>'btn right')) }}</p>
                   <p class="error">Número USP e/ou senha inválidos.</p>
@@ -121,18 +118,18 @@
          <div class="four columns">
             {{ Form::open(array( 'url' => '/users/institutionalLogin')) }}
 
-               
+
                <div class="three columns">{{ Form::label('institution', 'Acervo:') }}</div>
                <div class="three columns">
-               
+
                   @if(!is_null($institutions))
                     {{ Form::select('institution', $institutions , Input::old('institution')) }}
                   @else
-                      {{ Form::select('institution', [""=>"Escolha o acervo institutional"], "",array('class' => 'left')) }} 
+                      {{ Form::select('institution', [""=>"Escolha o acervo institutional"], "",array('class' => 'left')) }}
                   @endif
                </div>
 		<br>
-               		
+
 		 <div class="three columns">{{ Form::label('login', 'Login ou E-mail:') }}</div>
                <div class="three columns">{{ Form::text('login', '', ['class' => 'left']) }}</div>
                {{ $errors->first('login') }}

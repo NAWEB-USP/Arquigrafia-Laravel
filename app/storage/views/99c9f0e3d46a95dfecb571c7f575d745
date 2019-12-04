@@ -1,0 +1,27 @@
+
+  <?php foreach($users->getCollection()->sortByDesc($score_type) as $user): ?>
+    <?php if( $count % 2 == 0): ?>
+      <tr class="even <?php echo $user->equal(Auth::user()) ? 'selected' : ''; ?>">
+    <?php else: ?>
+      <tr class="<?php echo $user->equal(Auth::user()) ? 'selected' : ''; ?>">
+    <?php endif; ?>
+      <td><h2><?php echo $count++; ?></h2></td>
+      <td class="avatar">
+        <a href="<?php echo URL::to('/users/' . $user->id); ?>">
+          <?php if( ! empty($user->photo) &&
+            ( File::exists(public_path() . $user->photo ) ||
+            starts_with($user->photo, '/profile/10/showphotoprofile/') ) ): ?>
+            <img src="<?php echo asset($user->photo); ?>"
+              class="user_photo_thumbnail">
+          <?php else: ?>
+            <img src="<?php echo asset("img/avatar-60.png"); ?>"
+              class="user_photo_thumbnail">
+          <?php endif; ?>
+        </a>
+      </td>
+      <td class="name">
+        <p><?php echo link_to('/users/' . $user->id, $user->name); ?></p>
+      </td>
+      <td><p class="score"><?php echo intval($user->$score_type); ?></p></td>
+    </tr>
+  <?php endforeach; ?>

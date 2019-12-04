@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'arquigrafia',
-			'username'  => 'root',
-			'password'  => 'senha', // trocar para o seu caso
+			'host'      => $_ENV['db_localhost'],
+			'database'  => $_ENV['db_name'],
+			'username'  => $_ENV['db_user'],
+			'password'  => $_ENV['db_pass'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

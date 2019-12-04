@@ -19,8 +19,7 @@
 <!-- END OF ANALYTICS AND OPTIMIZE -->
 
 <!--   ESTILO GERAL   -->
-{{-- <link rel="stylesheet" type="text/css" href="{{ URL::to("/") }}/css/style.css" /> --}}
-<link rel="stylesheet" type="text/css" href="{{ URL::to("/") }}/css/style.old.css" />
+<link rel="stylesheet" type="text/css" href="{{ URL::to("/") }}/css/style.css" />
 
 <!-- JQUERRY -->
 <script

@@ -1,0 +1,30 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+    <div id="badge_section" class="twelve columns">
+      <h1><?php echo $badge->name; ?></h1>
+      <div class="two columns">
+        <img id="badge_img" src="<?php echo asset('/img/badges/' . $badge->image ); ?>" height="128" width="128">
+      </div>
+      <div id="badge_description_container" class="eight columns">
+        <p><?php echo ucfirst($badge->description); ?>.</p>
+      </div>
+    </div>
+  </div>
+  <style type="text/css">
+    #badge_description_container {
+      position: absolute;
+      top: 50%;
+      left: 160px;
+    }
+    #badge_description_container p {
+      font-size: 16px;
+      color: #333;  
+    }
+  </style>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

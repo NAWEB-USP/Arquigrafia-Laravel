@@ -17,10 +17,42 @@ The Arquigrafia project is open-sourced software licensed under the [Creative Co
 
 ## Configuration Tutorial
 
-- This project use Laravel Messenger for Laravel 4, and need to run migrate:
+- This project uses Docker, follow these steps to build the environment
+
+> Install Docker, in case you haven't yet.
+
+> Run ```docker-compose build```
+
+> Run ```docker-compose up```
+
+> Run ```docker ps``` to list all containers and their ids
+
+> Run ```docker exec -it id_do_container_arquigrafia-laravel_app bash```
+
+> Now you are inside de container, run ```php artisan migrate```
+
+- This project uses Laravel Messenger for Laravel 4, and needs to run migrate:
 
 ```bash
 php artisan migrate --package=cmgmyr/messenger
+```
+
+- The user validation did not work locally for development, because it expects an e-mail confirmation. After creating an user, an error message will appear. Then run the following commands:
+
+```
+php artisan tinker
+```
+```
+$p = User::find(1);
+```
+```
+$p->active = true;
+```
+```
+$p->save();
+```
+```
+exit;
 ```
 
 - Since we're still using PHP 5.6, some JSON post requests might throw an deprecation warning. So, we need to set on PHP.ini:

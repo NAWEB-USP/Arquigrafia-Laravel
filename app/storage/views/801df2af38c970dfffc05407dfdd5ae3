@@ -1,0 +1,18 @@
+<!doctype html>
+
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    
+    
+</head>
+<body>
+    <h1>All Users</h1>
+    
+    <?php foreach($users as $users): ?>
+    	<li> <?php echo link_to ("/groups/{$users->id}",$users->name); ?> </li>
+    <?php endforeach; ?>
+
+</body>
+</html>

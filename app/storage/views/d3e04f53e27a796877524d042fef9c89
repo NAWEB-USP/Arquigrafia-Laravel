@@ -1,0 +1,144 @@
+  <h4>Selecione dentre seus álbuns ou crie um novo álbum para adicionar a imagem selecionada.</h4>
+  <div class="tabs">
+    <ul class="tab-links">
+      <li class="active"><a class="tab-link" href="#your_albums">Seus álbuns</a></li>
+      <li><a class="tab-link" href="#create_album">Novo álbum</a></li>
+    </ul>
+    <div class="tab-content">
+      <div id="your_albums" class="tab active">
+        <?php $album_counter = 0; $total_album = $albums->count() ?>
+        <?php echo Form::open(array('url' => URL::to('/albums/photo/add'))); ?>
+
+          <?php echo Form::hidden('_photo', $photo_id); ?>
+
+          <div id="albums_list" class="list">
+            <p class="row">Selecione um ou mais álbuns em que a imagem será adicionada.</p>
+            <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+              <?php $album_counter = 0; ?>
+              <?php foreach($albums as $album): ?>
+                <?php if($album_counter % 3 == 0): ?>
+                  <tr>
+                <?php endif; ?>
+                <td width="33%">
+                  <input type="checkbox"  id="<?php echo 'album_' . $album->id; ?>"
+                    name="albums[]" class="albums" value="<?php echo $album->id; ?>">
+                   <label for="<?php echo 'album_' . $album->id; ?>"></label>
+                  <p><?php echo $album->title; ?></p>
+                </td>
+                <?php if($album_counter %3 == 2): ?>
+                  </tr>
+                <?php endif; ?>
+                <?php $album_counter++ ?>
+              <?php endforeach; ?>
+
+              <?php if($album_counter %3 > 0): ?>
+                <?php while($album_counter %3 > 0): ?>
+                  <td width="33%"></td>
+                  <?php $album_counter++; ?>
+                <?php endwhile; ?>
+                </tr>
+              <?php endif; ?>
+            </table>
+          </div>
+          <p><?php echo Form::submit("ADICIONAR", array('class'=>'btn')); ?></p>
+        <?php echo Form::close(); ?>
+
+      </div>
+      <div id="create_album" class="tab row">
+        <p class="row">
+          Crie um novo álbum com a imagem que você selecionou.
+        </p>
+        <div id="info" class="seven columns">
+        	<?php echo Form::open(array('url' => 'albums/')); ?>
+
+            <?php echo Form::hidden('photos_add', $photo_id); ?>
+
+            <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>
+                  <div class="img_container">
+                    <img id="cover-img" src="<?php echo URL::to('/arquigrafia-images/' . $photo_id . '_view.jpg'); ?>">
+                    <p>Capa do álbum</p>
+                  </div>
+                </td>
+  	            <td>
+  		            <div class="four columns"><p><?php echo Form::label('title', 'Título*'); ?></p></div>
+  		            <div class="four columns row">
+  		              <p><?php echo Form::text('title', null); ?> <br>
+  		                <div class="error"></div>
+  		              </p>
+  		            </div>
+  		            <div class="four columns"><p><?php echo Form::label('description', 'Descrição'); ?></p></div>
+  		            <div class="four columns row">
+  		              <p><?php echo Form::textarea('description', null, array('rows' => 5)); ?></p>
+  		            </div>
+  		            <div class="four columns">
+  		              <p><?php echo Form::button('CRIAR ÁLBUM', array('class' => 'btn')); ?></p>
+  		            </div>
+  	            </td>
+              </tr>
+            </table>
+          <?php echo Form::close(); ?>
+
+        </div>
+      </div>
+    </div>
+  <script type="text/javascript">
+    var albums_list = $('#albums_list');
+    var form1 = albums_list.parent();
+    form1.submit(function(e) {
+      var checked = albums_list.find('.albums:checked');
+      if (checked.length > 0) {
+        return true; //continua evento
+      }
+      form1.find('p.error').remove();
+      var message = "Por favor, selecione um álbum existente ou crie um novo para adicionar a imagem selecionada.";
+      form1.append('<p class="error">' + message + '</p>');
+      e.preventDefault();
+    });
+
+    var form2 = $('#create_album form');
+    form2.find('button').click(function (e) {
+      form2.submit();
+    });
+    form2.submit( function(e) {
+      var title = form2.find('#title');
+      var div_error = form2.find('.error');
+      div_error.empty();
+      if ( !title.val() ) {
+        div_error.text('O campo título é obrigatório');
+        e.preventDefault();
+      }
+    });
+
+    $('.tab-link').on('click', function(e) {
+      e.preventDefault();
+      var currentAttrValue = $(this).attr('href');
+      $('.tabs ' + currentAttrValue).fadeIn('slow').siblings().hide();
+      $(this).parent('li').addClass('active').siblings().removeClass('active');
+    });
+  </script>
+  <style>
+    .tab label { font-size: 16px; }
+    .tab input[type="text"] { font-size: 14px; width: 200px; margin-bottom: 10px; /*color: #bbb;*/}
+    .tab textarea { width: 300px; margin-bottom: 10px; font-size: 14px; }
+    #create_album p { margin: 2px; color: #000; }
+    #create_album #info { margin-top: 50px; }
+    #create_album #info label { color: #777; }
+    #create_album input, #create_album textarea { border-color: #aaa; }
+    #create_album .img_container { width: 220px; border-radius: 3px; -moz-border-radius: 3px;
+     -webkit-border-radius: 3px; position: relative; margin-top: 10px; min-height: 200px; }
+    #create_album .img_container img { width: 100%; }
+    <?php foreach($albums as $album): ?>
+      <?php echo '#album_' . $album->id . ' + label'; ?>
+
+      {
+        <?php if($album->cover_id != null): ?>
+          background: url('<?php echo URL::to("/") . "/arquigrafia-images/" . $album->cover_id . "_home.jpg"; ?>');
+        <?php else: ?>
+          background: url('<?php echo URL::to("/") . "/img/registration_no_cover.png"; ?>');
+        <?php endif; ?>
+      }
+    <?php endforeach; ?>
+  </style>

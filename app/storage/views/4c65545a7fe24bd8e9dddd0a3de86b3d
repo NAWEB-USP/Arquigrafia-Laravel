@@ -1,0 +1,407 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+
+<link rel="stylesheet" href="<?php echo URL::to("/"); ?>/css/jquery-ui/jquery-ui.min.css">
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/jquery-ui/jquery-ui.min.js" charset="utf-8"></script>
+<!-- ISOTOPE -->
+<script src="<?php echo URL::to("/"); ?>/js/jquery.isotope.min.js"></script>
+
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/panel.js"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/dist/profile.bundle.js"></script>
+<script type="text/javascript">
+  var profileUser = <?php echo json_encode($user); ?>
+
+	var userID = <?php echo $user->id; ?>;
+	console.log(<?php echo $userPoints; ?>)
+</script>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/checkbox.css" />
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <?php if(Session::get('message')): ?>
+        <div class="container">
+          <div class="twelve columns">
+              <div class="message"><?php echo Session::get('message'); ?></div>
+          </div>
+        </div>
+    <?php endif; ?>
+
+    <!--   HEADER DO USUÁRIO   -->
+    <div class="container">
+      <div id="user_header" class="twelve columns">
+        <!-- Avatar with edit profile -->
+        <?php if(Auth::check() && Auth::user()->id == $user->id): ?>
+         <div class="div_avatar_size" >
+           <a href= '<?php echo url("users/" . $user->id . "/edit"); ?>' title="Editar perfil" >
+           <?php if($user->photo != ""): ?>
+             <img class ="class_img_avatar" class="avatar" src="<?php echo asset($user->photo); ?>" class="user_photo_thumbnail"/>
+           <?php else: ?>
+             <img class="avatar" src="<?php echo asset("img/avatar-perfil.png"); ?>"
+               width="62" height="62" class="user_photo_thumbnail"/>
+           <?php endif; ?>
+          </a>
+         </div>
+        <?php else: ?>
+          <?php if($user->photo != ""): ?>
+          	<div class="div_avatar_size" >
+            	<img class ="class_img_avatar" class="avatar" src="<?php echo asset($user->photo); ?>"  class="user_photo_thumbnail"/>
+            </div>
+          <?php else: ?>
+            <img class="avatar" src="<?php echo asset("img/avatar-60.png"); ?>"
+              width="62" height="62" class="user_photo_thumbnail"/>
+          <?php endif; ?>
+        <?php endif; ?>
+
+        <div class="info" class="position_info">
+          <h1><?php echo $user->name; ?> <?php echo $user->secondName; ?></h1>
+          <p>
+            <a href="<?php echo URL::to('/leaderboard'); ?>">
+              Ver Quadro de Colaboradores
+            </a>
+          </p>
+
+
+			<?php if(Auth::check() && $user->id != Auth::user()->id && !Session::has('institutionId')): ?>
+    			<?php if(!empty($follow) && $follow == true ): ?>
+	    			<a href="<?php echo URL::to("/friends/follow/" . $user->id); ?>"
+	    				id="single_view_contact_add">Seguir</a><br />
+ 				<?php else: ?>
+            		<div id="unfollow-button" class="label_following">
+					    <a href="<?php echo URL::to("/friends/unfollow/" . $user->id); ?>">
+         					<p  class="label success new-label"><span>Seguindo</span></p>
+    					</a>
+					</div>
+ 				<?php endif; ?>
+ 				<div id="send_message">
+ 					<a href="#">
+ 						<p  class="label new-label"><span>Enviar mensagem</span></p>
+ 					</a>
+ 				</div>
+ 			<?php elseif(Auth::check() && $user->id == Auth::user()->id && !Session::has('institutionId')): ?>
+ 				<a href="<?php echo URL::to("/users/" . $user->id . "/edit"); ?>" id="single_view_contact_add" title="Edite o seu perfil">Editar perfil</a><br />
+			<?php endif; ?>
+
+	        </div>
+	      	<div class="count">Imagens compartilhadas (<?php echo count($photos); ?>)</div>
+	      </div>
+	    </div>
+
+    <!-- GALERIA DO USUÁRIO -->
+    <div id="user_gallery">
+
+      <?php if($photos->count() > 0): ?>
+        <div class="wrap">
+            <?php echo $__env->make('includes.panel-stripe', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        </div>
+      <?php else: ?>
+      	<div class="container row">
+      		<div class="six columns">
+	      		<p>
+	      			<?php if(Auth::check() && $user->id == Auth::user()->id && !Session::has('institutionId')): ?>
+	      				Você ainda não possui imagens no seu perfil. Faça o upload de uma imagem
+	      				<a href="<?php echo URL::to('/photos/upload'); ?>">aqui</a>
+	      			<?php else: ?>
+	      				Não possui imagens.
+	      			<?php endif; ?>
+	      		</p>
+      		</div>
+      	</div>
+      <?php endif; ?>
+
+    </div>
+
+    <br>
+    <br>
+
+    <!-- USUÁRIO -->
+    <div class="container row">
+    	<div class="four columns">
+      	<hgroup class="profile_block_title">
+        	<h3><i class="profile"></i>Perfil</h3> &nbsp; &nbsp;
+        	<?php if (Auth::check() && Auth::user()->id == $user->id && !Session::has('institutionId')) { ?>
+               	<a href= '<?php echo "/users/" . $user->id . "/edit"; ?>' title="Editar perfil" >
+        		<img src="<?php echo asset("img/edit.png"); ?>" width="16" height="16" />
+        	</a>
+        	<?php } ?>
+        </hgroup>
+        <ul>
+      <?php if( !empty($user->name) ): ?>
+        <li><strong>Nome completo: </strong> <?php echo $user->name; ?></li>
+      <?php endif; ?>
+      <!--<?php if( !empty($user->secondName) ): ?>
+        <li><strong>Sobrenome:</strong><?php echo $user->secondName; ?></li>
+      <?php endif; ?>-->
+        </ul>
+        <br>
+        <ul>
+        	<?php if( !empty($user->lastName) ): ?>
+				<li><strong>Apelido: </strong><?php echo $user->lastName; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->birthday) && $user->visibleBirthday == 'yes'): ?>
+				<li><strong>Data de nascimento: </strong><?php echo date("d/m/Y",strtotime($user->birthday)); ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->gender) ): ?>
+				<li><strong>Sexo: </strong><?php echo $user->gender == 'female' ? 'Feminino' : 'Masculino'; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->email) && $user->visibleEmail == 'yes'): ?>
+				<li><strong>E-mail: </strong><?php echo $user->email; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->country) ): ?>
+				<li><strong>País: </strong><?php echo $user->country; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->state) ): ?>
+				<li><strong>Estado: </strong><?php echo $user->state; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->city) ): ?>
+				<li><strong>Cidade: </strong><?php echo $user->city; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->scholarity) ): ?>
+				<li><strong>Escolaridade: </strong> <?php echo $user->scholarity; ?></li>
+			<?php endif; ?>
+			<?php if( $user->occupation != null && $user->occupation->institution != null ): ?>
+				<li><strong>Instituição: </strong><?php echo $user->occupation->institution; ?></li>
+			<?php endif; ?>
+			<?php if( $user->occupation != null && $user->occupation->occupation != null ): ?>
+				<li><strong>Ocupação: </strong><?php echo $user->occupation->occupation; ?></li>
+			<?php endif; ?>
+			<?php if( !empty($user->site) ): ?>
+				<li><strong>Site pessoal: </strong> <a href="<?php echo $user->site; ?>" target="_blank"><?php echo $user->site; ?></a></li>
+			<?php endif; ?>
+			</br>
+
+
+
+
+        </ul>
+      </div>
+
+      <div class="four columns">
+        <hgroup class="profile_block_title">
+          <h3><i class="follow"></i>Seguindo (<?php echo $user->following->count() + $institutionFollowed->count(); ?>)</h3>
+          <!--<a href="#" id="small" class="profile_block_link">Ver todos</a>-->
+          </hgroup>
+        <!--   BOX - AMIGOS   -->
+    		<div class="profile_box">
+				<?php foreach($user->following as $following): ?>
+				<div class="gallery_box_inst">
+					<a href= "<?php echo URL::to('/users/' .  $following->id); ?>"
+					   class="gallery_box_inst" title="<?php echo $following->name; ?>"	>
+					<?php if($following->photo != ""): ?>
+						<img width="40" height="40" class="avatar"
+						src="<?php echo asset($following->photo); ?>" class="user_photo_thumbnail"
+						class="gallery_box_inst"  />
+					</a>
+					<?php else: ?>
+						<img width="40" height="40" class="avatar"
+						src="<?php echo asset("img/avatar-60.png"); ?>" class="user_photo_thumbnail"
+						class="gallery_box_inst"  />
+					</a>
+					<?php endif; ?>
+					<a href="<?php echo URL::to("/users/". $following->id); ?>" class="name_text_follow">
+               			<?php echo Str::limit(ucfirst($following->name), 5); ?>
+
+          			</a>
+				</div>
+				<?php endforeach; ?>
+				<?php foreach($institutionFollowed as $followingInstitution): ?>
+				   <div class="gallery_box_inst">
+						<a href= "<?php echo '/institutions/' .  $followingInstitution->id; ?>"
+						   class="gallery_box_inst" title="<?php echo $followingInstitution->name; ?>"   >
+						<?php if($followingInstitution->photo != ""): ?>
+							<img width="40" height="40" class="avatar"
+							src="<?php echo asset($followingInstitution->photo); ?>" class="user_photo_thumbnail"
+							class="gallery_box_inst" />
+						</a>
+						<?php else: ?>
+							<img width="40" height="40" class="avatar"
+							src="<?php echo asset("img/avatar-60.png"); ?>"  class="user_photo_thumbnail"
+							class="gallery_box_inst" />
+						</a>
+						<a href="<?php echo URL::to('/institutions/'. $followingInstitution->id); ?>" class="name_text_follow">
+               			<?php echo Str::limit($followingInstitution->name, 5); ?>
+
+               			</a>
+						<?php endif; ?>
+
+				   </div>
+				<?php endforeach; ?>
+			</div>
+      </div>
+
+      <div class="four columns">
+        <hgroup class="profile_block_title">
+          <h3><i class="follow"></i>Seguidores (<?php echo $user->followers->count(); ?>)</h3>
+          <!--<a href="#" id="small" class="profile_block_link">Ver todos</a>-->
+        </hgroup>
+        <!--   BOX - AMIGOS   -->
+    <div class="profile_box">
+          <!--   LINHA - FOTOS - AMIGOS   -->
+          <!--   FOTO - AMIGO   -->
+
+          <?php foreach($user->followers as $follower): ?>
+           <div class="gallery_box_inst">
+					<a href= "<?php echo '/users/' .  $follower->id; ?>" class="gallery_box_inst" title="<?php echo $follower->name; ?>">
+					 <?php if($follower->photo != ""): ?>
+						<img width="40" height="40" class="avatar" src="<?php echo asset($follower->photo); ?>" class="user_photo_thumbnail" class="gallery_box_inst"/>
+					 <?php else: ?>
+						<img width="40" height="40" class="avatar" src="<?php echo asset("img/avatar-60.png"); ?>" class="user_photo_thumbnail" class="gallery_box_inst"/>
+					 <?php endif; ?>
+					</a>
+					<a href="<?php echo URL::to("/users/". $follower->id); ?>" class="name_text_follow">
+               			<?php echo Str::limit(ucfirst($follower->name), 5); ?>
+
+              		</a>
+		   </div>
+		<?php endforeach; ?>
+
+		</div>
+
+      </div>
+
+    </div>
+
+	<!-- MEUS ALBUNS -->
+	<div class="container row">
+
+			<div class="twelve columns albums">
+				<hgroup class="profile_block_title">
+					<h3><i class="photos"></i>
+						<?php if(Auth::check() && $user->id == Auth::user()->id && !Session::has('institutionId')): ?>
+							Meus álbuns
+						<?php else: ?>
+							Álbuns
+						<?php endif; ?>
+					</h3>
+				</hgroup>
+				<?php //$albums = $user->albums; ?>
+
+				<div class="profile_box">
+					<?php if($albums->count() > 0): ?>
+						<?php foreach($albums as $album): ?>
+							<div class="gallery_box">
+								<a href="<?php echo URL::to("/albums/" . $album->id); ?>" class="gallery_photo" title="<?php echo $album->title; ?>">
+									<?php if(isset($album->cover_id)): ?>
+										<img src="<?php echo URL::to("/arquigrafia-images/" . $album->cover_id . "_home.jpg"); ?>" class="gallery_photo" />
+									<?php else: ?>
+										<div class="gallery_photo">
+											<div class="no_cover">
+												<p> Álbum sem capa </p>
+											</div>
+										</div>
+									<?php endif; ?>
+								</a>
+								<a href="<?php echo URL::to("/albums/" . $album->id); ?>" class="name">
+									<?php echo $album->title . ' ' . '(' . $album->photos->count() . ')'; ?>
+
+								</a>
+								<br />
+							</div>
+						<?php endforeach; ?>
+					<?php else: ?>
+						<p>
+						<?php if(Auth::check() && $user->id == Auth::user()->id): ?>
+							Você ainda não tem nenhum álbum. Crie um <a href="<?php echo URL::to('/albums/create'); ?>">aqui</a>
+						<?php else: ?>
+							Não possui álbuns.
+						<?php endif; ?>
+						</p>
+					<?php endif; ?>
+				</div>
+
+			</div>
+
+	</div>
+
+	<!-- MEUS PONTOS -->
+	<?php echo $__env->make('user_points', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	
+	<!-- MINHAS CONQUISTAS -->
+	<?php echo $__env->make('user_badges', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+	<br>
+	<br>
+
+	<!-- MINHAS AVALIAÇÕES -->
+	<div class="container">
+		<div class="twelve columns albums">
+			<hgroup class="profile_block_title">
+				<h3><img src="<?php echo asset("img/evaluate.png"); ?>" width="16" height="16"/>
+					<?php if(Auth::check() && $user->id == Auth::user()->id &&!Session::has('institutionId')): ?>
+						<!--Minhas imagens avaliadas-->
+						Minhas imagens interpretadas
+					<?php else: ?>
+						<!--Imagens avaliadas-->
+						Imagens interpretadas
+					<?php endif; ?>
+				</h3>
+			</hgroup>
+
+			<div class="profile_box">
+				<?php if($evaluatedPhotos->count() > 0): ?>
+					<?php foreach($evaluatedPhotos as $evaluatedPhoto): ?>
+						<?php if(Auth::check() && $user->id == Auth::user()->id && !Session::has('institutionId')): ?>
+							<div class="gallery_box">
+								<a href='<?php echo "/evaluations/" . $evaluatedPhoto->id . "/evaluate/"; ?>' class="gallery_photo" title="<?php echo $evaluatedPhoto->name; ?>">
+									<img src="<?php echo URL::to("/arquigrafia-images/" . $evaluatedPhoto->id . "_home.jpg"); ?>" class="gallery_photo" />
+								</a>
+								<a href='<?php echo "/evaluations/" . $evaluatedPhoto->id . "/evaluate/"; ?>' class="name">
+									<?php echo $evaluatedPhoto->name; ?>
+
+								</a>
+								<br />
+							</div>
+						<?php else: ?>
+							<div class="gallery_box">
+								<a href='<?php echo "/evaluations/" . $evaluatedPhoto->id . "/viewEvaluation/" . $user->id; ?>' class="gallery_photo" title="<?php echo $evaluatedPhoto->name; ?>">
+									<img src="<?php echo URL::to("/arquigrafia-images/" . $evaluatedPhoto->id . "_home.jpg"); ?>" class="gallery_photo" />
+								</a>
+								<a href='<?php echo "/evaluations/" . $evaluatedPhoto->id . "/viewEvaluation/" . $user->id; ?>' class="name">
+									<?php echo $evaluatedPhoto->name; ?>
+
+								</a>
+								<br />
+							</div>
+						<?php endif; ?>
+					<?php endforeach; ?>
+				<?php else: ?>
+					<p>
+						<?php if(Auth::check() && $user->id == Auth::user()->id): ?>
+							Você ainda não realizou nenhuma avaliação.
+              <a href="<?php echo URL::to('/'); ?>">Selecione</a> uma imagem e avalie a arquitetura apresentada nela.
+						<?php else: ?>
+							Não possui avaliações.
+						<?php endif; ?>
+					</p>
+				<?php endif; ?>
+			</div>
+		</div>
+	</div>
+
+
+		<!--   MODAL   -->
+	<div id="mask"></div>
+	<div id="form_window" class="form window">
+		<a class="close" href="#" title="FECHAR">Fechar</a>
+		<div id="registration"></div>
+	</div>
+	<div id="confirmation_window" class="window">
+		<div id="registration_delete">
+			<p></p>
+			<?php echo Form::open(array('url' => '', 'method' => 'delete')); ?>
+
+				<div id="registration_buttons">
+	            <input type="submit" class="btn" value="Confirmar" />
+					<a class="btn close" href="#" >Cancelar</a>
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('/layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

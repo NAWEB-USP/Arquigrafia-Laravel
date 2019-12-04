@@ -1,0 +1,127 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <?php if(Session::get('message')): ?>
+    <div class="container">
+      <div class="twelve columns">
+        <div class="message"><?php echo Session::get('message'); ?></div>
+      </div>
+    </div>
+  <?php endif; ?>
+  <div class="container">
+    <div class="twelve columns">
+      <div id="leaderboard" class="ten columns offset-by-one">
+        <a href="<?php echo URL::previous(); ?>">Voltar para a página anterior</a>
+        <br>
+        <br>
+        <h1>Quadro dos Maiores Colaboradores</h1>
+        <div class="paginator">
+          <div class="three columns alpha omega">
+            <p>
+              <?php if($users->getCurrentPage() <= 1): ?>
+                <a id="less" href="#" class="disabled less-than" onclick="return false;"> &lt; </a>
+              <?php else: ?>
+                <a id="less"
+                  href="<?php echo URL::to('/leaderboard?type=' . $score_type . '&page=' . ($users->getCurrentPage() - 1)); ?>"
+                  class="less-than"> &lt; </a>
+              <?php endif; ?>
+              &nbsp;
+              <?php echo Form::text('page', $users->getCurrentPage(),
+                array('style' => 'width: 30px;', 'class' => 'page_number')); ?>
+
+              / <?php echo $users->getLastPage(); ?>
+
+              &nbsp;
+              <?php if($users->getCurrentPage() >= $users->getLastPage()): ?>
+                <a id="greater" href="#" class="disabled greater-than" onclick="return false;"> &gt; </a>
+              <?php else: ?>
+                <a id="greater"
+                  href="<?php echo URL::to('/leaderboard?type=' . $score_type . '&page=' . ($users->getCurrentPage() + 1)); ?>"
+                  class="greater-than"> &gt; </a>
+              <?php endif; ?>
+            </p>
+          </div>
+          <?php if( Auth::check() ): ?>
+            <div class="three columns">
+              <p>
+                <a id="find_me"
+                href="<?php echo URL::to('/leaderboard?type=' . $score_type . '&page=' . $user_page); ?>">
+                Encontrar minha localização
+                </a>
+              </p>
+            </div>
+          <?php else: ?>
+            <div class="three columns">&nbsp;</div>
+          <?php endif; ?>
+          <div class="four columns omega">
+            <p class="right">
+              Ordenar por número de <?php echo Form::select('score_type',
+                [
+                  'uploads' => 'uploads',
+                  'evals' => 'avaliações'
+                ], $score_type, array('class' => 'score_type')); ?>
+
+            </p>
+          </div>
+        </div>
+        <table class="form-table row" width="100%" cellspacing="0" cellpadding="0">
+          <thead>
+            <tr>
+              <th class="edge">Posição</th>
+              <th colspan="2" class="middle">Colaborador</th>
+              <th class='score_type_header edge'>
+                <?php if($score_type == 'uploads'): ?>
+                  Uploads
+                <?php else: ?>
+                  Avaliações
+                <?php endif; ?>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php echo $__env->make('leaderboard_users', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+          </tbody>
+        </table>
+        <div class="two columns alpha">
+          <?php if($users->getCurrentPage() <= 1): ?>
+            <a id="less" href="#" class="disabled less-than" onclick="return false;"> &lt; </a>
+          <?php else: ?>
+            <a id="less"
+              href="<?php echo URL::to('/leaderboard?type=' . $score_type . '&page=' . ($users->getCurrentPage() - 1)); ?>"
+              class="less-than"> &lt; </a>
+          <?php endif; ?>
+          &nbsp;
+          <?php echo Form::text('page', $users->getCurrentPage(),
+            array('style' => 'width: 30px;', 'class' => 'page_number')); ?>
+
+          / <?php echo $users->getLastPage(); ?>
+
+          &nbsp;
+          <?php if($users->getCurrentPage() >= $users->getLastPage()): ?>
+            <a id="greater" href="#" class="disabled greater-than" onclick="return false;"> &gt; </a>
+          <?php else: ?>
+            <a id="greater"
+              href="<?php echo URL::to('/leaderboard?type=' . $score_type . '&page=' . ($users->getCurrentPage() + 1)); ?>"
+              class="greater-than"> &gt; </a>
+          <?php endif; ?>
+        </div>
+        <img class="hidden loader" src="<?php echo asset('img/ajax-loader.gif'); ?>">
+      </div>
+    </div>
+  </div>
+  <div class="message_box"></div>
+  <script type="text/javascript">
+    var paginator = {
+      current_page: <?php echo $users->getCurrentPage(); ?>,
+      last_page: <?php echo $users->getLastPage(); ?>,
+      score_type: '<?php echo $score_type; ?>',
+      number_items: <?php echo $users->count(); ?>,
+      url: '<?php echo URL::to('/leaderboard'); ?>',
+      user_page: <?php echo $user_page; ?>,
+    };
+  </script>
+  <script type="text/javascript" src=<?php echo asset('/js/gamification/leaderboard.js'); ?>></script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,15 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+  <script src="<?php echo URL::to('/js/dist/photosCompleteness.bundle.js'); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <div class="content">
+    <div id="photos-completeness-content">
+      <!-- HERE, VUE.JS WILL RENDER CONTENT - CONTRIBUTIONS -->
+    </div>
+  </div>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

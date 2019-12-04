@@ -1,0 +1,61 @@
+<?php foreach($suggestions as $suggestion): ?>
+  <tr id="suggestion_<?php echo $suggestion['suggestion']->id; ?>" class="suggestion">
+    <!-- Image -->
+    <td>
+      <a href="/photos/<?php echo $suggestion['suggestion']->photo->id; ?>" target="_blank">
+        <img class="suggestion_photo" src="/arquigrafia-images/<?php echo $suggestion['suggestion']->photo->id; ?>_home.jpg" />
+      </a>
+    </td>
+    <!-- Photo Name -->
+    <td><?php echo $suggestion['suggestion']->photo->name; ?></td>
+    <!-- Field -->
+    <td><?php echo $suggestion['field_name']; ?></td>
+    <!-- Current Data -->
+    <?php if($suggestion['field_content'] && gettype($suggestion['field_content']) == 'array'): ?>
+      <td class="table-suggestion-collumn">
+        <?php foreach($suggestion['field_content'] as $contentItem): ?>
+          <?php echo $contentItem; ?><?php if($contentItem != end($suggestion['field_content'])): ?>;<?php endif; ?>
+        <?php endforeach; ?>
+      </td>
+    <?php elseif($suggestion['field_content']): ?>
+      <td class="table-suggestion-collumn">
+        <?php echo $suggestion['field_content']; ?>
+
+      </td>
+    <?php else: ?>
+      <td>-----</td>
+    <?php endif; ?>
+    <!-- Suggested data -->
+    <?php if($suggestion['suggestion']->text): ?>
+      <td class="table-suggestion-collumn"><?php echo $suggestion['suggestion']->text; ?></td>
+    <?php else: ?>
+      <td>-----</td>
+    <?php endif; ?>
+    <td>
+      <div class="new-message">
+        <a target="_blank" href="/users/<?php echo $suggestion['suggestion']->user['id']; ?>">
+          <?php echo $suggestion['suggestion']->user['name']; ?>
+
+        </a>
+      </div>
+    </td>
+    <td>
+      <div class="suggestion-button thumbs-up thumbs-link" data-id="<?php echo $suggestion['suggestion']->id; ?>">
+        <!-- Form for THUMBS UP -->
+        <form id="send-thumbs-up-form" method="post">
+          <input name="suggestion_id" value="<?php echo $suggestion['suggestion']->id; ?>" type="hidden"/>
+          <input name="operation" value="accepted" type="hidden"/>
+          <span>Aceitar</span>
+        </form>
+      </div>
+      <div class="suggestion-button thumbs-down thumbs-link" data-id="<?php echo $suggestion['suggestion']->id; ?>">
+        <!-- Form for THUMBS DOWN -->
+        <form id="send-thumbs-down-form" method="post">
+          <input name="suggestion_id" value="<?php echo $suggestion['suggestion']->id; ?>" type="hidden"/>
+          <input name="operation" value="rejected" type="hidden"/>
+          <span>Rejeitar</span>
+        </form>
+      </div>
+    </td>
+  </tr>
+<?php endforeach; ?>

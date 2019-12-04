@@ -1,6 +1,6 @@
 <?php
 /* TAGS */
-Route::get('/tags/json', 'modules\collaborative\controllers\TagsController@index');
+Route::get('/tags/json', 'modules\collaborative\controllers\TagsController@indexAll');
 Route::get('/tags/refreshCount', 'modules\collaborative\controllers\TagsController@refreshCount');
 
 /* COMMENTARIOS */
@@ -24,5 +24,7 @@ Route::post('/reports/photo','modules\collaborative\controllers\ReportsControlle
 Route::get('/reports/showModalReport/{id}', 'modules\collaborative\controllers\ReportsController@showModalReportPhoto');
 //Route::get('/photos/showModalReport/{id}', 'ReportController@showModalReportPhoto');
 
-
-
+Route::get('/tags','modules\collaborative\controllers\TagsController@index');
+Route::get('/tags/create','modules\collaborative\controllers\TagsController@create');
+Route::get('/tags/{tag_id}/edit','modules\collaborative\controllers\TagsController@edit');
+Route::resource('/tags','modules\collaborative\controllers\TagsController');

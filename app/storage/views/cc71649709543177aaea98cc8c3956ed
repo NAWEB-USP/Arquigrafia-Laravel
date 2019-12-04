@@ -1,0 +1,240 @@
+<ul>
+    <?php $counter=0; ?>
+        <?php foreach($user->notifications()->orderBy('created_at')->get()->reverse() as $notification): ?>
+            <?php
+                if($counter >= $max) break;
+                else $counter++;
+                $info_array = $notification->render();
+                if ( ! is_null($notification->deleted_at) ) {
+                    continue;
+                }
+            ?>
+            <?php if($info_array[0] == "photo_liked"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>" >
+                    <li>
+                        <div class="read-button" title="Marcar como lida" onclick="markRead(this);"></div>
+                        <div class="notification-container" onclick="markRead(this);">
+                            <a href= <?php echo URL::to('photos/' . $info_array[2]); ?>>
+                                <img class="mini"
+                                src=<?php echo asset("/arquigrafia-images/" . $info_array[2] . "_home.jpg"); ?>>
+                            </a>
+                            <?php if($info_array[6] == null): ?>
+                            <a href=<?php echo URL::to('users/' . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " curtiu sua "; ?> <a href=<?php echo URL::to('photos/' . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <?php
+                                $users = explode(":", $info_array[6]);
+                                $users_size = count($users) - 1;
+                                for ($i = 0; $i < $users_size; $i++) {
+                                    $user[$i] = User::find($users[$i+1]);
+                                }
+                            ?>
+                            <?php if($users_size < 2): ?>
+                            <a href=<?php echo URL::to('users/' . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e "; ?><a href=<?php echo URL::to("users/" . $user[0]->id); ?>><?php echo $user[0]->name; ?></a><?php echo " curtiram sua "; ?> <a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <a href=<?php echo URL::to('users/' . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e mais "; ?><a class="fancybox" href=<?php echo "#users-from-note-" . $notification->id; ?>><?php echo $users_size . " pessoas"; ?></a><?php echo " curtiram sua "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <div class="additional-users" id=<?php echo "users-from-note-" . $notification->id; ?>>
+                                <ul>
+                                    <?php for($i = 0; $i < $users_size; $i++): ?>
+                                    <li class="additional-user"><a href=<?php echo URL::to("users/" . $user[$i]->id); ?>><?php echo $user[$i]->name; ?></a></li>
+                                    <?php endfor; ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
+                            <?php endif; ?>
+                            </br>
+                            <p class="date-and-time"><?php echo "$info_array[3], às $info_array[4]."; ?></p>
+                            <a class="link-block" href=<?php echo URL::to("photos/" . $info_array[2]); ?>></a>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "comment_liked"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <div class="read-button" title="Marcar como lida" onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                            <a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><img class="mini" src=<?php echo "/arquigrafia-images/" . $info_array[2] . "_home.jpg"; ?>></a>
+                            <?php if($info_array[9] == null): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " curtiu seu "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentário"; ?></a><?php echo ", na "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo " de "; ?><a href=<?php echo URL::to("users/" . $info_array[6]); ?>><?php echo $info_array[7]; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <?php
+                                $users = explode(":", $info_array[9]);
+                                $users_size = count($users) - 1;
+                                for ($i = 0; $i < $users_size; $i++) {
+                                    $user[$i] = User::find($users[$i+1]);
+                                }
+                            ?>
+                            <?php if($users_size < 2): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e "; ?><a href=<?php echo URL::to("users/" . $user[0]->id); ?>><?php echo $user[0]->name; ?></a><?php echo " curtiram seu "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentário"; ?></a><?php echo ", na "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo " de "; ?><a href=<?php echo URL::to("users/" . $info_array[6]); ?>><?php echo $info_array[7]; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e mais "; ?><a class="fancybox" href=<?php echo "#users-from-note-" . $notification->id; ?>><?php echo $users_size . " pessoas"; ?></a><?php echo " curtiram seu "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentário"; ?></a><?php echo ", na "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo " de "; ?><a href=<?php echo URL::to("users/" . $info_array[6]); ?>><?php echo $info_array[7]; ?></a><?php echo "."; ?>
+
+                            <div class="additional-users" id=<?php echo "users-from-note-" . $notification->id; ?>>
+                                <ul>
+                                    <?php for($i = 0; $i < $users_size; $i++): ?>
+                                    <li class="additional-user"><a href=<?php echo URL::to("users/" . $user[$i]->id); ?>><?php echo $user[$i]->name; ?></a></li>
+                                    <?php endfor; ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
+                            <?php endif; ?>
+                            </br>
+                            <p class="date"><?php echo "$info_array[3], às $info_array[4]."; ?></p>
+                            <a class="link-block" href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>></a>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "comment_posted"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                            <a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><img class="mini" src=<?php echo "/arquigrafia-images/" . $info_array[2] . "_home.jpg"; ?>></a>
+                            <?php if($info_array[9] == null): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentou"; ?></a><?php echo " sua "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <?php
+                                $users = explode(":", $info_array[9]);
+                                $users_size = count($users) - 1;
+                                for ($i = 0; $i < $users_size; $i++) {
+                                    $user[$i] = User::find($users[$i+1]);
+                                }
+                            ?>
+                            <?php if($users_size < 2): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e "; ?><a href=<?php echo URL::to("users/" . $user[0]->id); ?>><?php echo $user[0]->name; ?></a><?php echo " "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentaram"; ?></a><?php echo " sua "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <?php else: ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[5]); ?>><?php echo $info_array[1]; ?></a><?php echo " e mais "; ?><a class="fancybox" href=<?php echo "#users-from-note-" . $notification->id; ?>><?php echo $users_size . " pessoas"; ?></a><?php echo " "; ?><a href=<?php echo URL::to("photos/" . $info_array[2] . "#" . $info_array[8]); ?>><?php echo "comentaram"; ?></a><?php echo " sua "; ?><a href=<?php echo URL::to("photos/" . $info_array[2]); ?>><?php echo "foto"; ?></a><?php echo "."; ?>
+
+                            <div class="additional-users" id=<?php echo "users-from-note-" . $notification->id; ?>>
+                                <ul>
+                                    <?php for($i = 0; $i < $users_size; $i++): ?>
+                                    <li class="additional-user"><a href=<?php echo URL::to("users/" . $user[$i]->id); ?>><?php echo $user[$i]->name; ?></a></li>
+                                    <?php endfor; ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
+                            <?php endif; ?>
+                            </br>
+                            <p class="date"><?php echo "$info_array[3], às $info_array[4]."; ?></p>
+                            <a class="link-block" href=<?php echo URL::to("photos/" . $info_array[2]); ?>></a>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "follow"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                            <a href=<?php echo URL::to("users/" . $info_array[4]); ?>>
+                                <?php if(User::find($info_array[4])->photo != ""): ?>
+                                <img class="mini" src="<?php echo asset(User::find($info_array[4])->photo);; ?>">
+                                <?php else: ?>
+                                <img class="mini" src="<?php echo URL::to("/"); ?>/img/avatar-48.png">
+                                <?php endif; ?>
+                            </a>
+                            <?php if($info_array[5] == null): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[4]); ?>><?php echo $info_array[1]; ?></a><?php echo " começou a seguir você."; ?>
+
+                            <?php else: ?>
+                            <?php
+                                $users = explode(":", $info_array[5]);
+                                $users_size = count($users) - 1;
+                                for ($i = 0; $i < $users_size; $i++) {
+                                    $user[$i] = User::find($users[$i+1]);
+                                }
+                            ?>
+                            <?php if($users_size < 2): ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[4]); ?>><?php echo $info_array[1]; ?></a><?php echo " e "; ?><a href=<?php echo URL::to("users/" . $user[0]->id); ?>><?php echo $user[0]->name; ?></a><?php echo " começaram a seguir você."; ?>
+
+                            <?php else: ?>
+                            <a href=<?php echo URL::to("users/" . $info_array[4]); ?>><?php echo $info_array[1]; ?></a><?php echo " e mais "; ?><a class="fancybox" href=<?php echo "#users-from-note-" . $notification->id; ?>><?php echo $users_size . " pessoas"; ?></a><?php echo " começaram a seguir você."; ?>
+
+                            <div class="additional-users" id=<?php echo "users-from-note-" . $notification->id; ?>>
+                                <ul>
+                                    <?php for($i = 0; $i < $users_size; $i++): ?>
+                                    <li class="additional-user"><a href=<?php echo URL::to("users/" . $user[$i]->id); ?>><?php echo $user[$i]->name; ?></a></li>
+                                    <?php endfor; ?>
+                                </ul>
+                            </div>
+                            <?php endif; ?>
+                            <?php endif; ?>
+                            </br>
+                            <p class="date"><?php echo "$info_array[2], às $info_array[3]."; ?></p>
+                            <a class="link-block" href=<?php echo URL::to("users/" . $info_array[4]); ?>></a>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "badge_earned"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                            <a href=<?php echo URL::to("badges/" . $info_array[3]); ?>>
+                              <img class="mini" src="<?php echo asset('img/badges/' . $info_array[4]); ?>" >
+                            </a>
+                            Você ganhou o troféu
+                            <a href=<?php echo URL::to("badges/" . $info_array[3]); ?>>"<?php echo $info_array[2]; ?>"</a>
+                            </br>
+                            <a class="link-block" href=<?php echo URL::to("badges/" . $info_array[3]); ?>></a>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "suggestionSent"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                          <img class="mini" src="<?php echo URL::to("/"); ?>/img/avatar-48.png" >
+                          Você teve sua sugestão enviada
+                          </br>
+                        </div>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "suggestionReceived"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                      <a class="suggestion-received-notification-link" data-id=<?php echo $notification->id; ?> href="<?php echo URL::to("/users/suggestions"); ?>">
+                        <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                        <div onclick="markRead(this);">
+                          <img class="mini" src="<?php echo URL::to("/"); ?>/img/avatar-48.png" >
+                            Você recebeu uma sugestão para imagem "<?php echo $info_array[6]->name; ?>" do usuário "<?php echo $info_array[1]; ?>"
+                            </br>
+                        </div>
+                      </a>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "suggestionAccepted"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <a class="suggestion-analysed-notification-link" data-id=<?php echo $notification->id; ?> href="<?php echo URL::to("/users/contributions"); ?>">
+                            <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                            <div onclick="markRead(this);">
+                            <img class="mini" src="<?php echo URL::to("/"); ?>/img/avatar-48.png" >
+                                Sua sugestão para imagem "<?php echo $info_array[6]->name; ?>" do usuário "<?php echo $info_array[1]; ?>" foi analisada.
+                                </br>
+                            </div>
+                        </a>
+                    </li>
+                </div>
+            <?php elseif($info_array[0] == "suggestionDenied"): ?>
+                <div id=<?php echo $notification->id; ?> class="notes <?php echo $notification->id; ?><?php if($notification->read_at == null) echo ' not-read'?>">
+                    <li>
+                        <a class="suggestion-analysed-notification-link" data-id=<?php echo $notification->id; ?> href="<?php echo URL::to("/users/contributions"); ?>">
+                            <div class="read-button" title="Marcar como lida"  onclick="markRead(this);"></div>
+                            <div onclick="markRead(this);">
+                            <img class="mini" src="<?php echo URL::to("/"); ?>/img/avatar-48.png" >
+                                Sua sugestão para imagem "<?php echo $info_array[6]->name; ?>" do usuário "<?php echo $info_array[1]; ?>" foi analisada.
+                                </br>
+                            </div>
+                        </a>
+                    </li>
+                </div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </ul>

@@ -1,0 +1,76 @@
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+
+    <div id="registration">
+    
+      <div class="twelve columns">
+        <h1>Cadastro</h1>
+        <p>Faça seu cadastro para poder compartilhar imagens no Arquigrafia.
+        </p>
+      </div>
+      
+      <div class="four columns">
+      
+        <?php echo Form::open(array('url' => 'users')); ?>
+
+          <div class="two columns alpha"><p><?php echo Form::label('name', 'Nome*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('name'); ?> <br>
+            <div class="error"><?php echo $errors->first('name'); ?> </div>
+            </p>
+          </div>
+          
+          
+          <div class="two columns alpha"><p><?php echo Form::label('login', 'Login*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('login'); ?> <br>
+            <div class="error"><?php echo $errors->first('login'); ?></div>
+            </p>
+          </div>
+          
+          <div class="two columns alpha"><p><?php echo Form::label('email', 'E-mail*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('email'); ?><br>
+            <div class="error"><?php echo $errors->first('email'); ?></div>
+            </p>
+          </div>
+          
+          <div class="two columns alpha"><p><?php echo Form::label('password', 'Senha*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::password('password'); ?><br>
+            <div class="error"><?php echo $errors->first('password'); ?></div>
+            </p>
+          </div>
+          
+          <div class="two columns row alpha"><p><?php echo Form::label('password_confirmation', 'Repita a senha*:'); ?></p></div>
+          <div class="two columns row omega"><p><?php echo Form::password('password_confirmation'); ?></p></div>
+
+          <small>* Campos obrigatórios.</small>
+          
+          <div class="four columns alpha omega">
+          
+            <p>Li e aceito os <a href="<?php echo URL::to('/termos'); ?>" target="_blank" style="text-decoration: underline;">termos de compromisso</a>: <?php echo Form::checkbox('terms', 'read'); ?></p>
+			<p><a href="http://creativecommons.org/licenses/?lang=pt" id="creative_commons" style="text-decoration:underline;">Creative Commons</a></p>
+            <p>
+              <div class="error"><?php echo $errors->first('terms'); ?></div>
+            </p>
+          
+            <br>
+            <p><?php echo Form::submit("CADASTRAR", array('class'=>'btn right')); ?></p>
+          
+          </div>
+          
+        <?php echo Form::close(); ?>
+
+        
+        <p>&nbsp;</p>
+        
+      </div>
+      
+    </div>
+    
+  </div>
+    
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

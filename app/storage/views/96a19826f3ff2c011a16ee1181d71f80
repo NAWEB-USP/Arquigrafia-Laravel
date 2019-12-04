@@ -1,0 +1,41 @@
+  <?php if( $owner->equal(Auth::user()) ): ?>
+    <div id="image_info_completion">
+      <h4>Completude das informações:</h4>
+      <div id="progressbar"></div>
+      <?php if($photos->information_completion < 100): ?>
+        <p>
+          <a id="improve_image_data" href="<?php echo URL::to('/photos/' . $photos->id . '/edit'); ?>">Deseja melhorar as informações da imagem?</a>
+        </p>
+        <div id="information_input" class="four columns alpha omega row" >
+          <p><a href="#" class="close">X</a></p>
+          <?php echo Form::open( array('url' => 'photos/' . $photos->id . '/set/field') ); ?>
+
+            <div class="four columns alpha omega">
+              <h3><?php echo $question; ?></h3>
+              <?php echo Form::hidden('field', $field); ?>
+
+              <?php if($field == "description"): ?>
+                <textarea name="description"></textarea>
+              <?php else: ?>
+                <?php echo Form::text($field, null); ?>
+
+              <?php endif; ?>
+            </div>
+            <input type="submit" class="btn" value="SALVAR">
+            <button class="btn" id="skip_question">PULAR</button>
+          <?php echo Form::close(); ?>
+
+          <img class="loader" src="<?php echo URL::to('/img/ajax-loader.gif'); ?>" />
+        </div>
+      <?php endif; ?>
+    </div>
+  <?php endif; ?>
+  <script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/progressbar.js"></script>
+  <script type="text/javascript">
+    var getFieldURL = "<?php echo $getFieldURL; ?>";
+    var setFieldURL = "<?php echo $setFieldURL; ?>";
+    var currentField = 1;
+    var hasField = true;
+    var progressbar = $('#progressbar').progressbar();
+    progressbar.progress( <?php echo $photos->information_completion; ?> );
+  </script>

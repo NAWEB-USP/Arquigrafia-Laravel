@@ -1,0 +1,19 @@
+<?php $i = 0;?>
+          
+<?php foreach($photos as $photo): ?>
+
+  <?php
+    $i++;
+    $size = 1; 
+    if ($i%5 == 3) $size = 2;
+    if ($i%10 == 8) $size = 3;
+  ?>
+  
+  <div class="item h<?php echo $size; ?>"><div class="layer" data-depth="0.2">
+    <a href='<?php echo URL::to("/photos/{$photo->id}"); ?>'>
+     <img src="<?php echo asset('/arquigrafia-images/'. $photo->id . '_view.jpg'); ?>" title=<?php echo $photo->name; ?>>
+
+    </a>
+  </div></div>
+  
+<?php endforeach; ?>

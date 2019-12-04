@@ -1,0 +1,23 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Contribuições</title>
+  <link rel="stylesheet" type="text/css" href="<?php echo URL::to('/css/tabs.css'); ?>">
+  <!-- Setting global variables that comes from server side -->
+  <script>
+    var currentUser = <?php echo json_encode($currentUser); ?>;
+    var isGamefied = <?php echo json_encode($isGamefied); ?>;
+    var selectedTab = <?php echo json_encode($selectedTab); ?>;
+    var selectedFilterId = <?php echo json_encode($selectedFilterId); ?>;
+  </script>
+  <!-- LOADING VUE.JS BUNDLE -->
+  <script src="/js/dist/contributions.bundle.js"></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <div class="container">
+    <div id="contributions-content">
+      <!-- HERE, VUE.JS WILL RENDER CONTENT - CONTRIBUTIONS -->
+    </div>
+  </div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

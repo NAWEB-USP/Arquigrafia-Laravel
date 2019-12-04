@@ -13,8 +13,8 @@ return array(
 	|
 	*/
 
-	'debug' => false,
-	
+	'debug' => true,
+
 	'providers' => append_config(array(
    	'Darsain\Console\ConsoleServiceProvider',
 	)),

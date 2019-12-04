@@ -1,0 +1,17 @@
+
+<table class="form-table suggestions" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Foto</th>
+      <th>Nome da Foto</th>
+      <th>Campo</th>
+      <th>Dado Atual</th>
+      <th>Sugestão</th>
+      <th>Revisor</th>
+      <th>Ação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php echo $__env->make('suggestion_list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </tbody>
+</table>

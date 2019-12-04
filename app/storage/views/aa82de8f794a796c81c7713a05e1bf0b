@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="twelveMid columns">
+    <div id="add_images" class="" style="display: block;">
+      <div id="add" class="twelveMid columns add" >
+        <?php if( $photos!= null): ?>
+          <?php if($photos->count() > 0): ?>
+          <?php echo $__env->make('photos.includes.searchResult_include', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+        <?php else: ?>
+          <p>Não foi encontrada nenhuma imagem sua para sua busca.</p>
+        <?php endif; ?>
+        <?php else: ?>
+          <div class="wrap">
+          </div>
+        <?php endif; ?>
+      </div>
+      <?php if( $photos!= null): ?>
+        <div class="eleven columns block add">
+          <div class="eight columns alpha buttons">
+            <input type="button" class="btn less less-than" value="&lt;&lt;">
+            <input type="button" class="btn less-than" value="&lt;">
+            <p><?php echo $page; ?> / <?php echo $maxPage; ?></p>
+            <input type="button" class="btn greater-than" value="&gt;">
+            <input type="button" class="btn greater greater-than" value="&gt;&gt;">
+          </div>
+        </div>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>

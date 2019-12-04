@@ -1,0 +1,18 @@
+table, th, td {
+  border-collapse: collapse;
+  border-bottom: 1px solid #777;
+  height: 26px;
+}
+  
+  
+table {
+  width: 80%;
+  text-align: center; 
+  padding: 4px;
+}
+
+div.relative {
+  position: relative;
+  left: 30px;
+  border: 3px solid #73AD21;
+}

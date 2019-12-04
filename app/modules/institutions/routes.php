@@ -1,6 +1,10 @@
 <?php
 
 /* INSTITUTIONS */
+Route::get('/institution-management', 'modules\institutions\controllers\InstitutionsController@index');
+Route::get('/institution-management/create', 'modules\institutions\controllers\InstitutionsController@create');
+Route::post('/institution-management', 'modules\institutions\controllers\InstitutionsController@store');
+Route::delete('/institution-management/{id}', 'modules\institutions\controllers\InstitutionsController@destroy_institution');
 Route::get('/institutions/{id}', 'modules\institutions\controllers\InstitutionsController@show');
 Route::get('/institutions/{id}/edit', 'modules\institutions\controllers\InstitutionsController@edit');
 Route::get('/institutions/form/upload','modules\institutions\controllers\InstitutionsController@formPhotos');
@@ -16,5 +20,10 @@ Route::get('/friends/unfollowInstitution/{institution_id}', 'modules\institution
 
 Route::resource('/institutions','modules\institutions\controllers\InstitutionsController');
 
+/* GERENCIAMENTO DE CARGOS */
+Route::get('/employment-management', 'modules\institutions\controllers\InstitutionsController@employment_management');
+Route::get('/employment-management/create-employment', 'modules\institutions\controllers\InstitutionsController@create_employment');
+Route::delete('/employment-management/{id}', 'modules\institutions\controllers\InstitutionsController@destroy_employment');
+Route::post('/employment-management', 'modules\institutions\controllers\InstitutionsController@store_employment');
 
 

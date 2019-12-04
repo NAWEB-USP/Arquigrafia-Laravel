@@ -1,0 +1,27 @@
+<div class="container row">
+  <div class="twelve columns">
+    <hgroup class="profile_block_title">
+      <h3><i class="badges"></i>
+        <?php if( $user->equal(Auth::user()) ): ?>
+          Minhas conquistas
+        <?php else: ?>
+          Conquistas
+        <?php endif; ?>
+      </h3>
+    </hgroup>
+    <div class="profile_box">
+      <?php if( !$user->badges->count() ): ?>
+        <p>Ainda não há nenhuma conquista.</p>
+      <?php else: ?>
+        <?php foreach($user->badges as $b): ?>
+          <div class="one column">
+            <a href="<?php echo URL::to('/badges/' . $b->id); ?>">
+              <img src="<?php echo asset('/img/badges/' . $b->image); ?>" height="60" width="60"
+                title="<?php echo $b->name; ?>">
+            </a>
+          </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+  </div>
+</div>

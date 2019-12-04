@@ -1,0 +1,22 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Sugestões</title>
+  <link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/suggestions/suggestions-list.css" />
+
+  <script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/dist/suggestionsList.bundle.js"></script>
+
+  <script type="text/javascript">
+  var suggestions = <?php echo json_encode($suggestions); ?>;
+  </script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <div class="container">
+    <a href="<?php echo URL::previous(); ?>" class="row">Voltar para a página anterior</a>
+    <br>
+    <h1 class="row">Sugestões (<span class="suggestion_count"><?php echo count($suggestions); ?></span>)</h1>
+    <?php echo $__env->make('suggestion-list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </div>
+  <div id="mask"></div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

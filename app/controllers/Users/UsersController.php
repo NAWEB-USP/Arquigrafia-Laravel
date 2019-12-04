@@ -1,7 +1,7 @@
 <?php
 use lib\log\EventLogger;
 use lib\utils\HelpTool;
-use Carbon\Carbon; 
+use Carbon\Carbon;
 use Facebook\FacebookSession;
 use Facebook\FacebookRedirectLoginHelper;
 use Facebook\FacebookRequest;
@@ -45,7 +45,7 @@ class UsersController extends \BaseController {
     $userPoints = 0;
     $userWaitingPoints = 0;
     // If you're logged in
-    if (Auth::check()) {   
+    if (Auth::check()) {
       // Marking if you're following the user
       if (Auth::user()->following->contains($user->id)) $follow = false;
       else $follow = true;
@@ -72,7 +72,7 @@ class UsersController extends \BaseController {
       $followInstitution = true;
     }
 
-    $albums = $user->userAlbums; 
+    $albums = $user->userAlbums;
 
     EventLogger::printEventLogs(null, "select_user", ["target_userId" => $id], "Web");
 
@@ -91,7 +91,7 @@ class UsersController extends \BaseController {
       'variationId' => $variationId
       ]);
   }
-  
+
   // show create account form
   public function account()
   {
@@ -99,14 +99,14 @@ class UsersController extends \BaseController {
     return View::make('/modal/account');
   }
 
-  
-  // register of user with email 
+
+  // register of user with email
   public function store()
-  {    
+  {
     // put input into flash session for form repopulation
     Input::flash();
     $input = Input::all();
-    
+
     // validate data
     $rules = array(
         'name' => 'required',
@@ -114,63 +114,63 @@ class UsersController extends \BaseController {
         'password' => 'required|min:6|confirmed',
         'email' => 'required|email|unique:users',
         'terms' => 'required'
-    );     
-    $validator = Validator::make($input, $rules);   
+    );
+    $validator = Validator::make($input, $rules);
     if ($validator->fails()) {
       $messages = $validator->messages();
       return Redirect::to('/users/account')->withErrors($messages);
     } else {
-          
+
        $name = $input["name"];
        $email =$input["email"];
        $login =$input["login"];
        $verify_code = str_random(30);
-      //create user with a verify code      
+      //create user with a verify code
       $user = User::create([
       'name' => $name,
       'email' => $email,
       'password' => Hash::make($input["password"]),
       'login' => $login,
-      'verify_code' => $verify_code       
+      'verify_code' => $verify_code
       ]);
 
-      EventLogger::printEventLogs(null, "new_account", ["origin" => "Arquigrafia"], "Web"); 
+      EventLogger::printEventLogs(null, "new_account", ["origin" => "Arquigrafia"], "Web");
 
         //send email to user created
-       Mail::send('emails.users.verify', array('name' => $name, 'email' => $email, 'login' => $login ,'verifyCode' => $verify_code), 
+       Mail::send('emails.users.verify', array('name' => $name, 'email' => $email, 'login' => $login ,'verifyCode' => $verify_code),
           function($msg) use($email) {
             $msg->to($email)
                 ->subject('[Arquigrafia]- Cadastro de Usuário');
         });
-     
-        return Redirect::to("/users/register"); 
+
+        return Redirect::to("/users/register");
 
     }
   }
 
   public function emailRegister(){
-    
+
     $msgType = "sendEmail";
-    return View::make('/modal/register')->with(['msgType'=>$msgType]); 
-  
+    return View::make('/modal/register')->with(['msgType'=>$msgType]);
+
 
   }
 
   public function verify($verify_code){
-        
+
     if(!empty($verify_code)){
       $newUser= User::userVerifyCode($verify_code);
     }
-    
-    if (!$newUser){   
+
+    if (!$newUser){
             //error
             return Redirect::to('users/verify');
       }else{
-          //update data of new user registered 
+          //update data of new user registered
           $newUser->active = 'yes';
           $newUser->verify_code = null;
           $newUser->save();
-          
+
           return Redirect::to('/users/login')->with('msgRegister', "<strong>Conta ativada com sucesso!.</strong>");
 
       }
@@ -179,8 +179,8 @@ class UsersController extends \BaseController {
   public function verifyError(){
 
       $msgType = "verify";
-      return View::make('/modal/register')->with(['msgType'=>$msgType]); 
-  }  
+      return View::make('/modal/register')->with(['msgType'=>$msgType]);
+  }
 
 
   public function forgetForm()
@@ -190,76 +190,77 @@ class UsersController extends \BaseController {
     return View::make('/modal/forget')->with(['message'=>$message, 'existEmail'=>$existEmail]);
   }
 
-  public function forget(){    
-    $input = Input::all(); 
+  public function forget(){
+    $input = Input::all();
     $email = $input["email"];
     $rules = array('email' => 'required|email');
 
-    $validator = Validator::make($input, $rules);   
+    $validator = Validator::make($input, $rules);
     if ($validator->fails()) {
       $messages = $validator->messages();
       return Redirect::to('/users/forget')->withErrors($messages);
     }else{
 
       $user = User::userInformationObtain($email);
-      
+
       if(!empty($user)){
-        $randomPassword = strtolower(Str::quickRandom(8)); 
+        $randomPassword = strtolower(Str::quickRandom(8));
         $user->password = Hash::make($randomPassword);
         $user->oldAccount = 0; // usuário já tem senha nova
         $user->touch(); // touch já salva
-       
+
         Mail::send('emails.users.reset-password', array('user' => $user,'email' => $email,'randomPassword' => $randomPassword),
-         function($message) use($email) {  
+         function($message) use($email) {
                $message->to($email)
                //->replyTo($email)
-               ->subject('[Arquigrafia] - Esqueci minha senha');  
-         }); 
-        $message = true; 
+               ->subject('[Arquigrafia] - Esqueci minha senha');
+         });
+        $message = true;
         $existEmail = true;
       } else{
         $existEmail = false;
         $message = null;
-      } 
+      }
       return View::make('/modal/forget')->with(['message'=>$message,'email'=>$email, 'existEmail'=>$existEmail]);
     }
-      
-    
+
+
   }
 
 
-  
+
   // formulário de login
   public function loginForm()
-  { 
+  {
     if (Auth::check())
         return Redirect::to('/home');
 
     session_start();
-    $fb_config = Config::get('facebook');
-    FacebookSession::setDefaultApplication($fb_config["id"], $fb_config["secret"]);
-    $helper = new FacebookRedirectLoginHelper(url('/users/login/fb/callback'));
-    $fburl = $helper->getLoginUrl(array(
-          'scope' => 'email',
-    ));
-      
+    // $fb_config = Config::get('facebook');
+    // FacebookSession::setDefaultApplication($fb_config["id"], $fb_config["secret"]);
+    // $helper = new FacebookRedirectLoginHelper(url('/users/login/fb/callback'));
+    // $fburl = $helper->getLoginUrl(array(
+    //       'scope' => 'email',
+    // ));
+
+    $fburl = "";
     $institutions = Institution::institutionsList();
 
     if (!Session::has('filter.login') && !Session::has('login.message')) //nao foi acionado pelo filtro, retornar para pagina anterior
          Session::put('url.previous', URL::previous());
-    
+
     return View::make('/modal/login')->with(['fburl' => $fburl,'institutions' => $institutions]);
   }
-  
+
    // validacao do login
   public function login()
-  { 
-    $input = Input::all();   
+  {
+    $input = Input::all();
     $user = User::userInformation($input["login"]);
     if (isset($user)) {
       $integration_message = $this->integrateAccounts($user->email);
     }
-    if ($user != null && $user->oldAccount == 1) 
+    if ($user != null && $user->oldAccount == 1)
     {
       if ( User::checkOldAccount($user, $input["password"]) )
       {
@@ -269,53 +270,53 @@ class UsersController extends \BaseController {
         return Redirect::to('/users/login')->withInput();
       }
     }
-    if (isset($user)) { 
+    if (isset($user)) {
       if ($user->active == 'no' && (Auth::validate(array('login' => $user->login, 'password' => $input["password"])) == true)) {
         Session::put('login.message', 'Finalize seu cadastro acessando o link enviado ao seu e-mail.');
-            return Redirect::to('/users/login')->withInput(); 
+            return Redirect::to('/users/login')->withInput();
       }
-      if ( Auth::attempt(array('login' => $user->login, 'password' => $input["password"],'active' => 'yes')) == true || 
-          Auth::attempt(array('email' => $input["login"], 'password' => $input["password"],'active' => 'yes')) == true  ) { 
+      if ( Auth::attempt(array('login' => $user->login, 'password' => $input["password"],'active' => 'yes')) == true ||
+          Auth::attempt(array('email' => $input["login"], 'password' => $input["password"],'active' => 'yes')) == true  ) {
         if ( Session::has('filter.login') ) //acionado pelo login
-        {  
+        {
           Session::forget('filter.login');
           EventLogger::printEventLogs(null, 'login', ["origin" => "Arquigrafia"], 'Web');
           if (isset($integration_message)) {
-            return Redirect::to('/home')->with('msgWelcome', $integration_message);  
+            return Redirect::to('/home')->with('msgWelcome', $integration_message);
           }
           return Redirect::intended('/home');
         }
         if ( Session::has('url.previous') )
         {
-          $url = Session::pull('url.previous'); 
-          
+          $url = Session::pull('url.previous');
+
           if (!empty($url)) {
             EventLogger::printEventLogs(null, 'login', ["origin" => "Arquigrafia"], 'Web');
             //Redirect when user forget password
-            if($url == URL::to('users/forget')){ 
+            if($url == URL::to('users/forget')){
               return Redirect::to('/home');
-            }elseif(!empty($input["firstTime"])){ 
+            }elseif(!empty($input["firstTime"])){
                 return Redirect::to('/home')->with('msgWelcome', "Bem-vind@ ".ucfirst($user->name).".");
-            
+
             }else{
               if($url == URL::to("/")."/" || strpos($url, '/landing') !== false)
                   return Redirect::to('/home');
-              else  
+              else
                   return Redirect::to($url);
             }
 
           }
 
-          
+
           EventLogger::printEventLogs(null, 'login', ["origin" => "Arquigrafia"], 'Web');
           if (isset($integration_message)) {
-            return Redirect::to('/home')->with('msgWelcome', $integration_message);  
+            return Redirect::to('/home')->with('msgWelcome', $integration_message);
           }
           return Redirect::to('/home');
         }
         EventLogger::printEventLogs(null, 'login', ["origin" => "Arquigrafia"], 'Web');
         if (isset($integration_message)) {
-          return Redirect::to('/home')->with('msgWelcome', $integration_message);  
+          return Redirect::to('/home')->with('msgWelcome', $integration_message);
         }
         return Redirect::to('/home');
       } else {
@@ -327,7 +328,7 @@ class UsersController extends \BaseController {
       return Redirect::to('/users/login')->withInput();
     }
   }
-  
+
   // formulário de login
   public function logout()
   {
@@ -346,31 +347,31 @@ class UsersController extends \BaseController {
     }
     return Redirect::to('/home');
   }
-  
+
   // facebook login NÃO ESTA SENDO USADO
   public function facebook()
   {
     $fb_config = Config::get('facebook');
     $facebook = new Facebook( $fb_config );
-    
+
     $params = array(
         'redirect_uri' => url('/users/login/fb/callback'),
         'scope' => 'email',
     );
     return Redirect::to($facebook->getLoginUrl($params));
   }
-    
+
     // facebook login callback
-    public function callback() 
+    public function callback()
    {
     session_start();
-    
+
     $fb_config = Config::get('facebook');
-    
+
     FacebookSession::setDefaultApplication($fb_config["id"], $fb_config["secret"]);
-    
+
     $helper = new FacebookRedirectLoginHelper(url('/users/login/fb/callback'));
-    
+
     try {
       $session = $helper->getSessionFromRedirect();
     } catch(FacebookRequestException $ex) {
@@ -387,11 +388,11 @@ class UsersController extends \BaseController {
       $fbuser = $response->getGraphObject();
       $fbid = $fbuser->getProperty('id');
       $fbmail = $fbuser->getProperty('email');
-      
+
       $integration_message = $this->integrateAccounts($fbmail);
       //usuarios antigos tem campo id_facebook null, mas existe login = $fbid;
       $user = User::where('id_facebook', '=', $fbid)->orWhere('login', '=', $fbid)->first();
-      
+
       if (!is_null($user)) {
         // loga usuário existente
         Auth::loginUsingId($user->id);
@@ -421,10 +422,10 @@ class UsersController extends \BaseController {
 
         EventLogger::printEventLogs(null, "login", ["origin" => "Facebook"], "Web");
         if (isset($integration_message)) {
-          return Redirect::to('/home')->with('msgWelcome', $integration_message);  
+          return Redirect::to('/home')->with('msgWelcome', $integration_message);
         }
         return Redirect::to('/home')->with('msgWelcome', "Bem-vindo {$user->name}!");
-        
+
       } else {
         $query = User::where('email', '=', $fbmail)->first();
         if (!is_null($query)) {
@@ -433,7 +434,7 @@ class UsersController extends \BaseController {
           Auth::loginUsingId($query->id);
           EventLogger::printEventLogs(null, "login", ["origin" => "Facebook"], "Web");
           if (isset($integration_message)) {
-            return Redirect::to('/home')->with('msgWelcome', $integration_message);  
+            return Redirect::to('/home')->with('msgWelcome', $integration_message);
           }
           return Redirect::to('/home')->with('msgWelcome', "Bem-vindo {$query->name}!");
         }
@@ -446,7 +447,7 @@ class UsersController extends \BaseController {
         $user->id_facebook = $fbuser->getProperty('id');
         $user->save();
         Auth::loginUsingId($user->id);
-        
+
         // pega avatar
         $request = new FacebookRequest(
           $session,
@@ -461,17 +462,17 @@ class UsersController extends \BaseController {
         );
         $response = $request->execute();
         $pic = $response->getGraphObject();
-        $image = Image::make($pic->getProperty('url'))->save(public_path().'/arquigrafia-avatars/'.$user->id.'.jpg'); 
+        $image = Image::make($pic->getProperty('url'))->save(public_path().'/arquigrafia-avatars/'.$user->id.'.jpg');
         $user->photo = '/arquigrafia-avatars/'.$user->id.'.jpg';
         $user->save();
-        
-        EventLogger::printEventLogs(null, "new_account", ["origin" => "Facebook"], "Web"); 
+
+        EventLogger::printEventLogs(null, "new_account", ["origin" => "Facebook"], "Web");
 
         return Redirect::to('/home')->with('message', 'Sua conta foi criada com sucesso!');
       }
       }
-            
-    } 
+
+    }
   }
 
   public function getFacebookPicture() {
@@ -485,7 +486,7 @@ class UsersController extends \BaseController {
         fclose($file);
         $user->photo = '/arquigrafia-avatars/'.$user->id.'.jpg';
         $user->save();
- 
+
       }
     }
     return $user->photo;
@@ -494,14 +495,14 @@ class UsersController extends \BaseController {
   public function follow($user_id)
   {
     $logged_user = Auth::user();
-    
+
     if ($logged_user == null) //futuramente, adicionar filtro de login
        return Redirect::to('/home');
 
     $following = $logged_user->following;
 
-    
-    
+
+
     if ($user_id != $logged_user->id && !$following->contains($user_id)) {
       //Envio da Notificação
 
@@ -518,13 +519,13 @@ class UsersController extends \BaseController {
   public function unfollow($user_id)
   {
     $logged_user = Auth::user();
-    
+
     if ($logged_user == null) //futuramente, adicionar filtro de login
       return Redirect::to('/home');
 
     $following = $logged_user->following;
 
-    
+
     if ($user_id != $logged_user->id && $following->contains($user_id)) {
       $logged_user->following()->detach($user_id);
 
@@ -532,8 +533,8 @@ class UsersController extends \BaseController {
     }
 
     return Redirect::to(URL::previous()); // redirecionar para friends
-  } 
-  
+  }
+
   // AVATAR
   public function profile($id)
   {
@@ -554,82 +555,82 @@ class UsersController extends \BaseController {
  *
  * @return Response
  */
-  public function edit($id) {     
+  public function edit($id) {
     if (Session::has('institutionId') ) {
       return Redirect::to('/home');
     }
 
     $user = User::find($id);
-    
+
     $logged_user = Auth::User();
     if ($logged_user == null) {
-      return Redirect::action('PagesController@home');  
-    } 
-    elseif ($logged_user->id == $user->id) { 
+      return Redirect::action('PagesController@home');
+    }
+    elseif ($logged_user->id == $user->id) {
       return View::make('users.edit')->with( ['user' => $user] );
     }
     return Redirect::action('PagesController@home');
   }
 
-  public function update($id) {              
+  public function update($id) {
     $user = User::find($id);
-   
-    Input::flash();    
-    $input = Input::only('name', 'login', 'email', 'scholarity', 'lastName', 'site', 'birthday', 'country', 'state', 'city', 
-      'photo', 'gender', 'institution', 'occupation', 'visibleBirthday', 'visibleEmail','old_password','user_password','user_password_confirmation');    
-    
+
+    Input::flash();
+    $input = Input::only('name', 'login', 'email', 'scholarity', 'lastName', 'site', 'birthday', 'country', 'state', 'city',
+      'photo', 'gender', 'institution', 'occupation', 'visibleBirthday', 'visibleEmail','old_password','user_password','user_password_confirmation');
+
     $rules = array(
         'name' => 'required',
         'login' => 'required',
         'email' => 'required|email',
-        'user_password' => 'min:6|regex:/^[a-z0-9-@_]{6,10}$/|confirmed',        
+        'user_password' => 'min:6|regex:/^[a-z0-9-@_]{6,10}$/|confirmed',
         'birthday' => 'date_format:"d/m/Y"',
-        'photo' => 'max:2048|mimes:jpeg,jpg,png,gif'          
-    ); 
-    if ($input['email'] !== $user->email)        
+        'photo' => 'max:2048|mimes:jpeg,jpg,png,gif'
+    );
+    if ($input['email'] !== $user->email)
       $rules['email'] = 'required|email|unique:users';
 
     if ($input['login'] !== $user->login)
       $rules['login'] = 'required|unique:users';
 
-    $validator = Validator::make($input, $rules);   
+    $validator = Validator::make($input, $rules);
     if ($validator->fails()) {
-      $messages = $validator->messages();      
+      $messages = $validator->messages();
       return Redirect::to('/users/' . $id . '/edit')->withErrors($messages);
-    } else {  
+    } else {
       $user->name = $input['name'];
       $user->login = $input['login'];
-      $user->email = $input['email'];      
+      $user->email = $input['email'];
       $user->scholarity = $input['scholarity'];
       $user->lastName = $input['lastName'];
       $user->site = $input['site'];
       if ( !empty($input["birthday"]) )
-        $user->birthday = $input["birthday"];      
+        $user->birthday = $input["birthday"];
       $user->country = $input['country'];
       $user->state = $input['state'];
-      $user->city = $input['city'];  
-      $user->gender = $input['gender'];  
-      $user->visibleBirthday = $input['visibleBirthday'];  
-      $user->visibleEmail = $input['visibleEmail']; 
+      $user->city = $input['city'];
+      $user->gender = $input['gender'];
+      $user->visibleBirthday = $input['visibleBirthday'];
+      $user->visibleEmail = $input['visibleEmail'];
 
-      Log::info("check=".Hash::check($input["old_password"], $user->password)."autenticar =".Auth::attempt(array('login' => $user->login,'password' => $input["old_password"]))); 
-      
+      Log::info("check=".Hash::check($input["old_password"], $user->password)."autenticar =".Auth::attempt(array('login' => $user->login,'password' => $input["old_password"])));
+
       if(Hash::check($input["old_password"], $user->password)){
-     
+
             if(!empty($input['user_password']) || trim($input['user_password']) != ""){
-                $user->password = Hash::make($input["user_password"]);  
+                $user->password = Hash::make($input["user_password"]);
             }else{
-                  $messages = array('user_password'=>array('Inserir uma senha válida com mínimo 6 caracteres')); 
+                  $messages = array('user_password'=>array('Inserir uma senha válida com mínimo 6 caracteres'));
                   return Redirect::to('/users/' . $id . '/edit')->withErrors($messages);
-            }                        
+            }
        } else if(!empty($input['old_password']) || trim($input['old_password']) != ""){
-            $messages = array('old_password'=>array('Antiga senha incorreta')); 
+            $messages = array('old_password'=>array('Antiga senha incorreta'));
             return Redirect::to('/users/' . $id . '/edit')->withErrors($messages);
        } else if(!empty($input['user_password']) || trim($input['user_password']) != "" ){
-            $messages = array('old_password'=>array('Precisa inserir a senha antiga')); 
+            $messages = array('old_password'=>array('Precisa inserir a senha antiga'));
             return Redirect::to('/users/' . $id . '/edit')->withErrors($messages);
-       }      
- 
+       }
+
 
       if ($input["institution"] != null or $input["occupation"] != null) {
         $occupation = Occupation::firstOrCreate(['user_id'=>$user->id]);
@@ -639,22 +640,22 @@ class UsersController extends \BaseController {
       }
 
 
-      if (Input::hasFile('photo') and Input::file('photo')->isValid())  {    
+      if (Input::hasFile('photo') and Input::file('photo')->isValid())  {
         $file = Input::file('photo');
         $ext = $file->getClientOriginalExtension();
-       
+
         $user->photo = "/arquigrafia-avatars/".$user->id.".jpg";
         //$user->save();
-        $image = Image::make(Input::file('photo'))->encode('jpg', 80);         
+        $image = Image::make(Input::file('photo'))->encode('jpg', 80);
         $image->save(public_path().'/arquigrafia-avatars/'.$user->id.'.jpg');
-        $file->move(public_path().'/arquigrafia-avatars', $user->id."_original.".strtolower($ext));        
-      } 
+        $file->move(public_path().'/arquigrafia-avatars', $user->id."_original.".strtolower($ext));
+      }
       $user->touch();
-      $user->save(); 
+      $user->save();
 
-      return Redirect::to("/users/{$user->id}")->with('message', '<strong>Edição de perfil do usuário</strong><br>Dados alterados com sucesso'); 
-      
-    }    
+      return Redirect::to("/users/{$user->id}")->with('message', '<strong>Edição de perfil do usuário</strong><br>Dados alterados com sucesso');
+
+    }
   }
 
   public function stoaLogin() {
@@ -670,29 +671,29 @@ class UsersController extends \BaseController {
     }
     $user = User::stoa($stoa_user);
     Auth::loginUsingId($user->id);
-    
-    EventLogger::printEventLogs(null, "login", ["origin" => "Stoa"], "Web"); 
+
+    EventLogger::printEventLogs(null, "login", ["origin" => "Stoa"], "Web");
     return Response::json(true);
   }
 
-  public function institutionalLogin() { 
+  public function institutionalLogin() {
     Log::info("Login Institution");
-    $login = Input::get('login');    
+    $login = Input::get('login');
     $institutionId = Input::get('institution');
     $password = Input::get('password');
     Log::info("Retrieved params login=".$login.", institution=".$institutionId);
-    $booleanExist = User::userBelongInstitution($login,$institutionId); 
+    $booleanExist = User::userBelongInstitution($login,$institutionId);
     Log::info("Result belong institution -> booleanExist=".$booleanExist);
 
-    if ((Auth::attempt(array('login' => $login, 'password' => $password)) == true || 
+    if ((Auth::attempt(array('login' => $login, 'password' => $password)) == true ||
         Auth::attempt(array('email' => $login, 'password' => $password,'active' => 'yes')) == true) &&
         $booleanExist == true){
         $displayedInstitutionName = null;
-        $institution = Institution::find($institutionId);      
+        $institution = Institution::find($institutionId);
         $displayedInstitutionName = HelpTool::formattingLongText($institution->name, $institution->acronym, 25);
         Log::info("Valid access, redirect");
         Session::put('institutionId', $institutionId);
-        Session::put('displayInstitution', $displayedInstitutionName);             
+        Session::put('displayInstitution', $displayedInstitutionName);
         return Redirect::to('/home');
     } else {
       Log::info("Invalid access, return message");
@@ -718,14 +719,14 @@ class UsersController extends \BaseController {
           'password' => $password,
           'fields' => 'full'
         ])
-    );    
+    );
   }
 
   private function integrateAccounts($email) {
     /* Verifica quantas contas com o mesmo e-mail existem */
     $all_acc = User::where('email','=',$email)->get();
     /* Se existir somente uma, não há o que integrar */
-    if (count($all_acc) <= 1) { 
+    if (count($all_acc) <= 1) {
       return;
     }
     /* Pega cada conta separadamente */
@@ -782,7 +783,7 @@ class UsersController extends \BaseController {
 
   private function getAttributesFromTo($accountFrom, $accountTo) {
     DB::table('friendship')->where('following_id', '=', $accountFrom->id)->update(array('following_id' => $accountTo->id));
-    DB::table('friendship')->where('followed_id', '=', $accountFrom->id)->update(array('followed_id' => $accountTo->id));  
+    DB::table('friendship')->where('followed_id', '=', $accountFrom->id)->update(array('followed_id' => $accountTo->id));
     DB::table('photos')->where('user_id', '=', $accountFrom->id)->update(array('user_id' => $accountTo->id));
     DB::table('binomial_evaluation')->where('user_id', '=', $accountFrom->id)->update(array('user_id' => $accountTo->id));
     DB::table('comments')->where('user_id', '=', $accountFrom->id)->update(array('user_id' => $accountTo->id));

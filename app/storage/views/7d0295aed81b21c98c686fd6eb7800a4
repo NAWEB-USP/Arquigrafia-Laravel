@@ -1,0 +1,5 @@
+<div id="modal">
+
+<?php echo $__env->yieldContent('content'); ?>
+
+</div>

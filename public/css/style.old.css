@@ -19,6 +19,7 @@ a:hover { color: #222; /*text-decoration: underline;*/ }/**/
 p { margin: 15px 0; line-height: 16px; color: #222; } /* MODIFICADO ANDRE 18/06/2015 */
 a { color: #888; text-decoration: none; } /* MODIFICADO ANDRE 18/06/2015 */
 a:hover { color: #222; text-decoration: underline; } /* MODIFICADO ANDRE 18/06/2015 */
+.top-space { margin-top: 15px; }
 
 
 
@@ -100,6 +101,7 @@ i.group {background-position: -121px 0;}
 i.info {background-position: -121px 0;}
 i.notification {background-position: -202px 0px; }
 i.upload {background-position: -402px 0px; }
+i.sheet {background-position: -100px 0px;}
 i.badges { padding: 4px 22px 0 0; background: url(../img/i-badge.png) no-repeat; }
 i.points { padding: 4px 22px 0 0; background: url(../img/i-points.png) no-repeat; }
 i.contributions { padding: 4px 22px 0 0; background: url(../img/i-points.png) no-repeat; }

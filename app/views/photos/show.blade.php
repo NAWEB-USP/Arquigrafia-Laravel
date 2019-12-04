@@ -98,12 +98,12 @@
       <div id="single_view_block">
         <!--   NOME / STATUS DA FOTO   -->
         <div>
-          <div class="four columns alpha">
+          <div class="six columns alpha">
             <h1>
               <a href="{{ URL::to("/search?q=".$photos->name)}}"> {{ $photos->name }} </a>
             </h1>
           </div>
-          <div id="img_top_itens" class="four columns omega">
+          <div id="img_top_itens" class="six columns omega">
             <span class="right" title="{{ $commentsMessage }}">
               <i id="comments"></i><small>{{ $commentsCount }}</small>
             </span>
@@ -145,14 +145,14 @@
       </div>
 
       <!--   BOX DE BOTOES DA IMAGEM   -->
-      <div id="single_view_buttons_box">
+      <div id="single_view_buttons_box" class="mb-3">
         @if ($typeSearch == '')
-          <div class="first columns">
+          <div class="two columns">
             <a href="{{ URL::previous()}}" class='btn left'>VOLTAR</a>
           </div>
         @elseif($typeSearch == 'advance')
 
-           <div class="first columns">
+           <div class="two columns">
             <a href="{{ URL::previous()}}&pg=1" class='btn left'>VOLTAR</a>
             </div>
         @elseif($typeSearch == 'simples')
@@ -262,7 +262,7 @@
       </div>
 
       <!--   BOX DE COMENTARIOS   -->
-      <div id="comments_block" class="eight columns row alpha omega">
+      <div id="comments_block" class="twelve columns row alpha omega">
         <h3>Comentários</h3>
         @if(Auth::check())
           <br>
@@ -275,7 +275,7 @@
 
         @if (Auth::check())
           {{ Form::open(array('url' => "comments/{$photos->id}")) }}
-            <div class="column alpha omega row">
+            <div class="one columns alpha omega row">
               @if (Auth::user()->photo != "")
                 <img class="user_thumbnail" src="{{ asset(Auth::user()->photo); }}" />
               @else
@@ -283,13 +283,13 @@
               @endif
             </div>
 
-            <div class="three columns row">
+            <div class="eleven columns row">
                 <strong><a href="#" id="name">{{ Auth::user()->name }}</a></strong><br>
                 Deixe seu comentário <br>
                 {{ $errors->first('text') }}
                 {{ Form::textarea('text', '', ['id'=>'comment_field']) }}
                 {{ Form::hidden('user', $photos->id ) }}
-                {{ Form::submit('COMENTAR', ['id'=>'comment_button','class'=>'cursor btn']) }}
+                <p>{{ Form::submit('COMENTAR', ['id'=>'comment_button','class'=>'cursor btn']) }}</p>
                 <br class="clear">
                 </br>
                 <p align="justify" style="font-size: 7pt; width: 558px">
@@ -308,7 +308,7 @@
         @if (isset($comments))
           @foreach($comments as $comment)
             <div class="clearfix">
-              <div class="column alpha omega row">
+              <div class="one columns alpha omega row">
                 <a href={{"/users/" . $comment->user->id}}>
                 @if ($comment->user->photo != "")
                   <img class="user_thumbnail" src="{{ asset($comment->user->photo); }}" />
@@ -317,7 +317,7 @@
                 @endif
                 </a>
               </div>
-              <div class="four columns omega row">
+              <div class="eleven columns omega row">
                 <small id={{"$comment->id"}}>
                   <a href={{"/users/" . $comment->user->id}}>{{ $comment->user->name }}</a> - {{ $comment->created_at->format('d/m/Y h:i') }}
                   <!--<img src="{{ URL::to("/") }}/img/commentNB.png" / ><small class='likes'>{{ $comment->likes->count() }}</small>-->
@@ -596,7 +596,7 @@
 
 
       <!-- Suggestions Modal Button -->
-    @if ($photos->institution == null && $photos->type != "video")  
+    @if ($photos->institution == null && $photos->type != "video")
         @if (!$isReviewing && $completeness['present'] != 100)
           <div class="modal-wrapper">
             <div class="title2">Você conhece mais informações sobre esta arquitetura?</div>
@@ -652,7 +652,7 @@
             </p>
           </div>
         </div>
-      @endif 
+      @endif
 
       <h4>Licença:</h4>
       <a class="tooltip_license"

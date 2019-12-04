@@ -1,0 +1,71 @@
+{
+  "_from": "vmsg",
+  "_id": "vmsg@0.3.5",
+  "_inBundle": false,
+  "_integrity": "sha512-ahHvt8XF50vKlezH5VeYDT7PMBVnTMqejPLr/AdGu0064B8vM8iWLhmwnkyqQEIVkQGUKZD40KBUM7K+pwaBRg==",
+  "_location": "/vmsg",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "vmsg",
+    "name": "vmsg",
+    "escapedName": "vmsg",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/vmsg/-/vmsg-0.3.5.tgz",
+  "_shasum": "421aad3b63625537f48bef0a3aca9168dd25ea4d",
+  "_spec": "vmsg",
+  "_where": "/Users/pedro/Trabalhos/2018/Arquigrafia/laravel",
+  "author": {
+    "name": "Kagami Hiiragi"
+  },
+  "bugs": {
+    "url": "https://github.com/Kagami/vmsg/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Library for creating voice messages",
+  "devDependencies": {
+    "autoprefixer": "^8.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "parcel-bundler": "^1.6.2",
+    "parcel-plugin-disable-loaders": "^1.0.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0"
+  },
+  "homepage": "https://github.com/Kagami/vmsg#readme",
+  "keywords": [
+    "voice",
+    "voice message",
+    "emscripten",
+    "webassembly",
+    "lame",
+    "mp3"
+  ],
+  "license": "CC0-1.0",
+  "main": "vmsg.js",
+  "name": "vmsg",
+  "parcelDisableLoaders": [
+    "wasm"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kagami/vmsg.git"
+  },
+  "scripts": {
+    "demo": "D=`mktemp -d` && parcel build demo/index.html --out-dir \"$D\" --public-url ./ && git checkout gh-pages && rm `git ls-files *` && mv \"$D\"/* . && rmdir \"$D\" && git add -A && git commit -m 'Update demo'",
+    "prepare": "babel vmsg.js -o vmsg.es5.js",
+    "start": "parcel demo/index.html"
+  },
+  "typings": "vmsg.d.ts",
+  "version": "0.3.5"
+}

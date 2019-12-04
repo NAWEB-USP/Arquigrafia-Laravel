@@ -1,0 +1,20 @@
+.carousel-cell {
+  color: white;
+  background: black center center no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 50vh;
+}
+.carousel-cell .container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.carousel-cell h2, .carousel-cell h3, .carousel-cell h4 {
+  color: white;
+}
+.carousel-cell .btn {
+  color: white;
+  background: transparent;
+  border-color: white;
+}

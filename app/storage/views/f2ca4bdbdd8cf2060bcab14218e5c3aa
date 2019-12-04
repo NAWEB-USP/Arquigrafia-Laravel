@@ -1,0 +1,44 @@
+<div class="container">
+<div id="user_header" class="twelve columns">
+  <div class="div_avatar_size_inst" >
+            <img class ="class_img_avatar" class="avatar" src="<?php echo asset($institution->photo); ?>"
+              class="user_photo_thumbnail"/>
+  </div> 
+  <div class="info">
+    <h1>Imagens do <?php echo $institution->name; ?></h1>
+    <p><a href="<?php echo URL::to('/institutions/'.$institution->id); ?>">Ir ao Perfil</a></p>
+  </div>  
+</div>  
+
+      <div class="twelveMid columns">    
+       <div id="add_images" class="" style="display: block;"> 
+        <div id="add" class="twelveMid columns add" >          
+          <?php if( $photos!= null): ?>
+              <?php if($photos->count() > 0): ?>
+                
+                 <?php echo $__env->make('includes.all_images', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+                 
+              <?php else: ?>
+                <p>Não foi encontrada nenhuma imagem para esta instituição.</p>
+              <?php endif; ?>
+           <?php else: ?>
+               <div class="wrap">
+               </div>
+           <?php endif; ?>   
+        </div>
+        <?php if( $photos!= null): ?>
+        <div class="eleven columns block add">
+           <div class="eight columns alpha buttons">
+            <?php echo $photos->links(); ?>
+
+            </div>          
+        </div>
+        <?php endif; ?>
+        </div>
+        
+      </div>
+</div>
+
+
+
+

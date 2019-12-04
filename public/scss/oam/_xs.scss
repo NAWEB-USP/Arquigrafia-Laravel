@@ -1,0 +1,154 @@
+// xsmall
+body {
+  font-family: "Open Sans", sans-serif;
+  color: black;
+  font-size: 14px;
+  background: white;
+}
+h1 {
+  font-size: 2.28em; // 32px
+  font-weight: bold;
+}
+h2 {
+  font-size: 1.71em; // 24px
+  font-weight: bold;
+}
+h3 {
+  font-size: 1.42em; // 20px
+  font-weight: bold;
+}
+// p {
+//   line-height: 1.3em;
+// }
+a:link, a:hover, a:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+header {
+  background: white;
+  z-index: 2;
+  height: 50px;
+  position: relative;
+  .logo img {
+    margin: 12px;
+    width: 178px; // 20px
+    height: auto;
+  }
+  .search-form {
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    float: right;
+  }
+}
+.bg-gray{
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #999;
+  color: #fff;
+  padding: 6px 0;
+  z-index: 1;
+  p{
+    margin: 0;
+  }
+}
+.map {
+  height: calc(100vh - 54px);
+}
+
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+/* place page */
+.player {
+  .time, .user {
+    font-size: 0.857em;
+  }
+  .material-icons {
+    cursor: pointer;
+    font-size: 3em;
+  }
+}
+.grid-sizer, .grid-item {
+  margin: 0% 2% 4%;
+  width: 46%;
+}
+.grid-item {
+  img {
+    width: 100%;
+    height: auto;
+  }
+}
+.grid-item--width2 {
+  width: 96%;
+}
+
+footer{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  padding: 6px 0;
+  box-shadow: 0 -1px 4px rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  i{
+    &.icons{
+      height: 19px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    &.ico-acervo{
+      background: url('../img/icons-oam/ico-acervo.svg') no-repeat center;
+    }
+    &.ico-lugares{
+      background: url('../img/icons-oam/ico-lugares.svg') no-repeat center;
+    }
+    &.ico-perfil{
+      background: url('../img/icons-oam/ico-perfil.svg') no-repeat center;
+    }
+    &.ico-menu{
+      background: url('../img/icons-oam/ico-menu.svg') no-repeat center;
+    }
+  }
+  p{
+    margin: 0 5px;
+    font-size: 12px;
+    color: #000;
+    line-height: 14px;
+  }
+}
+
+#control {
+  position: fixed;
+  z-index: 99;
+  bottom: 75px;
+  right: 15px;
+  .btn {
+    background: white;
+    flex-grow: 1;
+    height: 3rem;
+    width: 3rem;
+    border: none;
+    border-radius: 3rem;
+    margin-left: 2px;
+    box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-size: 1rem;
+  }
+  .btn:hover, .btn:focus {
+    outline: none;
+    background: #f3f3f3;
+  }
+}

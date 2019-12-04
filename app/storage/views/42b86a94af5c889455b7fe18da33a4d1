@@ -1,0 +1,42 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Teste </title>
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/checkbox.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/chat/chat.css" />
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo URL::to("/"); ?>/css/jquery.fancybox.css" />
+	<script src="https://js.pusher.com/3.2/pusher.min.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/jquery.fancybox.pack.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/photo.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/chat/chat.js"></script>
+	<script type="text/javascript">
+		// Defining variables pushed from PHP
+		var userID = <?php echo $user_id; ?>;
+		var userName = "<?php echo $user_name; ?>";
+	</script>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<h1><?php echo $output; ?></h1>
+	<p id="message">Heya</p>
+
+	<form action="create" method="GET">
+    <p>Criar Chat</p>
+		<input type="number" name="participants" value="" placeholder="Participante">
+		<input type="text" name="subject" value="" placeholder="Assunto">
+		<input type="submit">
+	</form>
+
+	<div id="chatbox">
+		<ul id="chat-list">
+
+		</ul>
+	</div>
+	<div id="chat-input-box">
+		<input type="number" id="thread-id-input" value="1" placeholder="Chat Id">
+		<input type="text" id="message-input" value="" placeholder="Mensagem">
+		<button id="send-message">Send</button>
+	</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

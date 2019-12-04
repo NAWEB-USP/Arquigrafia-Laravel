@@ -473,4 +473,12 @@ class PagesController extends BaseController {
 
     return Response::json($response);
   }
+
+  public function admin_reports() {
+    $user = \Auth::user();
+    if ($user->admin == False) {
+      return \Redirect::to('/home');
+    }
+    return \View::make('admin_reports');
+  }
 }

@@ -1,0 +1,158 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+
+<!-- ISOTOPE -->
+<script src="<?php echo URL::to("/"); ?>/js/jquery.isotope.min.js"></script>
+<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/panel.js"></script>
+<script src="<?php echo URL::to('/js/searchPagination.js'); ?>"></script>
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to('/css/tabs.css'); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/album.css" />
+<link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/checkbox-edition.css" />
+<script>
+
+    var paginators = {
+      add: {
+        currentPage: <?php echo $page; ?>,
+        maxPage: <?php echo $maxPage; ?>,
+        url: '<?php echo $url; ?>',
+        loadedPages: [1],
+        selectedItems: 0,
+        searchQuery: '',
+        selected_photos: 0,
+      },
+    };
+    console.log(<?php echo $page; ?>);
+    var coverPage = 1;
+    var covers_counter = 0;
+    var update = null;
+  </script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+  <!--   MEIO DO SITE - ÁREA DE NAVEGAÇÃO   -->
+  <div id="content">
+
+    <div class="container">
+      <div id="search_result" class="twelve columns row">
+        <h1>
+          <?php if($city != ""): ?>
+              Resultados encontrados para: "<?php echo ucwords($query); ?>" da cidade de "<?php echo ucwords($city); ?>"
+          <?php elseif( isset($binomial_option) ): ?>
+            Resultados encontrados para arquiteturas com característica:
+            <?php if( isset($value) ): ?>
+              <?php echo $value; ?>%
+            <?php endif; ?>
+            <?php echo $binomial_option; ?>
+
+          <?php else: ?>
+            Resultados encontrados para: <?php echo $query; ?>
+
+          <?php endif; ?>
+        </h1>
+       <!-- To data search  -->
+        <?php if( count($dateFilter) != 0 ): ?>
+          <p>
+            Data:
+            <?php foreach($dateFilter as $k => $date): ?>
+              <?php if( $k != "do" ): ?>
+                <a href="<?php echo URL::to("/search?q=".$query."&d=".$k); ?>"> <?php echo $date; ?> </a>,
+              <?php else: ?>
+                <a href="<?php echo URL::to("/search?q=".$query."&d=".$k); ?>"> <?php echo $date; ?> </a>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </p>
+        <?php endif; ?>
+       <!-- -->
+        <?php if( count($tags) != 0 ): ?>
+          <p style="display: inline">
+            Tags contendo o termo:
+            <?php foreach($tags as $k => $tag): ?>
+              <?php if($k != count($tags)-1 ): ?>
+                <form id="<?php echo $k; ?>" action="<?php echo URL::to("/"); ?>/search" method="post" accept-charset="UTF-8" style="display: inline">
+                  <input type="hidden" name="q" value="<?php echo $tag->name; ?>"/>
+                  <a href="javascript: submitform(<?php echo $k; ?>);"><?php echo $tag->name; ?></a>,
+                </form>
+              <?php else: ?>
+                <form id="<?php echo $k; ?>" action="<?php echo URL::to("/"); ?>/search" method="post" accept-charset="UTF-8" style="display: inline">
+                <input type="hidden" name="q" value="<?php echo $tag->name; ?>"/>
+                  <a href="javascript: submitform(<?php echo $k; ?>);"><?php echo $tag->name; ?></a>
+                </form>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </p>
+          <script type="text/javascript">
+            function submitform(object)
+            {
+              document.getElementById(object).submit();
+            }
+          </script>
+        <?php endif; ?>
+
+
+        <?php if( count($authors) != 0 ): ?>
+          <p style="display: inline">
+            Autores contendo o termo:
+            <?php foreach($authors as $v => $author): ?>
+
+              <?php if($v != count($authors)-1 ): ?>
+                <form id="a<?php echo $v; ?>" action="<?php echo URL::to("/"); ?>/search" method="post" accept-charset="UTF-8" style="display: inline">
+                  <input type="hidden" name="q" value="<?php echo $author->name; ?>"/>
+                  <input type="hidden" name="type" value="a"/>
+                  <a href="javascript: submitformS('a<?php echo $v; ?>');"><?php echo $author->name; ?></a>;
+                </form>
+              <?php else: ?>
+                <form id="a<?php echo $v; ?>" action="<?php echo URL::to("/"); ?>/search" method="post" accept-charset="UTF-8" style="display: inline">
+                <input type="hidden" name="q" value="<?php echo $author->name; ?>"/>
+                <input type="hidden" name="type" value="a"/>
+                  <a href="javascript: submitformS('a<?php echo $v; ?>');"><?php echo $author->name; ?></a>
+                </form>
+              <?php endif; ?>
+            <?php endforeach; ?>
+          </p>
+          <script type="text/javascript">
+            function submitformS(objectAuthor)
+            {
+              document.getElementById(objectAuthor).submit();
+            }
+          </script>
+        <?php endif; ?>
+
+
+        <?php if( count($photos) < 1 && !isset($binomial_option) ): ?>
+          <p>Não encontramos nenhuma imagem com o termo <?php echo $query; ?>.</p>
+        <?php elseif(count($photos) < 1): ?>
+          <p>Não foi encontrada nenhuma imagem com arquitetura classificada como
+          <?php echo lcfirst($binomial_option); ?> </p>
+        <?php else: ?>
+          <p>Foram encontradas <?php echo $photosAll; ?> imagens.</p>
+        <?php endif; ?>
+        <p>Faça uma <a href="<?php echo URL::to('/search/more'); ?>">busca avançada aqui</a>.</p>
+        <p><a href="<?php echo URL::previous(); ?>">Voltar para página anterior</a></p>
+      </div>
+    </div>
+    <input type="hidden" id="pgVisited" value="<?php echo $pageVisited; ?>">
+    <input type="hidden" id="pageCurrent1" value="<?php echo $page; ?>">
+    <input type="hidden" id="urlType" value="simple">
+
+    <div class="container">
+      <div id="add1" class="twelveMid columns add" >
+        <?php if( isset($users) && $users != null ): ?>
+          <?php if($users->count() > 0 ): ?>
+            <?php echo $__env->make('users.includes.searchResult_include', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+          <?php endif; ?>
+        <?php else: ?>
+          <div class="wrap">
+          </div>
+        <?php endif; ?>
+      </div>
+    </div>
+
+    <!-- FOTOS PAGINADAS -->
+    <?php echo $__env->make('includes.result-search', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <!-- FIM FOTOS PAGINADAS -->
+  </div>
+  <!--   FIM - MEIO DO SITE   -->
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

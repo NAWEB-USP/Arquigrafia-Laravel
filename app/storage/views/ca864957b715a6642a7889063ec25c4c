@@ -1,0 +1,196 @@
+<?php $__env->startSection('head'); ?>
+  <title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+
+  <script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/textext.js"></script>
+  <link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/textext.css" />
+
+  <link rel="stylesheet" href="<?php echo URL::to("/"); ?>/css/jquery-ui/jquery-ui.min.css">
+  <script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/jquery-ui/jquery-ui.min.js" charset="utf-8"></script>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+    <?php echo Form::open(array('url'=>'institutions/' . $institution->id, 'method' => 'put', 'files'=> true)); ?>
+
+
+    <div id="registration">
+
+      <div class="twelve columns">
+        <h1>Edição de Perfil da instituição</h1>
+        <p>
+        <div>
+            <?php if ($institution->photo != "") { ?>
+
+              <img class="avatar profile-picture" src="<?php echo asset($institution->photo); ?>" class="user_photo_thumbnail" width="60" height="60" />
+            <?php } else { ?>
+              <img class="avatar profile-picture" src="<?php echo asset("img/avatar-institution.png"); ?>" width="60" height="60" class="user_photo_thumbnail"/>
+            <?php } ?>
+          </div>
+        </p>
+      </div>
+      <p>
+      </p>
+
+      <div class="four columns">
+
+        <div class="twelve columns row step-1">
+
+
+        <div class="four columns alpha">
+          <p><?php echo Form::label('photo','Alterar foto:'); ?>
+
+          <?php echo Form::file('photo', array('id'=>'imageUpload', 'onchange' => 'readURL(this);')); ?></p>
+          <br>
+          <img src="" id="preview_photo">
+          <br>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+        function importPicture() {
+          $.get("/getPicture")
+            .done(function( data ) {
+               {
+                $('.profile-picture').attr('src', data);
+              }
+            });
+        }
+      </script>
+
+     <script type="text/javascript">
+        function readURL(input) {
+          $("#preview_photo").hide();
+          if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              $('#preview_photo')
+                .attr('src', e.target.result)
+                .width(200);
+                $("#preview_photo").show();
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+      </script>
+
+
+
+        <?php echo Form::open(array('url' => 'insititutions')); ?>
+
+
+          <p>(*) Campos obrigatórios.</p>
+          <br />
+
+          <div class="two columns alpha"><p><?php echo Form::label('name', 'Nome completo*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('name_institution', $institution->name); ?> <br>
+            <div class="error"><?php echo $errors->first('name_institution'); ?> </div>
+            </p>
+          </div>
+          <div class="two columns alpha"><p><?php echo Form::label('acronimo', 'Sigla ou acrônimo:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('acronym_institution', $institution->acronym); ?> <br>
+            <div class="error"><?php echo $errors->first('acronym_institution'); ?> </div>
+            </p>
+          </div>
+
+          <div class="two columns alpha"><p><?php echo Form::label('email', 'E-mail*:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('email', $institution->email); ?> <br>
+              <div class="error"><?php echo $errors->first('email'); ?> </div>
+           <!-- <input name="visibleEmail" type="checkbox" value="yes" <?php /* $institution->visibleEmail == 'yes' ? "checked" : "" */ ?>>Visível no perfil público<br> -->
+            </p>
+          </div>
+
+        <div class="two columns alpha"><p><?php echo Form::label('country', 'País:'); ?></p></div>
+        <div class="two columns omega">
+          <p><?php echo Form::select('country', [ "Afeganistão"=>"Afeganistão", "África do Sul"=>"África do Sul", "Albânia"=>"Albânia", "Alemanha"=>"Alemanha", "América Samoa"=>"América Samoa", "Andorra"=>"Andorra", "Angola"=>"Angola", "Anguilla"=>"Anguilla", "Antartida"=>"Antartida", "Antigua"=>"Antigua", "Antigua e Barbuda"=>"Antigua e Barbuda", "Arábia Saudita"=>"Arábia Saudita", "Argentina"=>"Argentina", "Aruba"=>"Aruba", "Australia"=>"Australia", "Austria"=>"Austria", "Bahamas"=>"Bahamas", "Bahrain"=>"Bahrain", "Barbados"=>"Barbados", "Bélgica"=>"Bélgica", "Belize"=>"Belize", "Bermuda"=>"Bermuda", "Bhutan"=>"Bhutan", "Bolívia"=>"Bolívia", "Botswana"=>"Botswana", "Brasil"=>"Brasil", "Brunei"=>"Brunei", "Bulgária"=>"Bulgária", "Burundi"=>"Burundi", "Cabo Verde"=>"Cabo Verde", "Camboja"=>"Camboja", "Canadá"=>"Canadá", "Chade"=>"Chade", "Chile"=>"Chile", "China"=>"China", "Cingapura"=>"Cingapura", "Colômbia"=>"Colômbia", "Djibouti"=>"Djibouti", "Dominicana"=>"Dominicana", "Emirados Árabes"=>"Emirados Árabes", "Equador"=>"Equador", "Espanha"=>"Espanha", "Estados Unidos"=>"Estados Unidos", "Fiji"=>"Fiji", "Filipinas"=>"Filipinas", "Finlândia"=>"Finlândia", "França"=>"França", "Gabão"=>"Gabão", "Gaza Strip"=>"Gaza Strip", "Ghana"=>"Ghana", "Gibraltar"=>"Gibraltar", "Granada"=>"Granada", "Grécia"=>"Grécia", "Guadalupe"=>"Guadalupe", "Guam"=>"Guam", "Guatemala"=>"Guatemala", "Guernsey"=>"Guernsey", "Guiana"=>"Guiana", "Guiana Francesa"=>"Guiana Francesa", "Haiti"=>"Haiti", "Holanda"=>"Holanda", "Honduras"=>"Honduras", "Hong Kong"=>"Hong Kong", "Hungria"=>"Hungria", "Ilha Cocos (Keeling)"=>"Ilha Cocos (Keeling)", "Ilha Cook"=>"Ilha Cook", "Ilha Marshall"=>"Ilha Marshall", "Ilha Norfolk"=>"Ilha Norfolk", "Ilhas Turcas e Caicos"=>"Ilhas Turcas e Caicos", "Ilhas Virgens"=>"Ilhas Virgens", "Índia"=>"Índia", "Indonésia"=>"Indonésia", "Inglaterra"=>"Inglaterra", "Irã"=>"Irã", "Iraque"=>"Iraque", "Irlanda"=>"Irlanda", "Irlanda do Norte"=>"Irlanda do Norte", "Islândia"=>"Islândia", "Israel"=>"Israel", "Itália"=>"Itália", "Iugoslávia"=>"Iugoslávia", "Jamaica"=>"Jamaica", "Japão"=>"Japão", "Jersey"=>"Jersey", "Kirgizstão"=>"Kirgizstão", "Kiribati"=>"Kiribati", "Kittsnev"=>"Kittsnev", "Kuwait"=>"Kuwait", "Laos"=>"Laos", "Lesotho"=>"Lesotho", "Líbano"=>"Líbano", "Líbia"=>"Líbia", "Liechtenstein"=>"Liechtenstein", "Luxemburgo"=>"Luxemburgo", "Maldivas"=>"Maldivas", "Malta"=>"Malta", "Marrocos"=>"Marrocos", "Mauritânia"=>"Mauritânia", "Mauritius"=>"Mauritius", "México"=>"México", "Moçambique"=>"Moçambique", "Mônaco"=>"Mônaco", "Mongólia"=>"Mongólia", "Namíbia"=>"Namíbia", "Nepal"=>"Nepal", "Netherlands Antilles"=>"Netherlands Antilles", "Nicarágua"=>"Nicarágua", "Nigéria"=>"Nigéria", "Noruega"=>"Noruega", "Nova Zelândia"=>"Nova Zelândia", "Omã"=>"Omã", "Panamá"=>"Panamá", "Paquistão"=>"Paquistão", "Paraguai"=>"Paraguai", "Peru"=>"Peru", "Polinésia Francesa"=>"Polinésia Francesa", "Polônia"=>"Polônia", "Portugal"=>"Portugal", "Qatar"=>"Qatar", "Quênia"=>"Quênia", "República Dominicana"=>"República Dominicana", "Romênia"=>"Romênia", "Rússia"=>"Rússia", "Santa Helena"=>"Santa Helena", "Santa Kitts e Nevis"=>"Santa Kitts e Nevis", "Santa Lúcia"=>"Santa Lúcia", "São Vicente"=>"São Vicente", "Singapura"=>"Singapura", "Síria"=>"Síria", "Spiemich"=>"Spiemich", "Sudão"=>"Sudão", "Suécia"=>"Suécia", "Suiça"=>"Suiça", "Suriname"=>"Suriname", "Swaziland"=>"Swaziland", "Tailândia"=>"Tailândia", "Taiwan"=>"Taiwan", "Tchecoslováquia"=>"Tchecoslováquia", "Tonga"=>"Tonga", "Trinidad e Tobago"=>"Trinidad e Tobago", "Turksccai"=>"Turksccai", "Turquia"=>"Turquia", "Tuvalu"=>"Tuvalu", "Uruguai"=>"Uruguai", "Vanuatu"=>"Vanuatu", "Wallis e Fortuna"=>"Wallis e Fortuna", "West Bank"=>"West Bank", "Yémen"=>"Yémen", "Zaire"=>"Zaire", "Zimbabwe"=>"Zimbabwe"], $institution->country != null ? $institution->country : "Brasil"); ?><br>
+            <div class="error"><?php echo $errors->first('country'); ?> </div>
+          </p>
+        </div>
+
+        <div class="two columns alpha"><p><?php echo Form::label('state', 'Estado:'); ?></p></div>
+        <div class="two columns omega">
+          <p><?php echo Form::select('state', [""=>"Escolha o Estado", "AC"=>"Acre", "AL"=>"Alagoas", "AM"=>"Amazonas", "AP"=>"Amapá", "BA"=>"Bahia", "CE"=>"Ceará", "DF"=>"Distrito Federal", "ES"=>"Espirito Santo", "GO"=>"Goiás", "MA"=>"Maranhão", "MG"=>"Minas Gerais", "MS"=>"Mato Grosso do Sul", "MT"=>"Mato Grosso", "PA"=>"Pará", "PB"=>"Paraíba", "PE"=>"Pernambuco", "PI"=>"Piauí", "PR"=>"Paraná", "RJ"=>"Rio de Janeiro", "RN"=>"Rio Grande do Norte", "RO"=>"Rondônia", "RR"=>"Roraima", "RS"=>"Rio Grande do Sul", "SC"=>"Santa Catarina", "SE"=>"Sergipe", "SP"=>"São Paulo", "TO"=>"Tocantins"], $institution->state); ?> <br>
+            <div class="error"><?php echo $errors->first('state'); ?> </div>
+          </p>
+        </div>
+
+        <div class="two columns alpha"><p><?php echo Form::label('city', 'Cidade:'); ?></p></div>
+        <div class="two columns omega">
+        <p><?php echo Form::text('city', $institution->city); ?><br>
+          <div class="error"><?php echo $errors->first('city'); ?> </div>
+        </p>
+        </div>
+
+
+
+
+
+          <div class="two columns row alpha"><p><?php echo Form::label('site', 'Site pessoal:'); ?></p></div>
+          <div class="two columns row omega">
+            <p><?php echo Form::text('site', $institution->site); ?><br>
+              <div class="error"><?php echo $errors->first('site'); ?> </div>
+            </p>
+          </div>
+
+          <div class="two columns alpha"><p><?php echo Form::label('address', 'Endereço:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('address', $institution->address != null ? $institution->address: null); ?> <br>
+              <div class="error"><?php echo $errors->first('address'); ?> </div>
+            </p>
+          </div>
+          <div class="two columns alpha"><p><?php echo Form::label('phone', 'Telefone:'); ?></p></div>
+          <div class="two columns omega">
+            <p><?php echo Form::text('phone', $institution->phone != null ? $institution->phone: null,array('id' => 'phone','placeholder'=>'(dd)(dd)dddd-dddd')); ?> <br>
+
+              <div class="error"><?php echo $errors->first('phone'); ?> </div>
+            </p>
+          </div>
+
+
+
+          <div class="four columns alpha omega">
+            <br>
+            <a href="<?php echo URL::to('/institutions/' . $institution->id); ?>" class='btn right'>VOLTAR</a>
+            <?php echo Form::submit("EDITAR", array('class'=>'btn right')); ?>
+
+
+          </div>
+
+
+        <?php echo Form::close(); ?>
+
+
+        <p>&nbsp;</p>
+
+      </div>
+
+    </div>
+
+  </div>
+<script type="text/javascript">
+//msy
+    $(function() {
+
+    $( "#datePickerBirthday" ).datepicker({
+      dateFormat:'dd/mm/yy'
+    }
+      );
+    });
+
+    function password_change(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'none'){
+          e.style.display = 'block';
+       }else{
+          e.style.display = 'none';
+        }
+
+
+}
+</script>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,42 @@
+<?php $count=0; ?>
+
+<table id="add_page1" class="page form-table" width="100%" border="0"
+	cellspacing="0" cellpadding="0">
+
+	<?php foreach($photos as $photo): ?>
+		<?php if($count % 6 == 0): ?>
+		<tr>
+		<?php endif; ?>
+		<td width="143" class="add">
+			<div style=" width: 155px; height: 110px;position: relative;" >
+			
+			<?php if($count % 6 < 3): ?>
+				<?php $position = 'right'; ?>
+			<?php else: ?>
+				<?php $position = 'left'; ?>
+			<?php endif; ?>
+			
+			
+			<a class="hovertext" href='<?php echo URL::to("/photos/{$photo->id}"); ?>' class="gallery_photo2" title="<?php echo $photo->name; ?>">
+			<img 
+			class="gallery_photo2" class="cls_image_search"  src="<?php echo URL::to('/arquigrafia-images/' . $photo->id . '_home.jpg'); ?>"
+				class="img_photo <?php echo $position; ?>" data-id="<?php echo $photo->id; ?>"
+				 >
+			</a>	
+
+		    
+		</div>
+	</td>
+	<?php if($count % 6 == 5): ?>
+		</tr>
+	<?php endif; ?>
+	<?php $count++ ?>
+	<?php endforeach; ?>
+	<?php if($count % 6 != 0): ?>
+		<?php while($count % 6 != 0): ?>
+			<td></td>
+			<?php $count++; ?>
+		<?php endwhile; ?>
+		</tr>
+	<?php endif; ?>
+</table>

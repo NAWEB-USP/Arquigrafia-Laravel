@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf8">
+  <link rel="stylesheet" type="text/css" href="<?php echo URL::to("/"); ?>/css/style.old.css" />
+ </head>
+<body>
+   <?php $type_field = 'fourUpload';
+   		 $first_column = 'oneUpload';
+       $text_area_field = 'sevenUpload';
+       $size_area_author = 'author_area_size';
+   ?>
+   <?php echo $__env->make('photos.includes.workAuthor_include', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>  
+  
+  <style>
+    div.container {
+      margin-top: 5px;
+    }
+
+  </style>
+</body>
+</html>

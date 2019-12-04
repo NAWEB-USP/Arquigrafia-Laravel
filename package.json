@@ -8,7 +8,10 @@
     "test": "jest javascript",
     "test:watch": "jest --watch javascript",
     "lint": "eslint ./javascript/",
-    "php": "./start-php-server.sh"
+    "php": "./start-php-server.sh",
+    "sass": "sass public/scss/style.scss:public/css/style.css",
+    "watch": "sass public/scss/style.scss:public/css/style.css -w",
+    "oam": "sass public/scss/oam/style.scss:public/css/oam.css -w"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -35,17 +38,21 @@
     "vue-loader": "^13.4.0",
     "vue-template-compiler": "^2.5.3",
     "webpack": "^3.8.1",
+    "webpack-cli": "^3.1.2",
     "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "@panter/vue-i18next": "^0.8.1",
     "bluebird": "^3.5.1",
+    "bootstrap": "^4.2.1",
     "i18next": "^10.0.7",
     "i18next-browser-languagedetector": "^2.1.0",
     "jbox": "^0.4.8",
     "jquery": "^3.2.1",
+    "masonry-layout": "^4.2.2",
     "moment": "^2.19.1",
     "node-fetch": "^1.7.3",
+    "vmsg": "^0.3.5",
     "vue": "^2.5.3",
     "vue-awesome": "^2.3.3",
     "vue-fraction-grid": "^1.1.0",

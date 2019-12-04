@@ -1,0 +1,32 @@
+<?php $count = 0; ?>
+<table id="<?php echo $type . '_page' . $page; ?>" class="page form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
+<?php foreach($photos as $photo): ?>
+	<?php if($count % 6 == 0): ?>
+		<tr>
+	<?php endif; ?>
+	<td width="143">
+		<input type="checkbox" class="<?php echo $type . '_photo'; ?>" id="<?php echo 'photo_' . $photo->id; ?>" name="<?php echo 'photos_' . $type . '[]'; ?>" value="<?php echo $photo->id; ?>">
+		<label id="<?php echo 'label_' . $photo->id; ?>" for="<?php echo 'photo_' . $photo->id; ?>"></label>
+	</td>
+	<?php if($count % 6 == 5): ?>
+		</tr>
+	<?php endif; ?>
+	<?php $count++ ?>
+<?php endforeach; ?>
+	<?php if($count % 6 != 0): ?>
+		<?php while($count % 6 != 0): ?>
+			<td width="143"></td>
+			<?php $count++; ?>
+		<?php endwhile; ?>
+		</tr>
+	<?php endif; ?>
+</table>
+<style>
+	<?php foreach($photos as $photo): ?>
+		<?php echo '#photo_' . $photo->id . ' + label'; ?>
+
+		{
+			background: url('<?php echo "/arquigrafia-images/" . $photo->id . "_home.jpg"; ?>');
+		}
+	<?php endforeach; ?>
+</style>

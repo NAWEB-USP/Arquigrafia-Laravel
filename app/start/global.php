@@ -23,6 +23,7 @@ ClassLoader::addDirectories(array(
 	//app_path().'/models/Evaluations',
 	app_path().'/controllers/Photos',
 	app_path().'/models/Photos',
+	app_path().'/controllers/Audio',
 
 ));
 

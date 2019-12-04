@@ -1,0 +1,92 @@
+<?php $__env->startSection('head'); ?>
+
+	<title>Arquigrafia - Seu universo de imagens de arquitetura</title>
+
+	<script src="<?php echo URL::to("/"); ?>/js/jquery.isotope.min.js"></script>
+	<script type="text/javascript" src="<?php echo URL::to("/"); ?>/js/panel.js"></script>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+	<?php if(Session::get('message')): ?>
+		<div class="container">
+			<div class="twelve columns">
+				<div class="message"><?php echo Session::get('message'); ?></div>
+			</div>
+		</div>
+	<?php endif; ?>
+	<!--   HEADER DO USUÁRIO   -->
+	<div class="container">
+		<div id="user_header" class="twelve columns">
+			<div class="info">
+				<h1> Meus álbuns </h1>
+				<a href="<?php echo URL::to('/albums/create'); ?>" title="Criar álbum">
+					<!-- <img src="<?php echo URL::to('/img/plus.png'); ?>" width="10" height="10"> -->
+					 Criar álbum
+				</a>
+			</div>
+			<div class="count">Total de álbuns: <?php echo $albums->count(); ?></div>
+		</div>
+	</div>
+	<?php if($albums->count() > 0): ?>
+	<div id="user_gallery">
+		<div class="wrap">
+			<div id="panel" class="stripe">
+				<?php foreach($albums as $album): ?>
+					<div class="item h2">
+						<div class="layer" data-depth="0.2">
+							<a href='<?php echo URL::to("/albums/{$album->id}"); ?>'>
+								<?php if(isset($album->cover_id)): ?>
+									<img src='<?php echo URL::to("/arquigrafia-images/{$album->cover_id}_micro.jpg"); ?>'
+										data-src='<?php echo URL::to("/arquigrafia-images/{$album->cover_id}_home.jpg"); ?>'	title="<?php echo $album->title; ?>">
+								<?php else: ?>
+									<div class="no_cover">
+										<p>Álbum sem capa</p>
+									</div>
+								<?php endif; ?>
+							</a>
+							<div class="item-title">
+								<p><?php echo $album->title . ' (' . $album->photos->count() . ')'; ?></p>
+								<a id="title_delete_button" class="title_delete album" href="<?php echo URL::to('/albums/' . $album->id); ?>" title="Excluir álbum"></a>
+								<a id="title_edit_button" href="<?php echo URL::to('/albums/' . $album->id . '/edit'); ?>" title="Editar álbum"></a>
+							</div>
+						</div>
+					</div>
+				<?php endforeach; ?>
+			</div>
+			<div class="panel-back"></div>
+			<div class="panel-next"></div>
+		</div>
+	</div>
+	<div class="container">
+		<div class="twelve columns">
+		</div>
+	</div>
+	<?php else: ?>
+		<div class="container">
+			<div class="twelve columns">
+				<p> 
+					Você ainda não possui nenhum álbum. Crie um <?php echo link_to('/albums/create', 'aqui'); ?>
+
+				</p>
+			</div>
+		</div>
+	<?php endif; ?>
+	<!--   MODAL   -->
+	<div id="mask"></div>
+	<div id="confirmation_window" class="window">
+		<div id="registration_delete">
+			<p></p>
+			<?php echo Form::open(array('url' => '', 'method' => 'delete')); ?>
+
+				<div id="registration_buttons">
+            	<input type="submit" class="btn" value="Confirmar" />
+					<a class="btn close" href="#" >Cancelar</a>
+				</div>
+			<?php echo Form::close(); ?>
+
+		</div>
+	</div>
+	<!--   FIM - MODAL   -->	
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,37 @@
+<?php $count = 0;
+	  $type = 'add';
+?>
+
+<table class="page form-table users-result-table" width="100%" border="0"
+	cellspacing="0" cellpadding="0">
+  <?php foreach($users as $user): ?>
+		<?php if($count % 8 == 0): ?>
+		<tr>
+		<?php endif; ?>
+		<td width="110">
+      <div style="width: 100%; text-align: center;">
+        <a href='<?php echo URL::to("/users/{$user->id}"); ?>'>
+          <?php if( !empty($user->photo) ): ?>
+            <div class="img_avatar_result" style="background: url(<?php echo asset($user->photo); ?>) center center no-repeat; background-size: cover;"></div>
+          <?php else: ?>
+            <div class="img_avatar_result" style="background: url(<?php echo URL::to('/img/avatar-60.png'); ?>) center center no-repeat; background-size: cover;"></div>
+          <?php endif; ?>
+        </a>
+      </div>
+      <div style="width: 100%; text-align: center;">
+        <span><?php echo $user-> name; ?></span>
+      </div>
+    </td>
+  	<?php if($count % 8 == 7): ?>
+  	</tr>
+  	<?php endif; ?>
+	<?php $count++ ?>
+  <?php endforeach; ?>
+  <?php if($count % 8 != 0): ?>
+  	<?php while($count % 8 != 0): ?>
+  		<td></td>
+  		<?php $count++; ?>
+  	<?php endwhile; ?>
+  	</tr>
+  <?php endif; ?>
+</table>

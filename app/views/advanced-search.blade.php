@@ -61,8 +61,10 @@
 @section('content')
     @if (isset($message))
     <div class="container">
+      <div class="row">
       <div class="twelve columns">
         <div class="message">{{ $message }}</div>
+      </div>
       </div>
     </div>
   @endif
@@ -80,8 +82,8 @@
         </div>
         {{ Form::open(array('url' => 'search/more', 'id'=>'advanceSearch' ,'method' => 'get')) }}
           <div class="eight columns omega row">
-            <div class="nine columns alpha row">
-              <div class="four columns alpha" style="margin-right: 15px;">
+            <div class="twelve columns alpha row">
+              <div class="six columns">
                 <h3>Descrição</h3>
                 <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
@@ -130,7 +132,7 @@
                 </table>
               </div>
 
-              <div class="four columns" style="margin-left: 15px; margin-right: 15px;">
+              <div class="six columns">
                 <h3>Arquitetura</h3>
                 <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
 
@@ -203,8 +205,8 @@
               </div>
               <!-- 2015-05-06 msy end -->
             </div>
-            <div class="nine columns alpha row">
-              <div class="four columns alpha" style="margin-right: 15px;">
+            <div class="twelve columns alpha row">
+              <div class="six columns" style="margin-right: 15px;">
                 <h3>Localização</h3>
                 <table class="form-table" width="100%" border="0" cellspacing="0" cellpadding="0">
                   <tr>
@@ -298,7 +300,7 @@
             </div>
           </div>
           <div class="four columns omega row">
-            <div class="four columns  omega" style="margin-left: 15px;">
+            <div class="twelve columns">
               <h3>Interpretação das imagens</h3>
               {{ Form::checkbox('binomial_check', 1, false) }}
               {{ Form::label('binomial_check', 'Utilizar características da imagem na pesquisa') }}

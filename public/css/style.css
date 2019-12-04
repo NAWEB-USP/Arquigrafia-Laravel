@@ -1,657 +1,4534 @@
-@charset "utf-8";
+@charset "UTF-8";
+.m-0 {
+  margin: 0 !important; }
+
+.mt-0,
+.my-0 {
+  margin-top: 0 !important; }
+
+.mr-0,
+.mx-0 {
+  margin-right: 0 !important; }
+
+.mb-0,
+.my-0 {
+  margin-bottom: 0 !important; }
+
+.ml-0,
+.mx-0 {
+  margin-left: 0 !important; }
+
+.m-1 {
+  margin: 0.25rem !important; }
+
+.mt-1,
+.my-1 {
+  margin-top: 0.25rem !important; }
+
+.mr-1,
+.mx-1 {
+  margin-right: 0.25rem !important; }
+
+.mb-1,
+.my-1 {
+  margin-bottom: 0.25rem !important; }
+
+.ml-1,
+.mx-1 {
+  margin-left: 0.25rem !important; }
+
+.m-2 {
+  margin: 0.5rem !important; }
+
+.mt-2,
+.my-2 {
+  margin-top: 0.5rem !important; }
+
+.mr-2,
+.mx-2 {
+  margin-right: 0.5rem !important; }
+
+.mb-2,
+.my-2 {
+  margin-bottom: 0.5rem !important; }
+
+.ml-2,
+.mx-2 {
+  margin-left: 0.5rem !important; }
+
+.m-3 {
+  margin: 1rem !important; }
+
+.mt-3,
+.my-3 {
+  margin-top: 1rem !important; }
+
+.mr-3,
+.mx-3 {
+  margin-right: 1rem !important; }
+
+.mb-3,
+.my-3 {
+  margin-bottom: 1rem !important; }
+
+.ml-3,
+.mx-3 {
+  margin-left: 1rem !important; }
+
+.m-4 {
+  margin: 1.5rem !important; }
+
+.mt-4,
+.my-4 {
+  margin-top: 1.5rem !important; }
+
+.mr-4,
+.mx-4 {
+  margin-right: 1.5rem !important; }
+
+.mb-4,
+.my-4 {
+  margin-bottom: 1.5rem !important; }
+
+.ml-4,
+.mx-4 {
+  margin-left: 1.5rem !important; }
+
+.m-5 {
+  margin: 3rem !important; }
+
+.mt-5,
+.my-5 {
+  margin-top: 3rem !important; }
+
+.mr-5,
+.mx-5 {
+  margin-right: 3rem !important; }
+
+.mb-5,
+.my-5 {
+  margin-bottom: 3rem !important; }
+
+.ml-5,
+.mx-5 {
+  margin-left: 3rem !important; }
+
+.p-0 {
+  padding: 0 !important; }
+
+.pt-0,
+.py-0 {
+  padding-top: 0 !important; }
+
+.pr-0,
+.px-0 {
+  padding-right: 0 !important; }
+
+.pb-0,
+.py-0 {
+  padding-bottom: 0 !important; }
+
+.pl-0,
+.px-0 {
+  padding-left: 0 !important; }
+
+.p-1 {
+  padding: 0.25rem !important; }
+
+.pt-1,
+.py-1 {
+  padding-top: 0.25rem !important; }
+
+.pr-1,
+.px-1 {
+  padding-right: 0.25rem !important; }
+
+.pb-1,
+.py-1 {
+  padding-bottom: 0.25rem !important; }
+
+.pl-1,
+.px-1 {
+  padding-left: 0.25rem !important; }
+
+.p-2 {
+  padding: 0.5rem !important; }
+
+.pt-2,
+.py-2 {
+  padding-top: 0.5rem !important; }
+
+.pr-2,
+.px-2 {
+  padding-right: 0.5rem !important; }
+
+.pb-2,
+.py-2 {
+  padding-bottom: 0.5rem !important; }
+
+.pl-2,
+.px-2 {
+  padding-left: 0.5rem !important; }
+
+.p-3 {
+  padding: 1rem !important; }
+
+.pt-3,
+.py-3 {
+  padding-top: 1rem !important; }
+
+.pr-3,
+.px-3 {
+  padding-right: 1rem !important; }
+
+.pb-3,
+.py-3 {
+  padding-bottom: 1rem !important; }
+
+.pl-3,
+.px-3 {
+  padding-left: 1rem !important; }
+
+.p-4 {
+  padding: 1.5rem !important; }
+
+.pt-4,
+.py-4 {
+  padding-top: 1.5rem !important; }
+
+.pr-4,
+.px-4 {
+  padding-right: 1.5rem !important; }
+
+.pb-4,
+.py-4 {
+  padding-bottom: 1.5rem !important; }
+
+.pl-4,
+.px-4 {
+  padding-left: 1.5rem !important; }
+
+.p-5 {
+  padding: 3rem !important; }
+
+.pt-5,
+.py-5 {
+  padding-top: 3rem !important; }
+
+.pr-5,
+.px-5 {
+  padding-right: 3rem !important; }
+
+.pb-5,
+.py-5 {
+  padding-bottom: 3rem !important; }
+
+.pl-5,
+.px-5 {
+  padding-left: 3rem !important; }
+
+.m-auto {
+  margin: auto !important; }
+
+.mt-auto,
+.my-auto {
+  margin-top: auto !important; }
+
+.mr-auto,
+.mx-auto {
+  margin-right: auto !important; }
+
+.mb-auto,
+.my-auto {
+  margin-bottom: auto !important; }
+
+.ml-auto,
+.mx-auto {
+  margin-left: auto !important; }
+
+@media (min-width: 576px) {
+  .m-sm-0 {
+    margin: 0 !important; }
+
+  .mt-sm-0,
+  .my-sm-0 {
+    margin-top: 0 !important; }
+
+  .mr-sm-0,
+  .mx-sm-0 {
+    margin-right: 0 !important; }
+
+  .mb-sm-0,
+  .my-sm-0 {
+    margin-bottom: 0 !important; }
+
+  .ml-sm-0,
+  .mx-sm-0 {
+    margin-left: 0 !important; }
+
+  .m-sm-1 {
+    margin: 0.25rem !important; }
+
+  .mt-sm-1,
+  .my-sm-1 {
+    margin-top: 0.25rem !important; }
+
+  .mr-sm-1,
+  .mx-sm-1 {
+    margin-right: 0.25rem !important; }
+
+  .mb-sm-1,
+  .my-sm-1 {
+    margin-bottom: 0.25rem !important; }
+
+  .ml-sm-1,
+  .mx-sm-1 {
+    margin-left: 0.25rem !important; }
+
+  .m-sm-2 {
+    margin: 0.5rem !important; }
+
+  .mt-sm-2,
+  .my-sm-2 {
+    margin-top: 0.5rem !important; }
+
+  .mr-sm-2,
+  .mx-sm-2 {
+    margin-right: 0.5rem !important; }
+
+  .mb-sm-2,
+  .my-sm-2 {
+    margin-bottom: 0.5rem !important; }
+
+  .ml-sm-2,
+  .mx-sm-2 {
+    margin-left: 0.5rem !important; }
+
+  .m-sm-3 {
+    margin: 1rem !important; }
+
+  .mt-sm-3,
+  .my-sm-3 {
+    margin-top: 1rem !important; }
+
+  .mr-sm-3,
+  .mx-sm-3 {
+    margin-right: 1rem !important; }
+
+  .mb-sm-3,
+  .my-sm-3 {
+    margin-bottom: 1rem !important; }
+
+  .ml-sm-3,
+  .mx-sm-3 {
+    margin-left: 1rem !important; }
+
+  .m-sm-4 {
+    margin: 1.5rem !important; }
+
+  .mt-sm-4,
+  .my-sm-4 {
+    margin-top: 1.5rem !important; }
+
+  .mr-sm-4,
+  .mx-sm-4 {
+    margin-right: 1.5rem !important; }
+
+  .mb-sm-4,
+  .my-sm-4 {
+    margin-bottom: 1.5rem !important; }
+
+  .ml-sm-4,
+  .mx-sm-4 {
+    margin-left: 1.5rem !important; }
+
+  .m-sm-5 {
+    margin: 3rem !important; }
+
+  .mt-sm-5,
+  .my-sm-5 {
+    margin-top: 3rem !important; }
+
+  .mr-sm-5,
+  .mx-sm-5 {
+    margin-right: 3rem !important; }
+
+  .mb-sm-5,
+  .my-sm-5 {
+    margin-bottom: 3rem !important; }
+
+  .ml-sm-5,
+  .mx-sm-5 {
+    margin-left: 3rem !important; }
+
+  .p-sm-0 {
+    padding: 0 !important; }
+
+  .pt-sm-0,
+  .py-sm-0 {
+    padding-top: 0 !important; }
+
+  .pr-sm-0,
+  .px-sm-0 {
+    padding-right: 0 !important; }
+
+  .pb-sm-0,
+  .py-sm-0 {
+    padding-bottom: 0 !important; }
+
+  .pl-sm-0,
+  .px-sm-0 {
+    padding-left: 0 !important; }
+
+  .p-sm-1 {
+    padding: 0.25rem !important; }
+
+  .pt-sm-1,
+  .py-sm-1 {
+    padding-top: 0.25rem !important; }
+
+  .pr-sm-1,
+  .px-sm-1 {
+    padding-right: 0.25rem !important; }
+
+  .pb-sm-1,
+  .py-sm-1 {
+    padding-bottom: 0.25rem !important; }
+
+  .pl-sm-1,
+  .px-sm-1 {
+    padding-left: 0.25rem !important; }
+
+  .p-sm-2 {
+    padding: 0.5rem !important; }
+
+  .pt-sm-2,
+  .py-sm-2 {
+    padding-top: 0.5rem !important; }
+
+  .pr-sm-2,
+  .px-sm-2 {
+    padding-right: 0.5rem !important; }
+
+  .pb-sm-2,
+  .py-sm-2 {
+    padding-bottom: 0.5rem !important; }
+
+  .pl-sm-2,
+  .px-sm-2 {
+    padding-left: 0.5rem !important; }
+
+  .p-sm-3 {
+    padding: 1rem !important; }
+
+  .pt-sm-3,
+  .py-sm-3 {
+    padding-top: 1rem !important; }
+
+  .pr-sm-3,
+  .px-sm-3 {
+    padding-right: 1rem !important; }
+
+  .pb-sm-3,
+  .py-sm-3 {
+    padding-bottom: 1rem !important; }
+
+  .pl-sm-3,
+  .px-sm-3 {
+    padding-left: 1rem !important; }
+
+  .p-sm-4 {
+    padding: 1.5rem !important; }
+
+  .pt-sm-4,
+  .py-sm-4 {
+    padding-top: 1.5rem !important; }
+
+  .pr-sm-4,
+  .px-sm-4 {
+    padding-right: 1.5rem !important; }
+
+  .pb-sm-4,
+  .py-sm-4 {
+    padding-bottom: 1.5rem !important; }
+
+  .pl-sm-4,
+  .px-sm-4 {
+    padding-left: 1.5rem !important; }
+
+  .p-sm-5 {
+    padding: 3rem !important; }
+
+  .pt-sm-5,
+  .py-sm-5 {
+    padding-top: 3rem !important; }
+
+  .pr-sm-5,
+  .px-sm-5 {
+    padding-right: 3rem !important; }
+
+  .pb-sm-5,
+  .py-sm-5 {
+    padding-bottom: 3rem !important; }
+
+  .pl-sm-5,
+  .px-sm-5 {
+    padding-left: 3rem !important; }
+
+  .m-sm-auto {
+    margin: auto !important; }
+
+  .mt-sm-auto,
+  .my-sm-auto {
+    margin-top: auto !important; }
+
+  .mr-sm-auto,
+  .mx-sm-auto {
+    margin-right: auto !important; }
+
+  .mb-sm-auto,
+  .my-sm-auto {
+    margin-bottom: auto !important; }
+
+  .ml-sm-auto,
+  .mx-sm-auto {
+    margin-left: auto !important; } }
+@media (min-width: 768px) {
+  .m-md-0 {
+    margin: 0 !important; }
+
+  .mt-md-0,
+  .my-md-0 {
+    margin-top: 0 !important; }
+
+  .mr-md-0,
+  .mx-md-0 {
+    margin-right: 0 !important; }
+
+  .mb-md-0,
+  .my-md-0 {
+    margin-bottom: 0 !important; }
+
+  .ml-md-0,
+  .mx-md-0 {
+    margin-left: 0 !important; }
+
+  .m-md-1 {
+    margin: 0.25rem !important; }
+
+  .mt-md-1,
+  .my-md-1 {
+    margin-top: 0.25rem !important; }
+
+  .mr-md-1,
+  .mx-md-1 {
+    margin-right: 0.25rem !important; }
+
+  .mb-md-1,
+  .my-md-1 {
+    margin-bottom: 0.25rem !important; }
+
+  .ml-md-1,
+  .mx-md-1 {
+    margin-left: 0.25rem !important; }
+
+  .m-md-2 {
+    margin: 0.5rem !important; }
+
+  .mt-md-2,
+  .my-md-2 {
+    margin-top: 0.5rem !important; }
+
+  .mr-md-2,
+  .mx-md-2 {
+    margin-right: 0.5rem !important; }
+
+  .mb-md-2,
+  .my-md-2 {
+    margin-bottom: 0.5rem !important; }
+
+  .ml-md-2,
+  .mx-md-2 {
+    margin-left: 0.5rem !important; }
+
+  .m-md-3 {
+    margin: 1rem !important; }
+
+  .mt-md-3,
+  .my-md-3 {
+    margin-top: 1rem !important; }
+
+  .mr-md-3,
+  .mx-md-3 {
+    margin-right: 1rem !important; }
+
+  .mb-md-3,
+  .my-md-3 {
+    margin-bottom: 1rem !important; }
+
+  .ml-md-3,
+  .mx-md-3 {
+    margin-left: 1rem !important; }
+
+  .m-md-4 {
+    margin: 1.5rem !important; }
+
+  .mt-md-4,
+  .my-md-4 {
+    margin-top: 1.5rem !important; }
+
+  .mr-md-4,
+  .mx-md-4 {
+    margin-right: 1.5rem !important; }
+
+  .mb-md-4,
+  .my-md-4 {
+    margin-bottom: 1.5rem !important; }
+
+  .ml-md-4,
+  .mx-md-4 {
+    margin-left: 1.5rem !important; }
+
+  .m-md-5 {
+    margin: 3rem !important; }
+
+  .mt-md-5,
+  .my-md-5 {
+    margin-top: 3rem !important; }
+
+  .mr-md-5,
+  .mx-md-5 {
+    margin-right: 3rem !important; }
+
+  .mb-md-5,
+  .my-md-5 {
+    margin-bottom: 3rem !important; }
+
+  .ml-md-5,
+  .mx-md-5 {
+    margin-left: 3rem !important; }
+
+  .p-md-0 {
+    padding: 0 !important; }
+
+  .pt-md-0,
+  .py-md-0 {
+    padding-top: 0 !important; }
+
+  .pr-md-0,
+  .px-md-0 {
+    padding-right: 0 !important; }
+
+  .pb-md-0,
+  .py-md-0 {
+    padding-bottom: 0 !important; }
+
+  .pl-md-0,
+  .px-md-0 {
+    padding-left: 0 !important; }
+
+  .p-md-1 {
+    padding: 0.25rem !important; }
+
+  .pt-md-1,
+  .py-md-1 {
+    padding-top: 0.25rem !important; }
+
+  .pr-md-1,
+  .px-md-1 {
+    padding-right: 0.25rem !important; }
+
+  .pb-md-1,
+  .py-md-1 {
+    padding-bottom: 0.25rem !important; }
+
+  .pl-md-1,
+  .px-md-1 {
+    padding-left: 0.25rem !important; }
+
+  .p-md-2 {
+    padding: 0.5rem !important; }
+
+  .pt-md-2,
+  .py-md-2 {
+    padding-top: 0.5rem !important; }
+
+  .pr-md-2,
+  .px-md-2 {
+    padding-right: 0.5rem !important; }
+
+  .pb-md-2,
+  .py-md-2 {
+    padding-bottom: 0.5rem !important; }
+
+  .pl-md-2,
+  .px-md-2 {
+    padding-left: 0.5rem !important; }
+
+  .p-md-3 {
+    padding: 1rem !important; }
+
+  .pt-md-3,
+  .py-md-3 {
+    padding-top: 1rem !important; }
+
+  .pr-md-3,
+  .px-md-3 {
+    padding-right: 1rem !important; }
+
+  .pb-md-3,
+  .py-md-3 {
+    padding-bottom: 1rem !important; }
+
+  .pl-md-3,
+  .px-md-3 {
+    padding-left: 1rem !important; }
+
+  .p-md-4 {
+    padding: 1.5rem !important; }
+
+  .pt-md-4,
+  .py-md-4 {
+    padding-top: 1.5rem !important; }
+
+  .pr-md-4,
+  .px-md-4 {
+    padding-right: 1.5rem !important; }
+
+  .pb-md-4,
+  .py-md-4 {
+    padding-bottom: 1.5rem !important; }
+
+  .pl-md-4,
+  .px-md-4 {
+    padding-left: 1.5rem !important; }
+
+  .p-md-5 {
+    padding: 3rem !important; }
+
+  .pt-md-5,
+  .py-md-5 {
+    padding-top: 3rem !important; }
+
+  .pr-md-5,
+  .px-md-5 {
+    padding-right: 3rem !important; }
+
+  .pb-md-5,
+  .py-md-5 {
+    padding-bottom: 3rem !important; }
+
+  .pl-md-5,
+  .px-md-5 {
+    padding-left: 3rem !important; }
+
+  .m-md-auto {
+    margin: auto !important; }
+
+  .mt-md-auto,
+  .my-md-auto {
+    margin-top: auto !important; }
+
+  .mr-md-auto,
+  .mx-md-auto {
+    margin-right: auto !important; }
+
+  .mb-md-auto,
+  .my-md-auto {
+    margin-bottom: auto !important; }
+
+  .ml-md-auto,
+  .mx-md-auto {
+    margin-left: auto !important; } }
+@media (min-width: 992px) {
+  .m-lg-0 {
+    margin: 0 !important; }
+
+  .mt-lg-0,
+  .my-lg-0 {
+    margin-top: 0 !important; }
+
+  .mr-lg-0,
+  .mx-lg-0 {
+    margin-right: 0 !important; }
+
+  .mb-lg-0,
+  .my-lg-0 {
+    margin-bottom: 0 !important; }
+
+  .ml-lg-0,
+  .mx-lg-0 {
+    margin-left: 0 !important; }
+
+  .m-lg-1 {
+    margin: 0.25rem !important; }
+
+  .mt-lg-1,
+  .my-lg-1 {
+    margin-top: 0.25rem !important; }
+
+  .mr-lg-1,
+  .mx-lg-1 {
+    margin-right: 0.25rem !important; }
+
+  .mb-lg-1,
+  .my-lg-1 {
+    margin-bottom: 0.25rem !important; }
+
+  .ml-lg-1,
+  .mx-lg-1 {
+    margin-left: 0.25rem !important; }
+
+  .m-lg-2 {
+    margin: 0.5rem !important; }
+
+  .mt-lg-2,
+  .my-lg-2 {
+    margin-top: 0.5rem !important; }
+
+  .mr-lg-2,
+  .mx-lg-2 {
+    margin-right: 0.5rem !important; }
+
+  .mb-lg-2,
+  .my-lg-2 {
+    margin-bottom: 0.5rem !important; }
+
+  .ml-lg-2,
+  .mx-lg-2 {
+    margin-left: 0.5rem !important; }
+
+  .m-lg-3 {
+    margin: 1rem !important; }
+
+  .mt-lg-3,
+  .my-lg-3 {
+    margin-top: 1rem !important; }
+
+  .mr-lg-3,
+  .mx-lg-3 {
+    margin-right: 1rem !important; }
+
+  .mb-lg-3,
+  .my-lg-3 {
+    margin-bottom: 1rem !important; }
+
+  .ml-lg-3,
+  .mx-lg-3 {
+    margin-left: 1rem !important; }
+
+  .m-lg-4 {
+    margin: 1.5rem !important; }
+
+  .mt-lg-4,
+  .my-lg-4 {
+    margin-top: 1.5rem !important; }
+
+  .mr-lg-4,
+  .mx-lg-4 {
+    margin-right: 1.5rem !important; }
+
+  .mb-lg-4,
+  .my-lg-4 {
+    margin-bottom: 1.5rem !important; }
+
+  .ml-lg-4,
+  .mx-lg-4 {
+    margin-left: 1.5rem !important; }
+
+  .m-lg-5 {
+    margin: 3rem !important; }
+
+  .mt-lg-5,
+  .my-lg-5 {
+    margin-top: 3rem !important; }
+
+  .mr-lg-5,
+  .mx-lg-5 {
+    margin-right: 3rem !important; }
+
+  .mb-lg-5,
+  .my-lg-5 {
+    margin-bottom: 3rem !important; }
+
+  .ml-lg-5,
+  .mx-lg-5 {
+    margin-left: 3rem !important; }
+
+  .p-lg-0 {
+    padding: 0 !important; }
+
+  .pt-lg-0,
+  .py-lg-0 {
+    padding-top: 0 !important; }
+
+  .pr-lg-0,
+  .px-lg-0 {
+    padding-right: 0 !important; }
+
+  .pb-lg-0,
+  .py-lg-0 {
+    padding-bottom: 0 !important; }
+
+  .pl-lg-0,
+  .px-lg-0 {
+    padding-left: 0 !important; }
+
+  .p-lg-1 {
+    padding: 0.25rem !important; }
+
+  .pt-lg-1,
+  .py-lg-1 {
+    padding-top: 0.25rem !important; }
+
+  .pr-lg-1,
+  .px-lg-1 {
+    padding-right: 0.25rem !important; }
+
+  .pb-lg-1,
+  .py-lg-1 {
+    padding-bottom: 0.25rem !important; }
+
+  .pl-lg-1,
+  .px-lg-1 {
+    padding-left: 0.25rem !important; }
+
+  .p-lg-2 {
+    padding: 0.5rem !important; }
+
+  .pt-lg-2,
+  .py-lg-2 {
+    padding-top: 0.5rem !important; }
+
+  .pr-lg-2,
+  .px-lg-2 {
+    padding-right: 0.5rem !important; }
+
+  .pb-lg-2,
+  .py-lg-2 {
+    padding-bottom: 0.5rem !important; }
+
+  .pl-lg-2,
+  .px-lg-2 {
+    padding-left: 0.5rem !important; }
+
+  .p-lg-3 {
+    padding: 1rem !important; }
+
+  .pt-lg-3,
+  .py-lg-3 {
+    padding-top: 1rem !important; }
+
+  .pr-lg-3,
+  .px-lg-3 {
+    padding-right: 1rem !important; }
+
+  .pb-lg-3,
+  .py-lg-3 {
+    padding-bottom: 1rem !important; }
+
+  .pl-lg-3,
+  .px-lg-3 {
+    padding-left: 1rem !important; }
+
+  .p-lg-4 {
+    padding: 1.5rem !important; }
+
+  .pt-lg-4,
+  .py-lg-4 {
+    padding-top: 1.5rem !important; }
+
+  .pr-lg-4,
+  .px-lg-4 {
+    padding-right: 1.5rem !important; }
+
+  .pb-lg-4,
+  .py-lg-4 {
+    padding-bottom: 1.5rem !important; }
+
+  .pl-lg-4,
+  .px-lg-4 {
+    padding-left: 1.5rem !important; }
+
+  .p-lg-5 {
+    padding: 3rem !important; }
+
+  .pt-lg-5,
+  .py-lg-5 {
+    padding-top: 3rem !important; }
+
+  .pr-lg-5,
+  .px-lg-5 {
+    padding-right: 3rem !important; }
+
+  .pb-lg-5,
+  .py-lg-5 {
+    padding-bottom: 3rem !important; }
+
+  .pl-lg-5,
+  .px-lg-5 {
+    padding-left: 3rem !important; }
+
+  .m-lg-auto {
+    margin: auto !important; }
+
+  .mt-lg-auto,
+  .my-lg-auto {
+    margin-top: auto !important; }
+
+  .mr-lg-auto,
+  .mx-lg-auto {
+    margin-right: auto !important; }
+
+  .mb-lg-auto,
+  .my-lg-auto {
+    margin-bottom: auto !important; }
+
+  .ml-lg-auto,
+  .mx-lg-auto {
+    margin-left: auto !important; } }
+@media (min-width: 1200px) {
+  .m-xl-0 {
+    margin: 0 !important; }
+
+  .mt-xl-0,
+  .my-xl-0 {
+    margin-top: 0 !important; }
+
+  .mr-xl-0,
+  .mx-xl-0 {
+    margin-right: 0 !important; }
+
+  .mb-xl-0,
+  .my-xl-0 {
+    margin-bottom: 0 !important; }
+
+  .ml-xl-0,
+  .mx-xl-0 {
+    margin-left: 0 !important; }
+
+  .m-xl-1 {
+    margin: 0.25rem !important; }
+
+  .mt-xl-1,
+  .my-xl-1 {
+    margin-top: 0.25rem !important; }
+
+  .mr-xl-1,
+  .mx-xl-1 {
+    margin-right: 0.25rem !important; }
+
+  .mb-xl-1,
+  .my-xl-1 {
+    margin-bottom: 0.25rem !important; }
+
+  .ml-xl-1,
+  .mx-xl-1 {
+    margin-left: 0.25rem !important; }
+
+  .m-xl-2 {
+    margin: 0.5rem !important; }
+
+  .mt-xl-2,
+  .my-xl-2 {
+    margin-top: 0.5rem !important; }
+
+  .mr-xl-2,
+  .mx-xl-2 {
+    margin-right: 0.5rem !important; }
+
+  .mb-xl-2,
+  .my-xl-2 {
+    margin-bottom: 0.5rem !important; }
+
+  .ml-xl-2,
+  .mx-xl-2 {
+    margin-left: 0.5rem !important; }
+
+  .m-xl-3 {
+    margin: 1rem !important; }
+
+  .mt-xl-3,
+  .my-xl-3 {
+    margin-top: 1rem !important; }
+
+  .mr-xl-3,
+  .mx-xl-3 {
+    margin-right: 1rem !important; }
+
+  .mb-xl-3,
+  .my-xl-3 {
+    margin-bottom: 1rem !important; }
+
+  .ml-xl-3,
+  .mx-xl-3 {
+    margin-left: 1rem !important; }
+
+  .m-xl-4 {
+    margin: 1.5rem !important; }
+
+  .mt-xl-4,
+  .my-xl-4 {
+    margin-top: 1.5rem !important; }
+
+  .mr-xl-4,
+  .mx-xl-4 {
+    margin-right: 1.5rem !important; }
+
+  .mb-xl-4,
+  .my-xl-4 {
+    margin-bottom: 1.5rem !important; }
+
+  .ml-xl-4,
+  .mx-xl-4 {
+    margin-left: 1.5rem !important; }
+
+  .m-xl-5 {
+    margin: 3rem !important; }
+
+  .mt-xl-5,
+  .my-xl-5 {
+    margin-top: 3rem !important; }
+
+  .mr-xl-5,
+  .mx-xl-5 {
+    margin-right: 3rem !important; }
+
+  .mb-xl-5,
+  .my-xl-5 {
+    margin-bottom: 3rem !important; }
+
+  .ml-xl-5,
+  .mx-xl-5 {
+    margin-left: 3rem !important; }
+
+  .p-xl-0 {
+    padding: 0 !important; }
+
+  .pt-xl-0,
+  .py-xl-0 {
+    padding-top: 0 !important; }
+
+  .pr-xl-0,
+  .px-xl-0 {
+    padding-right: 0 !important; }
+
+  .pb-xl-0,
+  .py-xl-0 {
+    padding-bottom: 0 !important; }
+
+  .pl-xl-0,
+  .px-xl-0 {
+    padding-left: 0 !important; }
+
+  .p-xl-1 {
+    padding: 0.25rem !important; }
+
+  .pt-xl-1,
+  .py-xl-1 {
+    padding-top: 0.25rem !important; }
+
+  .pr-xl-1,
+  .px-xl-1 {
+    padding-right: 0.25rem !important; }
+
+  .pb-xl-1,
+  .py-xl-1 {
+    padding-bottom: 0.25rem !important; }
+
+  .pl-xl-1,
+  .px-xl-1 {
+    padding-left: 0.25rem !important; }
+
+  .p-xl-2 {
+    padding: 0.5rem !important; }
+
+  .pt-xl-2,
+  .py-xl-2 {
+    padding-top: 0.5rem !important; }
+
+  .pr-xl-2,
+  .px-xl-2 {
+    padding-right: 0.5rem !important; }
+
+  .pb-xl-2,
+  .py-xl-2 {
+    padding-bottom: 0.5rem !important; }
+
+  .pl-xl-2,
+  .px-xl-2 {
+    padding-left: 0.5rem !important; }
+
+  .p-xl-3 {
+    padding: 1rem !important; }
+
+  .pt-xl-3,
+  .py-xl-3 {
+    padding-top: 1rem !important; }
+
+  .pr-xl-3,
+  .px-xl-3 {
+    padding-right: 1rem !important; }
+
+  .pb-xl-3,
+  .py-xl-3 {
+    padding-bottom: 1rem !important; }
+
+  .pl-xl-3,
+  .px-xl-3 {
+    padding-left: 1rem !important; }
+
+  .p-xl-4 {
+    padding: 1.5rem !important; }
+
+  .pt-xl-4,
+  .py-xl-4 {
+    padding-top: 1.5rem !important; }
+
+  .pr-xl-4,
+  .px-xl-4 {
+    padding-right: 1.5rem !important; }
+
+  .pb-xl-4,
+  .py-xl-4 {
+    padding-bottom: 1.5rem !important; }
+
+  .pl-xl-4,
+  .px-xl-4 {
+    padding-left: 1.5rem !important; }
+
+  .p-xl-5 {
+    padding: 3rem !important; }
+
+  .pt-xl-5,
+  .py-xl-5 {
+    padding-top: 3rem !important; }
+
+  .pr-xl-5,
+  .px-xl-5 {
+    padding-right: 3rem !important; }
+
+  .pb-xl-5,
+  .py-xl-5 {
+    padding-bottom: 3rem !important; }
+
+  .pl-xl-5,
+  .px-xl-5 {
+    padding-left: 3rem !important; }
+
+  .m-xl-auto {
+    margin: auto !important; }
+
+  .mt-xl-auto,
+  .my-xl-auto {
+    margin-top: auto !important; }
+
+  .mr-xl-auto,
+  .mx-xl-auto {
+    margin-right: auto !important; }
+
+  .mb-xl-auto,
+  .my-xl-auto {
+    margin-bottom: auto !important; }
+
+  .ml-xl-auto,
+  .mx-xl-auto {
+    margin-left: auto !important; } }
 /* CSS Document */
-
 /* --- GERAL --- */
-html, body { height: 100%; }
-body {background: #fff /*url(http://arquigrafia.org.br/img/grid.png) top center repeat-y*/; width: 100%; margin: 0; font-family: "Roboto", sans-serif; font-size: 13px; color: #000; }
-#container { position: relative; width: 100%; }
-#content { height: auto; overflow: hidden; }
-/*.clear { height: 225px; }*/
-ul, li { margin: 0; padding: 0; }
-ul { list-style: none; }
-h1 { font-weight: bold; font-size: 18px; color: #000; margin: 0 0 0.5em; }
-h2, h3, h4, h5, h6 { color: #222; margin: 0 0 0.5em; }
-h3 { margin: 0 0 5px; }
-h3 + p { margin-top: 0; }
-h1, h2, h3, h4 { text-transform: uppercase; }
-/*p { margin: 15px 0; line-height: 18px; color: #000; }
-p a { color: #808080; text-decoration: none; }*/
-p { margin: 15px 0; line-height: 16px; color: #222; } /* MODIFICADO ANDRE 18/06/2015 */
-a { color: #888; text-decoration: none; } /* MODIFICADO ANDRE 18/06/2015 */
-a:hover { color: #222; text-decoration: underline; } /* MODIFICADO ANDRE 18/06/2015 */
+html, body {
+  height: 100%; }
 
-a, #sidebar p a  { color: #000; text-decoration: none; }
-a:hover, #sidebar p a:hover { color: #000; text-decoration: underline; }
-textarea { font-family: Arial, Helvetica, sans-serif; }
-input { font-family: Arial, Helvetica, sans-serif; }
-img, a img, input { border: none; }
-input.cursor { cursor: pointer; }
-label { display: inline-block; font-weight: 600; text-transform: uppercase; margin-top: 8px; }
-hr { border: none; height: 1px; background: #333; }
-small { font-size: 11px; }
-.left { float: left; }
-.right { float: right; }
-.justify p {text-align: justify;}
-img.left { margin-right: 15px; margin-bottom: 10px; }
-img.right { margin-left: 15px; }
-.btn { background: transparent; color: #000; border: solid 2px #000; font-size: 12px; font-weight: bold; padding: 7px 10px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; transition: all ease-in-out 0.15s; }
-.btn:hover, .btn:hover a { color: #000; border: solid 2px #808080; text-decoration: none; cursor: pointer; }
-.step {background: #fff; color: #444; border: solid 1px #ddd; font-size: 10px; font-weight: bold; padding: 5px 7px 5px 8px; -webkit-border-radius: 20px; -moz-border-radius: 20px; border-radius: 20px; line-height: 20px; vertical-align: middle;}
-.step-text {vertical-align: middle; margin-left: 5px;}
-.error {color: #C52D30;}
-#beta { display: none; }
+body {
+  background: #fff;
+  width: 100%;
+  margin: 0;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  color: #555; }
+
+#container {
+  position: relative;
+  width: 100%; }
+
+#content {
+  height: auto;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; }
+
+/*.clear { height: 225px; }*/
+ul, li {
+  margin: 0;
+  padding: 0; }
+
+ul {
+  list-style: none; }
+
+h1 {
+  font-weight: bold;
+  font-size: 2em;
+  color: #000;
+  margin: 0 0 0.3em; }
+
+h2 {
+  margin: 0 0 0.4em; }
+
+h2, h3, h4, h5, h6 {
+  color: #000;
+  margin: 0 0 0.5em; }
+
+h3 {
+  margin: 0 0 5px; }
+
+h3 + p {
+  margin-top: 0; }
+
+/*p { margin: 15px 0; line-height: 1.2em; color: #666; }
+a { color: #222; text-decoration: none; }
+a:hover { color: #222; /*text-decoration: underline; } */
+p {
+  margin: 15px 0;
+  line-height: 1.5em;
+  color: #555; }
+
+/* MODIFICADO ANDRE 18/06/2015 */
+a {
+  color: #000;
+  text-decoration: none; }
+
+/* MODIFICADO ANDRE 18/06/2015 */
+a:hover {
+  color: #555;
+  text-decoration: underline; }
+
+/* MODIFICADO ANDRE 18/06/2015 */
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: inherit; }
+
+textarea {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
+
+input {
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif; }
+
+img, a img, input {
+  border: none; }
+
+input.cursor {
+  cursor: pointer; }
+
+label {
+  display: inline; }
+
+hr {
+  border: none;
+  height: 1px;
+  background: #333; }
+
+small {
+  font-size: 0.9em; }
+
+.left {
+  float: left; }
+
+.right {
+  float: right; }
+
+.justify p {
+  text-align: justify; }
+
+img.left {
+  margin-right: 15px;
+  margin-bottom: 10px; }
+
+img.right {
+  margin-left: 15px; }
+
+.btn {
+  background: #fff;
+  color: #000;
+  border: solid 1px #ddd;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 7px 20px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+.btn:hover, .btn:hover a {
+  color: #222;
+  text-decoration: none;
+  cursor: pointer;
+  border-color: #aaa; }
+
+.step {
+  background: #fff;
+  color: #444;
+  border: solid 1px #ddd;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px 7px 5px 8px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  line-height: 1.2em;
+  vertical-align: middle; }
+
+.step-text {
+  vertical-align: middle;
+  margin-left: 5px; }
+
+.error {
+  color: #C52D30; }
+
+input[type=text].error {
+  border-color: #C52D30; }
 
 /* mascara para janelas popups */
-#mask { width: 100%; height: 100%; position: fixed; top: 0; left: 0; background-image: url(http://arquigrafia.org.br/img/mask.png); display: none; z-index: 1000;}
+#mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image: url(../img/mask.png);
+  display: none;
+  z-index: 1000; }
+
 /* erros de validação */
-#form_window label.error { display: inline-block; width: 100%; text-align: center; }
-#form_window input.error { border: 1px solid #CB9833; }
-#form_window label.error, #form_window input.error { color: #CB9833; }
+#form_window label.error {
+  display: inline-block;
+  width: 100%;
+  text-align: center; }
+
+#form_window input.error {
+  border: 1px solid #CB9833; }
+
+#form_window label.error, #form_window input.error {
+  color: #CB9833; }
 
 /* skeleton */
-.container                                  { position: relative; width: 960px; margin: 0 auto; padding: 0; }
-.container:after                            { content: "\0020"; display: block; height: 0; clear: both; visibility: hidden; }
-.container .column,
-.container .columns                         { float: left; display: inline; margin-left: 10px; margin-right: 10px; }
-.row                                        { margin-bottom: 20px; }
-/* Nested Column Classes */
-.column.alpha, .columns.alpha               { margin-left: 0; }
-.column.omega, .columns.omega               { margin-right: 0; }
-/* Base Grid */
-.container .one.column,
-.container .one.columns                     { width: 60px;  }
-.container .two.columns                     { width: 140px; }
-.container .three.columns                   { width: 220px; }
-.container .four.columns                    { width: 300px; }
-.container .five.columns                    { width: 380px; }
-.container .six.columns                     { width: 460px; }
-.container .seven.columns                   { width: 540px; }
-.container .eight.columns                   { width: 620px; }
-.container .nine.columns                    { width: 700px; }
-.container .ten.columns                     { width: 780px; }
-.container .eleven.columns                  { width: 860px; }
-.container .twelve.columns                  { width: 940px; }
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box; }
 
-.clear {clear: both;display: block;overflow: hidden;visibility: hidden;width: 0;height: 0; }
+.column,
+.columns {
+  width: 100%;
+  float: left;
+  box-sizing: border-box; }
 
-/* Offsets */
-.container .offset-by-one                   { padding-left: 80px;  }
-.container .offset-by-two                   { padding-left: 160px; }
-.container .offset-by-three                 { padding-left: 240px; }
-.container .offset-by-four                  { padding-left: 320px; }
-.container .offset-by-five                  { padding-left: 400px; }
-.container .offset-by-six                   { padding-left: 480px; }
-.container .offset-by-seven                 { padding-left: 560px; }
-.container .offset-by-eight                 { padding-left: 640px; }
-.container .offset-by-nine                  { padding-left: 720px; }
-.container .offset-by-ten                   { padding-left: 800px; }
-.container .offset-by-eleven                { padding-left: 880px; }
+.row {
+  margin-bottom: 20px; }
 
-.clearfix:before, .clearfix:after, .row:before, .row:after {content: '\0020'; display: block; overflow: hidden; visibility: hidden; width: 0; height: 0; }
-.row:after, .clearfix:after {clear: both; }
-.row, .clearfix {zoom: 1; }
+.column.alpha, .columns.alpha {
+  margin-left: 0; }
+
+.column.omega, .columns.omega {
+  margin-right: 0; }
+
+.clear {
+  clear: both;
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+.clearfix:before, .clearfix:after, .row:before, .row:after {
+  content: '\0020';
+  display: block;
+  overflow: hidden;
+  visibility: hidden;
+  width: 0;
+  height: 0; }
+
+.row:after, .clearfix:after {
+  clear: both; }
+
+.row, .clearfix {
+  zoom: 1; }
 
 /* icons */
-i {padding: 4px 25px 0 0; background-image: url(http://arquigrafia.org.br/img/sprite.png);}
-i.profile {background-position: -160px 0; padding-right: 22px; }
-i.follow {background-position: -262px 0; }
-i.photos {background-position: -233px 0;}
-i.stack {padding: 4px 22px 0 0; background: url(http://arquigrafia.org.br/img/i-album.png) no-repeat;}
-i.group {background-position: -121px 0;}
-i.info {background-position: -121px 0; display: none;}
+i {
+  padding: 5px 24px 0 0;
+  background-image: url(../img/sprite.png);
+  background-repeat: no-repeat; }
+
+i.profile {
+  background-position: -160px 0;
+  padding-right: 22px; }
+
+i.follow {
+  background-position: -262px 0; }
+
+i.photos {
+  background-position: -233px 0; }
+
+i.stack {
+  padding: 4px 22px 0 0;
+  background: url(../img/i-album.png) no-repeat; }
+
+i.group {
+  background-position: -121px 0; }
+
+i.info {
+  background-position: -121px 0; }
+
+i.notification {
+  background-position: -202px 0px; }
+
+i.upload {
+  background-position: -402px 0px; }
+
+i.badges {
+  padding: 4px 22px 0 0;
+  background: url(../img/i-badge.png) no-repeat; }
+
+i.points {
+  padding: 4px 22px 0 0;
+  background: url(../img/i-points.png) no-repeat; }
+
+i.contributions {
+  padding: 4px 22px 0 0;
+  background: url(../img/i-points.png) no-repeat; }
+
+i.oam {
+  padding: 4px 22px 0 0;
+  background: url("../img/icons/monument.png") no-repeat;
+  background-size: contain; }
+
+.iconVideo {
+  position: absolute;
+  background: url(../img/icone-big.png) center center no-repeat;
+  z-index: 1;
+  background-size: contain;
+  left: 50%;
+  top: 50%;
+  width: 50%;
+  height: 50%;
+  max-width: 50px;
+  max-height: 50px;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%); }
 
 /* forms */
-form p {margin: 3px 0;}
-/*input:focus { outline: none; }
-input[type="text"], input[type="password"] {border: solid 2px #000; width: 140px; padding: 8px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;} */
-input[type="text"], input[type="password"] {border: solid 1px #ccc; width: 140px; padding: 4px; } /* MODIFICADO ANDRE 18/06/2015 */
+form p {
+  margin: 3px 0 5px; }
 
-input[type="range"] {width: 220px;}
-textarea {border: solid 2px #000; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px;}
-.registration input[type="text"], .registration input[type="password"] {border: solid 2px #000 font-size: 10px; font-weight: bold; padding: 5px 10px; -webkit-border-radius: 2px; -moz-border-radius: 2px; border-radius: 2px; margin: -5px 0 10px;}
-.form-table td {vertical-align: top; padding-bottom: 5px;}
-.form-table label {line-height: 20px;}
+/*input[type="text"], input[type="password"] {border-bottom: solid 1px #ccc; width: 140px; } */
+input[type="text"], input[type="password"] {
+  border: solid 1px #ccc;
+  width: 140px;
+  padding: 4px; }
 
-::-webkit-input-placeholder { color:#ddd; }
-::-moz-placeholder { color:#ddd; } /* firefox 19+ */
-:-ms-input-placeholder { color:#ddd; } /* ie */
-input:-moz-placeholder { color:#ddd; }
+/* MODIFICADO ANDRE 18/06/2015 */
+input[type="range"] {
+  width: 220px; }
+
+.registration input[type="text"], .registration input[type="password"] {
+  border: solid 1px #ddd;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 5px 10px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin: -5px 0 10px; }
+
+.form-table td {
+  vertical-align: top;
+  padding-bottom: 5px; }
+
+.form-table label {
+  line-height: 1.2em; }
+
+::-webkit-input-placeholder {
+  color: #bbb; }
+
+::-moz-placeholder {
+  color: #bbb; }
+
+/* firefox 19+ */
+:-ms-input-placeholder {
+  color: #bbb; }
+
+/* ie */
+input:-moz-placeholder {
+  color: #bbb; }
 
 /* --- HEADER --- */
-.header { height: auto; margin: 25px auto 35px; }
-.header #logo { float: left; display: block; width: 250px; height: 50px; margin: 17px 61px 0 0px; background: url(../img/logo-header.png) no-repeat; }
-.header p#beta { float: left; margin: 21px 80px 0 0; color: #222; font-size: 12px; }
+.header {
+  height: auto;
+  margin: 32px auto 32px; }
+
+.header a {
+  text-decoration: none; }
+
+.header #logo {
+  float: left;
+  display: block;
+  width: 40px;
+  height: 40px;
+  margin: 7px 1px 0 0px; }
+
+.header p#beta {
+  float: left;
+  margin: 21px 0 0 0;
+  color: #222;
+  font-size: 12px; }
+
 /* itens do menu */
-ul#top_menu_items { margin: 8px 0 -3px -2px; color: #7B7D7F; font-size: 11px; float: left; clear: right; width: 400px; }
-ul#top_menu_items li { display: inline; margin-right: 10px; }
-ul#top_menu_items li a { line-height: 22px; display: inline-block; zoom: 1; padding-left: 26px; }
-ul#top_menu_items li #project { background: url(http://arquigrafia.org.br/img/sprite.png) no-repeat -780px 0; }
-ul#top_menu_items li #help { background: url(http://arquigrafia.org.br/img/sprite.png) no-repeat -780px -45px; }
-ul#top_menu_items li #contact { background: url(http://arquigrafia.org.br/img/sprite.png) no-repeat -780px -93px; }
+ul#top_menu_items {
+  margin: 8px 0 -3px -2px;
+  color: #7B7D7F;
+  font-size: 0.9em;
+  float: left;
+  clear: right;
+  width: 400px; }
+
+ul#top_menu_items li {
+  display: inline;
+  margin-right: 10px; }
+
+ul#top_menu_items li a {
+  line-height: 1.2em;
+  display: inline-block;
+  zoom: 1;
+  padding-left: 26px; }
+
+ul#top_menu_items li #project {
+  background: url(../img/sprite.png) no-repeat -780px 0; }
+
+ul#top_menu_items li #help {
+  background: url(../img/sprite.png) no-repeat -780px -45px; }
+
+ul#top_menu_items li #contact {
+  background: url(../img/sprite.png) no-repeat -780px -93px; }
+
 /* registro e login - OFF */
-.registration input[type=text] {width: 130px;}
-.registration input[type=password] {width: 130px; height: 20px; margin-top: 1px;}
-#loggin_area { position: relative; float: right; width: 217px; height: 53px; margin-top: 11px; }
-#loggin_area #login_button { float: right; margin: 19px 0 0 5px; }
-#loggin_area #registration_button { float: right; margin: 19px 5px 0; }
-#login_registration_bar { float: right; margin: 30px 25px 0 0; }
+.registration input[type=text], .registration input[type=password] {
+  width: 130px; }
+
+#loggin_area {
+  display: none;
+  position: relative; }
+
+#loggin_area #login_button {
+  float: right;
+  margin: 9px 0 0 5px; }
+
+#loggin_area #registration_button {
+  float: right;
+  margin: 9px 5px 0; }
+
+#login_registration_bar {
+  float: right;
+  margin: 30px 25px 0 0; }
+
+/*login institutional*/
+#loggin_area_institutional {
+  position: relative;
+  float: right;
+  width: 277px;
+  height: 53px; }
+
 /* registro e login - ON */
-ul#logged_menu { height: 25px; float: left; margin: 6px 0 2px 4px }
-ul#logged_menu li { display: inline-block; width: 18px; height: 18px; zoom: 1; margin-right: 10px; }
-ul#logged_menu li a:hover { text-decoration: none; opacity: 0.8; }
-ul#logged_menu li #messages, ul#logged_menu li #users, ul#logged_menu li #comunities, ul#logged_menu li #upload { display: block; width: 22px; height: 22px; }
-ul#logged_menu li #users, ul#logged_menu li #upload, ul#logged_menu li #exit { display: block; width: 18px; height: 18px; }
-ul#logged_menu li #messages { background: url(http://arquigrafia.org.br/img/sprite.png) -203px 0px; margin-top: -4px; }
-ul#logged_menu li #users { background: url(/img/i-album.png); }
-ul#logged_menu li #comunities { background: url(http://arquigrafia.org.br/img/sprite.png) -262px -2px; }
-ul#logged_menu li #comunities:hover { background-position: -262px -34px; }
-ul#logged_menu li #upload { background: url(/img/i-download.png);}
-ul#logged_menu li #exit { background: url(/img/i-exit.png);}
-#user_name { margin-left: 4px; font-size: 13px; font-weight: 600; text-transform: uppercase; line-height: 24px; margin-right: -100px; }
-.header #user_photo {display: block; width: 48px; height: 48px; overflow: hidden; margin: 4px 12px 0 5px; float: left; }
-#logout { position: absolute; bottom: 0; right: 0; }
-.user_photo_thumbnail { width: 48px; height: auto; }
+ul#logged_menu {
+  list-style: none;
+  float: left;
+  margin: -10px 0px 2px 0;
+  font-size: 10px;
+  width: 200px; }
+
+ul#logged_menu li {
+  display: inline-block;
+  margin-left: 2px;
+  height: 15px;
+  zoom: 1; }
+
+ul#logged_menu li #messages, ul#logged_menu li #users, ul#logged_menu li #comunities, ul#logged_menu li #notification, ul#logged_menu li #badge {
+  text-decoration: none; }
+
+ul#logged_menu li #messages {
+  background: url(../img/sprite.png) -203px 0px;
+  margin-top: -4px; }
+
+ul#logged_menu li #users {
+  background: url(../img/sprite.png) -233px 0px;
+  margin-top: -4px; }
+
+ul#logged_menu li #comunities {
+  background: url(../img/sprite.png) -262px -2px; }
+
+ul#logged_menu li #comunities:hover {
+  background-position: -262px -34px; }
+
+ul#logged_menu li .new-message {
+  padding-left: 0; }
+
+ul#logged_menu li .new-message a:hover {
+  text-decoration: none; }
+
+/*ul#logged_menu li #upload { background: url(../img/sprite.png) -402px 0px; }*/
+/*ul#logged_menu li #notification { background: url(../img/sprite.png) -202px 0px; }*/
+ul#logged_menu li #badge {
+  background: url(../img/sprite.png) -181px 0px; }
+
+#user_name {
+  margin-left: 8px;
+  font-size: 12px;
+  line-height: 1.2em;
+  margin-right: -100px; }
+
+.header #user_photo {
+  display: block;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  margin: 4px 12px 0 0;
+  float: left; }
+
+#logout {
+  position: absolute;
+  top: 4px;
+  right: 0; }
+
+.user_photo_thumbnail {
+  width: 48px;
+  height: auto; }
+
+ul .contributions-list {
+  font-size: 10px; }
+
+ul .contributions-list div {
+  margin-top: 10px; }
+
+ul .contributions-list a:hover {
+  color: #000;
+  text-decoration: none; }
+
 /* busca */
-div#first_menu { width: 400px; float: left; }
-#search_buttons_area { float: left; height: 22px; width: 400px; margin-top: 30px;  }
-input.search_bar { font-size: 14px !important; font-weight: bold; height: 30px; width: 295px; margin: 0; padding: 0px 10px; float: left; border: solid 2px #000; border-right: none; -webkit-border-top-left-radius: 2px; -webkit-border-bottom-left-radius: 2px; -moz-border-radius-topleft: 2px; -moz-border-radius-bottomleft: 2px; border-top-left-radius: 2px; border-bottom-left-radius: 2px; }
-input.search_bar_button { background: url(../img/i-search.png) -5px -5px; height: 34px; width: 34px; border: solid 2px #000; /*border-left: none;*/ -webkit-border-top-right-radius: 2px; -webkit-border-bottom-right-radius: 2px; -moz-border-radius-topright: 2px; -moz-border-radius-bottomright: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; }
-#complete_search { float: right; margin-top: -3px; height: 24px; width: 24px; background: url(http://arquigrafia.org.br/img/sprite.png) -367px 0; }
-#complete_search:hover { background-position: -367px -32px; }
-#search_scroll { width: 100%; }
-.list_photos { height: auto; overflow: hidden; width: 100%; }
-.load_photos, .not_load_photos, .load_photos_by_tag { float: right; }
+#search_buttons_area {
+  float: left;
+  height: auto;
+  width: 280px;
+  margin-top: 17px; }
+
+input.search_bar {
+  height: 24px;
+  width: 180px;
+  padding: 3px 5px;
+  float: left;
+  border: solid 1px #ddd;
+  border-right: none;
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+input.search_bar_button {
+  background: url(../img/sprite.png) -329px 6px;
+  height: 32px;
+  width: 32px;
+  border: solid 1px #ddd;
+  /*border-left: none;*/
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px; }
+
+#complete_search {
+  float: right;
+  margin-top: -3px;
+  height: 24px;
+  width: 24px;
+  background: url(../img/sprite.png) -367px 0; }
+
+#complete_search:hover {
+  background-position: -367px -32px; }
+
+#search_scroll {
+  width: 100%; }
+
+.list_photos {
+  height: auto;
+  overflow: hidden;
+  width: 100%; }
+
+.load_photos, .not_load_photos, .load_photos_by_tag {
+  float: right; }
+
+/* menu-hamburger */
+.menu-hamburger {
+  display: none; }
+
+.menu.active {
+  display: none; }
+
 /* mensagem de envio / falha de envio */
-.message_delivery { color: #CB9833; font-size: 12px; margin: 3px auto; height: 20px; width: 120px; clear: both; text-align: center; display: none; }
-.message_delivery_generic { color: #CB9833; font-size: 12px; margin: 3px auto; clear: both; text-align: center; }
+.message_delivery {
+  color: #CB9833;
+  font-size: 12px;
+  margin: 3px auto;
+  height: 20px;
+  width: 120px;
+  clear: both;
+  text-align: center;
+  display: none; }
+
+.message_delivery_generic {
+  color: #CB9833;
+  font-size: 12px;
+  margin: 3px auto;
+  clear: both;
+  text-align: center; }
+
 /* busca avançada */
-#complete_search_bar { display: none; width: 1000px; height: 20px; float: left; margin: 10px 0; }
-#complete_search_bar label { float: left; line-height: 20px; margin: 0 10px; font-size: 9px }
-#complete_search_bar input.text { display: block; width: 109px; height: 20px; line-height: 20px; padding: 0 3px; background: url(http://arquigrafia.org.br/img/sprite.png) -651px -79px; float: left; }
-#complete_search_bar input.submit { display: block; width: 58px; height: 20px; line-height: 20px; margin: 0 0 0 20px; background: url(http://arquigrafia.org.br/img/sprite.png) -23px -238px; float: left; }
-#complete_search_bar input.submit:hover { background: url(http://arquigrafia.org.br/img/sprite.png) -23px -259px; cursor: pointer; }
-/* calendário */
-.ui-widget-header { background: none #CB9833 !important; border: 1px solid #CB9833 !important; }
+#complete_search_bar {
+  display: none;
+  width: 1000px;
+  height: 20px;
+  float: left;
+  margin: 10px 0; }
+
+#complete_search_bar label {
+  float: left;
+  line-height: 1.2em;
+  margin: 0 10px;
+  font-size: 9px; }
+
+#complete_search_bar input.text {
+  display: block;
+  width: 109px;
+  height: 20px;
+  line-height: 1.2em;
+  padding: 0 3px;
+  background: url(../img/sprite.png) -651px -79px;
+  float: left; }
+
+#complete_search_bar input.submit {
+  display: block;
+  width: 58px;
+  height: 20px;
+  line-height: 1.2em;
+  margin: 0 0 0 20px;
+  background: url(../img/sprite.png) -23px -238px;
+  float: left; }
+
+#complete_search_bar input.submit:hover {
+  background: url(../img/sprite.png) -23px -259px;
+  cursor: pointer; }
+
+/* calendário #CB9833 */
+.ui-widget-header {
+  background: none #eeeeee !important;
+  border: 1px solid #eeeeee !important; }
+
 /* erros e mensagens */
-.message {color: #4AA02C; border: solid 1px #ddd; border-radius: 5px; padding: 10px; text-align: center; margin: 0 0 20px; }
-.message strong {font-size: 13px; font-weight: bold; text-transform: uppercase;}
+.message {
+  color: #4AA02C;
+  border: solid 1px #ddd;
+  border-radius: 2px;
+  padding: 10px;
+  text-align: center;
+  margin: 0 0 20px; }
+
+.message strong {
+  font-size: 13px;
+  font-weight: bold;
+  text-transform: uppercase; }
 
 /* --- PÁGINA INICIAL --- */
 /* painel com diversos tamanhos, 3 horizontais, 1 vertical, com centralização horizontal. JS para troca da medida fixa de largura para altura */
-.wrap { overflow: hidden; width: 100%; margin: 0; padding: 0; height: 570px; z-index: 999; position: relative; }
-#panel { height: 570px; width: 2000px; left: 0; }
-.panel-back, .panel-next {position: absolute; top: 0; height: 580px; width: 220px; cursor: pointer;}
-.panel-back {left: 0; background:none;}
-.panel-back:hover {background:url(http://arquigrafia.org.br/img/back.png) left center no-repeat;}
-.panel-next {right: 0; background:none;}
-.panel-next:hover {background:url(http://arquigrafia.org.br/img/next.png) right center no-repeat;}
-#user_gallery .panel-back, #user_gallery .panel-next {height: 220px;}
-.wrap .item { position: relative; }
-.wrap .item a { display: block; position: relative; width: 100%; height: 100%; }
-.wrap .layer { position: absolute; top: 0; left: 0; overflow: hidden; }
-.wrap .h1, .wrap .h2, .wrap .h3, .wrap .v1 { float: left; margin: 5px; }
-#panel .h1, #panel .h1 .layer { width: 156px; height: 104px; }
-#panel .h1 img { width: 186px; height: auto; margin: -10px 0 0 -93px; position: absolute; left: 50%; }
-#panel .h2, #panel .h2 .layer { width: 322px; height: 218px; }
-#panel .h2 img { width: 352px; height: auto; margin: -10px 0 0 -176px; position: absolute; left: 50%; }
-#panel .h3, #panel .h3 .layer { width: 488px; height: 332px; }
-#panel .h3 img { width: 518px; height: auto; margin: -10px 0 0 -259px; position: absolute; left: 50%; }
-#panel .v1, #panel .v1 .layer { width: 156px; height: 218px; }
-#panel .v1 img { width: 186px; height: auto; margin: -10px 0 0 -93px; position: absolute; left: 50%; }
-.wrap .item .item-title { display: none; position: absolute; bottom: 0; left: 0; right: 0; background: rgba(0,0,0,0.5); padding: 5px 10px; font-size: 11px; color: #ddd; }
-.wrap .item:hover .item-title { display: block; }
-.wrap .item .item-title p { margin: 0; padding: 0; color: #ddd; display: inline-block; }
+.wrap {
+  overflow: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 570px;
+  z-index: 1;
+  position: relative; }
+
+#panel {
+  height: 570px;
+  width: 2000px;
+  left: 0; }
+
+.panel-back, .panel-next {
+  position: absolute;
+  top: 0;
+  height: 580px;
+  width: 120px;
+  cursor: pointer; }
+
+.panel-back {
+  left: 0;
+  background: none; }
+
+.panel-back:hover {
+  background: url(../img/back.png) left center no-repeat; }
+
+.panel-next {
+  right: 0;
+  background: none; }
+
+.panel-next:hover {
+  background: url(../img/next.png) right center no-repeat; }
+
+#user_gallery .panel-back, #user_gallery .panel-next {
+  height: 220px; }
+
+.wrap .item {
+  position: relative; }
+
+.wrap .item a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.wrap .item img {
+  -webkit-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -moz-transition: all 0.4s linear;
+  -ms-transition: all 0.4s linear;
+  -o-transition: all 0.4s linear;
+  transition: all 0.4s linear;
+  -webkit-filter: blur(10px);
+  -moz-filter: blur(10px);
+  -o-filter: blur(10px);
+  -ms-filter: blur(10px);
+  filter: blur(10px);
+  overflow: hidden; }
+
+.wrap .item.sharpen img {
+  -webkit-filter: blur(0px);
+  -moz-filter: blur(0px);
+  -o-filter: blur(0px);
+  -ms-filter: blur(0px);
+  filter: blur(0px); }
+
+.wrap .layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden; }
+
+.wrap .h1, .wrap .h2, .wrap .h3, .wrap .v1 {
+  float: left;
+  margin: 5px; }
+
+.wrap .item .item-title {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  font-size: 0.9em;
+  color: #ddd; }
+
+.wrap .item:hover .item-title {
+  display: block; }
+
+.wrap .item .item-title p {
+  margin: 0;
+  padding: 0;
+  color: #ddd;
+  display: inline-block; }
+
 /* lightbox - criar uma conta */
-#form_window { width: 600px; height: 400px; background: #fff; position: fixed; top: 40%; left: 50%; margin: -240px 0 0 -340px; padding: 25px; -moz-border-radius: 2px; border-radius: 2px; display: none; z-index: 1001; } /* position: absolute; */
-/*#form_window label { width: 100px; display: inline-block; color: #777; text-align: left; vertical-align: top; line-height: 27px; }*/
-#form_window textarea { border: solid 1px #EEEEEE; padding: 3px; margin: 2px 0 2px 5px; font-size: 11px; }
-#form_window input { border: solid 1px #eee; padding: 3px; margin: 2px 0 2px 5px; }
-#form_window select { margin: 3px; }
-#form_window input.text { width: 123px; }
-#form_window .date { width: 29px; }
+#form_window {
+  width: 600px;
+  min-height: 470px;
+  background: #fff;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin: -240px 0 0 -340px;
+  padding: 25px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001; }
+
+/* position: absolute; */
+/*#form_window label { width: 100px; display: inline-block; color: #777; text-align: left; vertical-align: top; line-height: 1.2em; }*/
+#form_window textarea {
+  border: solid 1px #EEEEEE;
+  padding: 3px;
+  margin: 2px 0 2px 5px;
+  font-size: 0.9em; }
+
+#form_window input {
+  border: solid 1px #eee;
+  padding: 3px;
+  margin: 2px 0 2px 5px; }
+
+#form_window select {
+  margin: 3px; }
+
+#form_window input.text {
+  width: 123px; }
+
+#form_window .date {
+  width: 29px; }
 
 /*#form_window a.close { float: right; text-align: center; margin-bottom: 10px; }
 #form_window a.close:hover { background-position: -160px -216px; text-decoration: underline; }
-*/#form_window .email, #form_window .website { width: 123px; }
-#form_window input.submit { background: url(http://arquigrafia.org.br/img/sprite.png) -222px -195px; height: 20px; width: 54px; padding: 0; margin: 0; border: none; float: right; }
-#form_window input.submit:hover { background-position: -222px -216px; }
-#creative_commons { background: url(http://arquigrafia.org.br/img/sprite.png) no-repeat 110px -240px; width: 130px; display: inline-block; }
+*/
+#form_window .email, #form_window .website {
+  width: 123px; }
+
+#form_window input.submit {
+  background: url(../img/sprite.png) -222px -195px;
+  height: 20px;
+  width: 54px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  float: right; }
+
+#form_window input.submit:hover {
+  background-position: -222px -216px; }
+
+#creative_commons {
+  background: url(../img/sprite.png) no-repeat 130px -238px;
+  width: 150px;
+  display: inline-block; }
 
 /* lightbox - boas vindas */
-#form_window_welcome { width: 600px; background: #fff; position: fixed; top: 50%; left: 50%; margin: -240px 0 0 -340px; padding: 35px; -moz-border-radius: 7px; border-radius: 7px; display: none; }
-#form_window_welcome label { width: 110px; display: inline-block; color: #777; text-align: right; vertical-align: top; line-height: 27px; }
-#form_window_welcome textarea { border: solid 1px #EEEEEE; padding: 3px; margin: 2px 0 2px 5px; font-size: 11px; }
-#form_window_welcome input { border: solid 1px #eee; padding: 3px; margin: 2px 0 2px 5px; }
-#form_window_welcome select { margin: 3px; }
-#form_window_welcome input.text { width: 123px; }
-#form_window_welcome .date { width: 29px; }
-#form_window_welcome a.close { float: right; width: 20px; height: 20px; background: url(http://arquigrafia.org.br/img/sprite.png) -160px -195px; }
-#form_window_welcome a.close:hover { background-position: -160px -216px; }
-#form_window_welcome .email, #form_window .website { width: 123px; }
-#form_window_welcome input.submit { background: url(http://arquigrafia.org.br/img/sprite.png) -222px -195px; height: 20px; width: 54px; padding: 0; margin: 0; border: none; }
-#form_window_welcome input.submit:hover { background-position: -222px -216px; }
+#form_window_welcome {
+  width: 600px;
+  background: #fff;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -240px 0 0 -340px;
+  padding: 35px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none; }
+
+#form_window_welcome label {
+  width: 110px;
+  display: inline-block;
+  color: #777;
+  text-align: right;
+  vertical-align: top;
+  line-height: 1.2em; }
+
+#form_window_welcome textarea {
+  border: solid 1px #EEEEEE;
+  padding: 3px;
+  margin: 2px 0 2px 5px;
+  font-size: 0.9em; }
+
+#form_window_welcome input {
+  border: solid 1px #eee;
+  padding: 3px;
+  margin: 2px 0 2px 5px; }
+
+#form_window_welcome select {
+  margin: 3px; }
+
+#form_window_welcome input.text {
+  width: 123px; }
+
+#form_window_welcome .date {
+  width: 29px; }
+
+#form_window_welcome a.close {
+  float: right;
+  width: 20px;
+  height: 20px;
+  background: url(../img/sprite.png) -160px -195px; }
+
+#form_window_welcome a.close:hover {
+  background-position: -160px -216px; }
+
+#form_window_welcome .email, #form_window .website {
+  width: 123px; }
+
+#form_window_welcome input.submit {
+  background: url(../img/sprite.png) -222px -195px;
+  height: 20px;
+  width: 54px;
+  padding: 0;
+  margin: 0;
+  border: none; }
+
+#form_window_welcome input.submit:hover {
+  background-position: -222px -216px; }
 
 /* imagens painel */
-#panel { min-height: 425px; }
-.images_column { width: 191px; float: left; }
-a.image { display: block; width: 170px; height: 117px; margin: 16px 7px; }
+#panel {
+  min-height: 425px; }
+
+.images_column {
+  width: 191px;
+  float: left; }
+
+a.image {
+  display: block;
+  width: 170px;
+  height: 117px;
+  margin: 16px 7px; }
 
 /* --- FOOTER --- */
-#footer { bottom: 0; clear: both; margin-top: 20px; font-size: 13px; }
-#footer .footer-msg { width: 400px; }
-#footer .footer-msg p { float: left; margin: 8px 8px; }
-#footer .footer-logo { float: left; display: block; width: 40px; height: 40px; margin: 3px 2px 0 0; background: url(../img/logo-mini.png) 0 0 no-repeat; }
+#footer {
+  bottom: 0;
+  clear: both;
+  margin-top: 20px;
+  font-size: 0.85em; }
+
+#footer .footer-msg {
+  width: auto; }
+
+#footer .footer-msg p {
+  display: inline-block;
+  margin-top: 0; }
+
+#footer .footer-logo {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 3px 8px 0 0;
+  background: url("../img/logo.chou.2018.png") no-repeat;
+  background-size: contain; }
 
 /*galeria do footer*/
-.footer_images { background: #404040; height: 89px; overflow: hidden; padding-top: 8px; position: relative; }
-.footer_images .arrows { font-size: 30px; }
-.footer_images .arrows { color: #A6A6A6; }
-.footer_images .arrows:hover { color: #CB9833; cursor: pointer; }
-.footer_images #arrow-right { position: absolute; right: 17px; top: 30px; display: inline-block; }
-.footer_images #arrow-left { position: absolute; left: 17px; top: 30px; display: inline-block; }
-#images_container { height: 80px; width: 905px; margin: auto; overflow: hidden; }
-.images_line { height: 80px; width: 2715px; }
-a.footer_image { display: block; margin: 4px; float: left; border: none; width: 105px; height: 72px; background: #000; }
+.footer_images {
+  background: #404040;
+  height: 89px;
+  overflow: hidden;
+  padding-top: 8px;
+  position: relative; }
+
+.footer_images .arrows {
+  font-size: 30px; }
+
+.footer_images .arrows {
+  color: #A6A6A6; }
+
+.footer_images .arrows:hover {
+  color: #CB9833;
+  cursor: pointer; }
+
+.footer_images #arrow-right {
+  position: absolute;
+  right: 17px;
+  top: 30px;
+  display: inline-block; }
+
+.footer_images #arrow-left {
+  position: absolute;
+  left: 17px;
+  top: 30px;
+  display: inline-block; }
+
+#images_container {
+  height: 80px;
+  width: 905px;
+  margin: auto;
+  overflow: hidden; }
+
+.images_line {
+  height: 80px;
+  width: 2715px; }
+
+a.footer_image {
+  display: block;
+  margin: 4px;
+  float: left;
+  border: none;
+  width: 105px;
+  height: 72px;
+  background: #000; }
 
 /*frase - contador de imagens*/
-.counter { display: block; float: left; width: 100%; margin: 10px 0; overflow: hidden; }
+.counter {
+  display: block;
+  float: left;
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden; }
 
 /*créditos*/
-#credits { padding-top: 20px; margin-bottom: 10px; }
-#credits ul { margin: 0; float: left; width: 173px; }
-#credits ul.last { width: 80px; margin-right: -15px; }
-#credits ul li { display: block; margin: 0 10px 4px; }
-#credits ul li a { display: block; height: 40px; }
-#credits ul li #usp { background: url(http://arquigrafia.org.br/img/logos.png) 0 0; width: 90px; }
-#credits ul li #fapesp { background: url(http://arquigrafia.org.br/img/logos.png) 0 -50px; width: 90px; }
-#credits ul li #rnp { background: url(http://arquigrafia.org.br/img/logos.png) 0 -100px; width: 90px; }
-#credits ul li #cnpq { background: url(http://arquigrafia.org.br/img/logos.png) -170px 0; width: 90px; }
-#credits ul li #ccsl { background: url(http://arquigrafia.org.br/img/logos.png) -170px -50px; width: 90px; }
-#credits ul li #chancela { background: url(http://arquigrafia.org.br/img/logos.png) -170px -100px; width: 90px; height: 50px; }
-#credits ul li #fau { background: url(http://arquigrafia.org.br/img/logos.png) -350px 0; width: 70px; }
-#credits ul li #ime { background: url(http://arquigrafia.org.br/img/logos.png) -350px -50px; width: 70px; }
-#credits ul li #eca { background: url(http://arquigrafia.org.br/img/logos.png) -350px -100px; width: 150px; }
-#credits ul li #quapa { background: url(http://arquigrafia.org.br/img/logos.png) -525px 0; width: 70px; }
-#credits ul li #vitruvius { background: url(http://arquigrafia.org.br/img/logos.png) -525px -50px; width: 70px; }
-#credits ul li #archdaily { background: url(http://arquigrafia.org.br/img/archdaily-brasil.png) 0 0 no-repeat; width: 80px; height: 40px; }
-#credits ul li #benchmark { background: url(http://arquigrafia.org.br/img/logos.png) -700px 0 no-repeat; width: 55px; }
-#credits ul li #brz { background: url(../img/logos.png) -700px -50px no-repeat; width: 55px; }
-#credits ul li #rckt { background: url(http://arquigrafia.org.br/img/rckt.png) 15px 0 no-repeat; width: 70px; margin-top: 5px; }
-#credits ul li #doctela { background: url(http://arquigrafia.org.br/img/doctela.png) 0 0 no-repeat; width: 70px; margin: 10px 0 0 -5px; }
-#credits .footer-links { width: 150px; margin: 4px 31px 0 0; border-right: 1px solid #000; text-transform: uppercase; font-weight: 600; }
-#credits .footer-links a { height: 23px; color: #000; }
-#credits .footer-links a:hover { height: 23px; color: #808080; }
-#credits .footer-links li { margin-left: 0; }
-#footer .footer-last { clear: both; padding-top: 20px; }
-#copyright { margin: 8px 0; float: right; text-align: right; }
+#credits {
+  padding-top: 20px;
+  margin-bottom: 10px; }
+
+#credits ul {
+  margin: 0;
+  float: left;
+  width: 160px;
+  height: 160px; }
+
+#credits ul.last {
+  width: 80px;
+  margin-right: -15px; }
+
+#credits ul li {
+  display: block;
+  margin: 0 10px 4px; }
+
+#credits ul li a {
+  display: block;
+  height: 40px; }
+
+#credits ul li #usp {
+  background: url(../img/logos.png) 0 0;
+  width: 90px; }
+
+#credits ul li #fapesp {
+  background: url(../img/logos.png) 0 -50px;
+  width: 90px; }
+
+#credits ul li #rnp {
+  background: url(../img/logos.png) 0 -100px;
+  width: 90px; }
+
+#credits ul li #cnpq {
+  background: url(../img/logos.png) -170px 0;
+  width: 90px; }
+
+#credits ul li #ccsl {
+  background: url(../img/logos.png) -170px -50px;
+  width: 90px; }
+
+#credits ul li #chancela {
+  background: url(../img/logos.png) -170px -100px;
+  width: 90px;
+  height: 50px; }
+
+#credits ul li #fau {
+  background: url(../img/logos.png) -350px 0;
+  width: 70px; }
+
+#credits ul li #ime {
+  background: url(../img/logos.png) -350px -50px;
+  width: 70px; }
+
+#credits ul li #eca {
+  background: url(../img/logos.png) -350px -100px;
+  width: 150px; }
+
+#credits ul li #quapa {
+  background: url(../img/logos.png) -525px 0;
+  width: 70px; }
+
+#credits ul li #vitruvius {
+  background: url(../img/logos.png) -525px -50px;
+  width: 70px; }
+
+#credits ul li #archdaily {
+  background: url(../img/archdaily-brasil.png) 0 0 no-repeat;
+  width: 80px;
+  height: 40px; }
+
+#credits ul li #benchmark {
+  background: url(../img/logos.png) -700px 0 no-repeat;
+  width: 55px; }
+
+#credits ul li #brz {
+  background: url(../img/logos.png) -700px -50px no-repeat;
+  width: 55px; }
+
+#credits ul li #rckt {
+  background: url(../img/rckt.png) 15px 0 no-repeat;
+  width: 70px;
+  margin-top: 5px; }
+
+#credits ul li #doctela {
+  background: url(../img/doctela.png) 0 0 no-repeat;
+  width: 70px;
+  margin: 10px 0 0 -5px; }
+
+#copyright {
+  margin: 18px 0;
+  float: right; }
 
 /* --- PÁGINA DE RESULTADO --- */
-#search_result h1 {margin: 0 0 5px;}
-#search_result p {margin: 5px 0 5px;}
+#search_result h1 {
+  margin: 0 0 5px; }
+
+#search_result p {
+  margin: 5px 0 5px; }
 
 /* --- PÁGINAS INTERNAS --- */
-#sub_content_avaliation { float: left; width: 300px; line-height: 19px; }
-#sub_content { width: 632px; float: left; }
+#sub_content_avaliation {
+  float: left;
+  width: 300px;
+  line-height: 1.2em; }
+
+#sub_content {
+  width: 632px;
+  float: left; }
 
 /* THE PROJECT */
-.project-photos img {margin-right: 1px; width: 205px; height: auto;}
-#project_text_tools { float: right; width: auto; }
-.dec-font { float: left; display: block; line-height: 25px; margin: 0 10px 0 0; }
-.res-font, .inc-font { float: left; display: block; line-height: 25px; margin: 0 10px 0 0; }
-#project_title { float: left; margin-top: 0; }
-#project_text { float: left; padding-right: 10px; margin: 0; }
-#printer_icon { float: left; width: 24px; height: 25px; background: url(http://arquigrafia.org.br/img/sprite.png?) -713px 0px; margin: 0 0 0 10px; }
+.project-photos img {
+  margin-right: 1px;
+  width: 205px;
+  height: auto; }
+
+#project_text_tools {
+  float: right;
+  width: auto; }
+
+.dec-font {
+  float: left;
+  display: block;
+  line-height: 1.2em;
+  margin: 0 10px 0 0; }
+
+.res-font, .inc-font {
+  float: left;
+  display: block;
+  line-height: 1.2em;
+  margin: 0 10px 0 0; }
+
+#project_title {
+  float: left;
+  margin-top: 0; }
+
+#project_text {
+  float: left;
+  padding-right: 10px;
+  margin: 0; }
+
+#printer_icon {
+  float: left;
+  width: 24px;
+  height: 25px;
+  background: url(../img/sprite.png?) -713px 0px;
+  margin: 0 0 0 10px; }
 
 /* SIDEBAR */
-#sidebar_avaliation {}
-#sidebar {}
-#sidebar .btn { line-height: 1em; }
-#sidebar br { clear: both; }
-#sidebar p { margin: 3px 0 10px 0; }
-#sidebar ul { list-style: none; margin: 5px 0 10px 0; }
-#sidebar h2 { font-weight: normal; font-size: 18px; margin-top: 3px; border-bottom: solid 1px #ddd; padding-bottom: 2px; }
-#sidebar h4 { margin: 10px 0 0; font-size: 13px; font-weight: bold; color: #222; line-height: 1em; }
-#sidebar #single_user { margin: 0 0 20px; }
-#edit_photo { text-align: right; color: #7B7D7F; font-size: 12px; width: 300px; line-height: 19px; border-bottom: solid 1px #7B7D7F; }
-#progressbar {border: 1px solid #ddd;}
-.photo-edit-button {float: right;}
+#sidebar .btn {
+  line-height: 1em; }
+
+#sidebar br {
+  clear: both; }
+
+#sidebar p {
+  margin: 0.2em 0 2em 0; }
+
+#sidebar ul {
+  list-style: none;
+  margin: 5px 0 10px 0; }
+
+#sidebar h2 {
+  font-weight: normal;
+  font-size: 18px;
+  margin-top: 3px;
+  border-bottom: solid 1px #ddd;
+  padding-bottom: 2px; }
+
+#sidebar h4 {
+  margin: 10px 0 0;
+  font-size: 1.25em;
+  font-weight: bold;
+  color: #222;
+  line-height: 1.2em; }
+
+#sidebar #single_user {
+  margin: 0 0 20px; }
+
+#edit_photo {
+  text-align: right;
+  color: #7B7D7F;
+  font-size: 12px;
+  width: 300px;
+  line-height: 1.2em;
+  border-bottom: solid 1px #7B7D7F; }
+
+#progressbar {
+  border: solid 1px #ddd; }
+
+.photo-edit-button {
+  float: right; }
 
 /* SINGLE VIEW */
-#single_view_block { margin-bottom: 5px; }
-#single_view_block h1 { }
-#single_view_header { overflow: hidden; line-height: 25px; float: left; }
-#single_view_header h1 { display: block; float: left; width: 260px; }
-#name_photo_h1 { float: left; width: 200px; }
-#single_view_statistics { overflow: hidden; border-bottom: solid #333 1px; line-height: 25px; }
-#single_view_statistics h1 { display: block; float: left; overflow: hidden; width: 415px; }
-#single_view_user_thumbnail { float: left; margin-right: 10px; width: 60px; }
-#single_view_owner_name { margin-bottom: -3px; float: left; width: 220px; font-size: 18px; }
-#single_view_contact_add { float: left; }
-#single_view_message_open, #single_view_message_close, #single_view_contact_remove { font-size: 11px; }
+#single_view_block {
+  margin-bottom: 5px; }
+
+#single_view_header {
+  overflow: hidden;
+  line-height: 1.2em;
+  float: left; }
+
+#single_view_header h1 {
+  display: block;
+  float: left;
+  width: 260px; }
+
+#name_photo_h1 {
+  float: left;
+  width: 200px; }
+
+#single_view_statistics {
+  overflow: hidden;
+  border-bottom: solid #333 1px;
+  line-height: 1.2em; }
+
+#single_view_statistics h1 {
+  display: block;
+  float: left;
+  overflow: hidden;
+  width: 415px; }
+
+#single_view_user_thumbnail {
+  float: left;
+  margin-right: 10px;
+  width: 60px; }
+
+#single_view_owner_name {
+  margin-bottom: -3px;
+  float: left;
+  width: 220px;
+  font-size: 18px; }
+
+#single_view_contact_add {
+  float: left; }
+
+#single_view_message_open, #single_view_message_close, #single_view_contact_remove {
+  font-size: 0.9em; }
+
+.single_view_image {
+  width: 100%;
+  height: auto; }
 
 /*infos da foto*/
-#single_view_image_rating { margin-top: 14px; display: block; width: auto; }
-#single_view_image_rating li { float: left; height: 25px; }
-#single_view_image_rating li small { margin: 0 14px 0 5px; }
-#single_view_image_rating li:last-child small { margin: 0 25px 0 3px; }
-i#graph { background: url(http://arquigrafia.org.br/img/sprite.png) -679px 0px; width: 24px; }
-i#comments { display: inline-block; background: url(/img/i-comments.png); width: 18px; height: 18px; padding: 0; margin-right: 5px; }
-i#favourite { background: url(http://arquigrafia.org.br/img/sprite.png) -609px 0px; width: 24px; }
+#single_view_image_rating {
+  margin-top: 14px;
+  display: block;
+  width: auto; }
+
+#single_view_image_rating li {
+  float: left;
+  height: 25px; }
+
+#single_view_image_rating li small {
+  margin: 0 14px 0 5px; }
+
+#single_view_image_rating li:last-child small {
+  margin: 0 25px 0 3px; }
+
+i#graph {
+  background: url(../img/sprite.png) -679px 0px;
+  width: 24px; }
+
+i#comments {
+  background: url(../img/sprite.png) -644px 0px;
+  width: 24px; }
+
+i#favourite {
+  background: url(../img/sprite.png) -609px 0px;
+  width: 24px; }
 
 /*botões de ações abaixo da foto*/
-#single_view_buttons_box { padding-top: 5px; height: 40px; }
-#single_view_image_buttons { width: 175px; margin: 0 auto; }
-#single_view_image_buttons li { margin: 2px 5px; float: left; }
-#add_favourite { display: block; width: 34px; height: 33px; margin-top: -3px; }
-#plus { display: block; width: 18px; height: 18px; }
-#eyedroppper, #denounce { display: block; width: 24px; height: 25px; margin-left: 4px; }
-#download { display: block; width: 18px; height: 18px; margin-left: 4px; }
-#add_favourite { background: url(http://arquigrafia.org.br/img/sprite.png) -575px 0; }
-#plus { background: url(/img/i-plus.png); }
-#eyedroppper { background: url(http://arquigrafia.org.br/img/sprite.png) -436px 0; }
-#denounce { background: url(http://arquigrafia.org.br/img/sprite.png) -540px 0; }
-#denounce:hover { background-position: -540px -33px; }
-#download { background: url(/img/i-download.png); }
-#delete { display: block; width: 24px; height: 25px; margin-left: 1px; }
-#delete { background: url(http://arquigrafia.org.br/img/sprite.png) -776px -145px; }
-#delete:hover { background-position: -776px -177px; }
-#evaluate { display: block; width: 18px; height: 18px; margin-left: 4px;}
-#evaluate { background: url(/img/i-evaluate.png)}
+#single_view_buttons_box {
+  padding-top: 5px;
+  height: 40px; }
+
+#single_view_image_buttons {
+  width: 175px;
+  margin: 0 auto; }
+
+#single_view_image_buttons li {
+  margin: 2px 5px;
+  float: left; }
+
+#add_favourite {
+  display: block;
+  width: 34px;
+  height: 33px;
+  margin-top: -3px; }
+
+#plus {
+  display: block;
+  width: 24px;
+  height: 25px; }
+
+#eyedroppper, #denounce, #download {
+  display: block;
+  width: 24px;
+  height: 25px;
+  margin-left: 4px; }
+
+#add_favourite {
+  background: url(../img/sprite.png) -575px 0; }
+
+#plus {
+  background: url(../img/sprite.png) -470px 0;
+  /*padding-top: 4px;*/ }
+
+#eyedroppper {
+  background: url(../img/sprite.png) -436px 0; }
+
+#denounce {
+  background: url(../img/sprite.png) -540px 0; }
+
+#denounce:hover {
+  background-position: -540px -33px; }
+
+#download {
+  background: url(../img/sprite.png) -505px 0; }
+
+#delete {
+  display: block;
+  width: 24px;
+  height: 25px;
+  margin-left: 1px; }
+
+#delete {
+  background: url(../img/sprite.png) -776px -145px; }
+
+#delete:hover {
+  background-position: -776px -177px; }
+
+#evaluate {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px; }
+
+#evaluate {
+  background: url(../img/evaluate.png); }
 
 /*redes sociais*/
-#single_view_social_network_buttons { float: right; margin-right: 20px; }
-#single_view_social_network_buttons li { margin: 2px 5px; float: right; }
-#single_view_social_network_buttons li, a.delicious, .google, .facebook, .twitter { display: block; width: 20px; height: 20px; }
-a.delicious { background: url(http://arquigrafia.org.br/img/sprite.png) 0px -145px; }
-a.delicious:hover { background-position: 0px -145px; }
-span.google { background: url(http://arquigrafia.org.br/img/sprite.png) -21px -145px; }
-span.facebook { background: url(http://arquigrafia.org.br/img/sprite.png) -42px -145px; }
-span.twitter { background: url(http://arquigrafia.org.br/img/sprite.png) -63px -145px; }
-.more_sare_buttons { display: block; width: 44px; height: 20px; font-size: 12px; line-height: 19px; }
+#single_view_social_network_buttons {
+  float: right;
+  margin-right: 20px; }
+
+#single_view_social_network_buttons li {
+  margin: 2px 5px;
+  float: right; }
+
+#single_view_social_network_buttons li, a.delicious, .google, .facebook, .twitter {
+  display: block;
+  width: 20px;
+  height: 20px; }
+
+a.delicious {
+  background: url(../img/sprite.png) 0px -145px; }
+
+a.delicious:hover {
+  background-position: 0px -145px; }
+
+span.google {
+  background: url(../img/sprite.png) -21px -145px; }
+
+span.facebook {
+  background: url(../img/sprite.png) -42px -145px; }
+
+span.twitter {
+  background: url(../img/sprite.png) -63px -145px; }
+
+.more_sare_buttons {
+  display: block;
+  width: 44px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 1.2em; }
 
 /*Creative Commons Icon, mapa (georreferenciamento) avaliação e média de avaliação - sidebar*/
-#ccicons { display: block; margin: 10px 0 0 0; width: 88px; }
-#evaluate_button { float: left; }
-#evaluation_average { float: left; margin: 0 0 0 3px; }
-.single_view_map { margin: 5px 0; }
-#similar_average { float: left; margin: 0 0 0 3px; }
+#ccicons {
+  display: block;
+  margin: 10px 0 0 0;
+  width: 88px; }
+
+#evaluate_button {
+  float: left; }
+
+#evaluation_average {
+  float: left;
+  margin: 0 0 0 3px; }
+
+.single_view_map {
+  margin: 5px 0; }
+
+#similar_average {
+  float: left;
+  margin: 0 0 0 3px; }
 
 /*Comentários*/
-#comments_block { margin: 20px 0; }
-.single_comment_block { width: 650px; margin: 15px 0 25px; overflow: hidden; }
-#comments_block h2 { border-bottom: solid 1px #333; margin-bottom: 10px; font-size: 18px; }
-img.user_thumbnail { float: left; margin-right: 10px; margin-top: 5px; width: 48px; }
-span.comment_time { font-size: 10px; color: #7B7D7F; font-style: italic; }
-span.comment_text { float: right; width: 590px; min-height: 40px; }
-span.comment_text p { margin: 3px 0; }
-#space_to_comment { }
-textarea#comment_field { width: 545px; height: 80px; float: left; border: solid 2px #000; padding: 5px; margin: 5px 0; }
-input#comment_button { margin: 5px 0 0 0; float: left; }
+#comments_block {
+  margin: 20px 0; }
+
+.single_comment_block {
+  width: 650px;
+  margin: 15px 0 25px;
+  overflow: hidden; }
+
+#comments_block h2 {
+  border-bottom: solid 1px #333;
+  margin-bottom: 10px;
+  font-size: 18px; }
+
+img.user_thumbnail {
+  float: left;
+  margin-right: 10px;
+  margin-top: 5px;
+  width: 48px; }
+
+span.comment_time {
+  font-size: 10px;
+  color: #7B7D7F;
+  font-style: italic; }
+
+span.comment_text {
+  float: right;
+  width: 590px;
+  min-height: 40px; }
+
+span.comment_text p {
+  margin: 3px 0; }
+
+textarea#comment_field {
+  width: 545px;
+  height: 60px;
+  border: solid 1px #ddd;
+  padding: 5px;
+  margin: 5px 0; }
+
+input#comment_button {
+  margin: 5px 0 0 0;
+  float: left; }
+
+/**/
+.text_comment {
+  text-align: justify;
+  margin-right: 25px; }
+
+.width_comment {
+  width: 300px; }
 
 /* avaliações */
-#evaluation_box {margin: 20px 0;}
+#evaluation_box {
+  margin: 20px 0; }
 
-/* SINGLE VIEW - AVALIATION */
-/* ANTIGO
-#avaliation_box { width: 470px; }
-#avaliation_box p { display: block; width: 330px; float: left; }
-#avaliation_form { text-align: left; }
-#avaliation_form input { margin-top: 18px; }
-#avaliation_form input#clean { background: url(http://arquigrafia.org.br/img/sprite.png) -694px -145px; width: 52px; height: 21px; }
-#avaliation_form input#clean:hover { background-position: -694px -170px; }
-#avaliation_form input#avaliate { background: url(http://arquigrafia.org.br/img/sprite.png) -623px -145px; width: 69px; height: 21px; margin-right: 25px; }
-#avaliation_form input#avaliate:hover { background-position: -623px -170px; }
-#watch_button { display: block; background: url(http://arquigrafia.org.br/img/sprite.png) -542px -145px; width: 80px; height: 21px; margin-top: 10px; }
-#watch_button:hover { background-position: -542px -170px; }
-ul#avaliation_list { margin: 65px 0px; padding: 0 25px; text-align: center; }
-ul#avaliation_list li { height: 50px; margin: 5px 0; }
-ul#avaliation_list li .bloco { width: 430px; background: url(http://arquigrafia.org.br/img/sprite.png) -286px -196px !important; margin-top: -9px; height: 18px; float: left; text-align: center; border: none; }
-/*#slider_1,
-#slider_2,
-#slider_3,
-#slider_4,
-#slider_5,
-#slider_6 {width:430px; background:url(http://arquigrafia.org.br/img/sprite.png) -353px -196px !important; margin-top:-9px; height:18px; float:left; text-align:center; position:relative; border:none; }
-
-.ui-slider .ui-slider-handle {position:absolute; z-index:2; }
-.ui-slider-horizontal .ui-state-default {background:url(http://arquigrafia.org.br/img/sprite.png) -753px -5px !important; width:13px; height:20px; margin:-16px 0 0 -6px; border:none !important;}
-.ui-slider-horizontal .ui-state-default:hover,
-.ui-slider-horizontal .ui-state-default:active,
-.ui-slider-horizontal .ui-state-default:focus {background-position:-753px -34px !important; outline:none; margin-top:-12px; } */
-/* ANTIGO
-.ui-slider { width: 200px; height: 5px; position: relative; background-repeat: no-repeat; background-position: center center; }
-.ui-slider-handle { margin: -11px 0 0 -5px; position: absolute; z-index: 1; height: 15px; width: 10px; background: url("http://arquigrafia.org.br/img/sprite.png") repeat scroll -755px -5px transparent; }
-.ui-slider-handle:hover, .ui-slider-handle:active { margin: -4px 0 0 -5px; background: url("http://arquigrafia.org.br/img/sprite.png") repeat scroll -755px -38px transparent; }
-.ui-slider-handle-active { border: 1px dotted black; }
-.ui-slider-disabled .ui-slider-handle { opacity: 0.5; filter: alpha(opacity=50); }
-.ui-slider-range { position: absolute; background: #50A029; opacity: 0.3; filter: alpha(opacity=30); width: 100%; height: 100%; }
 /* Default slider backgrounds */
-.ui-slider, .ui-slider-1 { background: url("http://arquigrafia.org.br/img/sprite.png") repeat scroll -358px -196px transparent; }
-.ui-slider-2 { background-image: url(http://arquigrafia.org.br/img/slider-bg-2.png); }
-.binWrapClass { float: left; padding: 3px 6px 3px 6px; margin: 20px 110px 10px 0px; -webkit-border-radius: 5px; -moz-border-radius: 5px; border-radius: 5px; }
-.binLabelClass, .binValueClass { float: left; font-family: Arial, Helvetica, sans-serif; font-size: 10px; }
-.binLabelClass { padding-right: 5px; }
-#binomialsTitle { float: left; position: relative; left: 0px; padding: 0px 5px 0px 5px; margin: 9px 0px 12px 0px; }
-#binLink { float: left; cursor: pointer; margin-top: 8px; }
-#binomialsWrap { float: left; padding-right: 0px; width: 70%; overflow: scroll; overflow-x: hidden; overflow-y: auto; color: #A6A6A6; }
-#binomialSubmit { clear: both; margin-left: 145px; }
-#text_Over { float: left; padding-right: 0px; width: 75%; overflow: scroll; overflow-x: hidden; overflow-y: auto; color: #A6A6A6; }
-#text_Under { float: left; padding-right: 0px; width: 50%; overflow: scroll; overflow-x: hidden; overflow-y: auto; color: #A6A6A6; }
-#text_Bottom { float: left; padding-right: 0px; width: 75%; margin-top: 5%; margin-bottom: 5%; overflow: scroll; overflow-x: hidden; overflow-y: auto; color: #A6A6A6; text-align: justify; text-justify: inter-word; }
-#binomialSubmit input { width: 65px; height: 20px; background: url("http://arquigrafia.org.br/img/sprite.png") repeat scroll -84px -238px transparent; cursor: pointer; border: 0; font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; color: #fff; margin-left: 0px; }
-#binomialSubmit input:hover { background: url("http://arquigrafia.org.br/img/sprite.png") repeat scroll -84px -259px transparent; }
-#evaluation_cancel { background: url(http://arquigrafia.org.br/img/sprite.png) -694px -193px; width: 65px; height: 20px; cursor: pointer; position: absolute; margin-top: -20px; margin-left: 0px; }
-#evaluation_cancel:hover { background-position: -694px -215px; }
-.left_avaliation_value { width: auto; float: left; }
-.right_avaliation_value { width: auto; float: right; }
-ul#avaliation_list li span { width: 75px; display: block; margin-top: -11px; }
-ul#avaliation_list li span.left { text-align: right; padding-right: 10px; }
-ul#avaliation_list li span.right { text-align: left; padding-left: 10px; }
+.ui-slider, .ui-slider-1 {
+  background: url("../img/sprite.png") repeat scroll -358px -196px transparent; }
+
+.ui-slider-2 {
+  background-image: url(../img/slider-bg-2.png); }
+
+.binWrapClass {
+  float: left;
+  padding: 3px 6px 3px 6px;
+  margin: 20px 110px 10px 0px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px; }
+
+.binLabelClass, .binValueClass {
+  float: left;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 10px; }
+
+.binLabelClass {
+  padding-right: 5px; }
+
+#binomialsTitle {
+  float: left;
+  position: relative;
+  left: 0px;
+  padding: 0px 5px 0px 5px;
+  margin: 9px 0px 12px 0px; }
+
+#binLink {
+  float: left;
+  cursor: pointer;
+  margin-top: 8px; }
+
+#binomialsWrap {
+  float: left;
+  padding-right: 0px;
+  width: 70%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #A6A6A6; }
+
+#binomialSubmit {
+  clear: both;
+  margin-left: 145px; }
+
+#text_Over {
+  float: left;
+  padding-right: 0px;
+  width: 75%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #A6A6A6; }
+
+#text_Under {
+  float: left;
+  padding-right: 0px;
+  width: 50%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #A6A6A6; }
+
+#text_Bottom {
+  float: left;
+  padding-right: 0px;
+  width: 75%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #A6A6A6;
+  text-align: justify;
+  text-justify: inter-word; }
+
+#binomialSubmit input {
+  width: 65px;
+  height: 20px;
+  background: url("../img/sprite.png") repeat scroll -84px -238px transparent;
+  cursor: pointer;
+  border: 0;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 0px; }
+
+#binomialSubmit input:hover {
+  background: url("../img/sprite.png") repeat scroll -84px -259px transparent; }
+
+#evaluation_cancel {
+  background: url(../img/sprite.png) -694px -193px;
+  width: 65px;
+  height: 20px;
+  cursor: pointer;
+  position: absolute;
+  margin-top: -20px;
+  margin-left: 0px; }
+
+#evaluation_cancel:hover {
+  background-position: -694px -215px; }
+
+.left_avaliation_value {
+  width: auto;
+  float: left; }
+
+.right_avaliation_value {
+  width: auto;
+  float: right; }
+
+ul#avaliation_list li span {
+  width: 75px;
+  display: block;
+  margin-top: -11px; }
+
+ul#avaliation_list li span.left {
+  text-align: right;
+  padding-right: 10px; }
+
+ul#avaliation_list li span.right {
+  text-align: left;
+  padding-left: 10px; }
+
 /* FIM ANTIGO */
-
 /* PROFILE */
-#user_header {position: relative; margin-bottom: 10px;}
-#user_header .avatar { width: 60px; float: left; margin-right: 10px; }
-#user_header p { margin: 5px 0; }
-#user_header .count {position: absolute; bottom: 5px; right: 0; }
+#user_header {
+  position: relative;
+  margin-bottom: 10px; }
 
-.info h1 {margin-top: -2px;}
+#user_header .avatar {
+  width: 60px;
+  float: left;
+  margin-right: 10px; }
 
-#user_gallery .wrap {height: 220px; margin-bottom: 10px;}
-#user_gallery #stripe {height: 220px; width: 10000px;}
-#user_gallery .stripe {height: 220px; width: 10000px;}
-#user_gallery .layer {position: relative;}
-#user_gallery .item, #user_gallery img {position: static; display: block; height: 212px; width: auto; margin: 0; }
-#user_gallery .item {margin: 0 5px 50px;}
+#user_header p {
+  margin: 5px 0; }
 
-.friend_photo {display:block; height:60px; float:left; margin: 0 1px 1px 0; overflow: hidden;}
-.friend_photo  img {height: 61px; width: auto; margin-right: -1px;}
-.profile_box {clear: both;}
-.profile_block_title {height: 21px; border-bottom: solid 1px #ddd; margin-bottom: 10px;}
-.profile_block_title h3 {float: left;}
-.profile_block_link {float:right;}
+#user_header .count {
+  position: absolute;
+  bottom: 5px;
+  right: 0; }
 
-.albums .gallery_box {float:left; position: relative; width: 143px; height: 104px; margin: 2px; }
-.albums .name {position: absolute; bottom: 8px; left: 8px; z-index: 9; font-size: 10px; color: #fff; }
+#user_header .countside {
+  position: absolute;
+  bottom: 5px;
+  right: 65px; }
+
+.info h1 {
+  margin-top: -2px; }
+
+#user_gallery .wrap {
+  height: 220px;
+  margin-bottom: 10px; }
+
+#user_gallery #stripe {
+  height: 220px;
+  width: 10000px; }
+
+#user_gallery .stripe {
+  height: 220px;
+  width: 10000px; }
+
+#user_gallery .layer {
+  position: relative; }
+
+#user_gallery .item, #user_gallery img {
+  position: static;
+  display: block;
+  height: 212px;
+  width: auto;
+  margin: 0; }
+
+#user_gallery .item {
+  margin: 0 5px 50px; }
+
+.friend_photo {
+  display: block;
+  height: 60px;
+  float: left;
+  margin: 0 1px 1px 0;
+  overflow: hidden; }
+
+.friend_photo img {
+  height: 61px;
+  width: auto;
+  margin-right: -1px; }
+
+.profile_box {
+  clear: both; }
+
+.profile_block_title {
+  height: 21px;
+  border-bottom: solid 1px #ddd;
+  margin-bottom: 10px; }
+
+.profile_block_title h3 {
+  float: left; }
+
+.profile_block_link {
+  float: right; }
+
+.albums .gallery_box {
+  float: left;
+  position: relative;
+  width: 143px;
+  height: 104px;
+  margin: 2px; }
+
+.albums .name {
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
+  z-index: 9;
+  font-size: 10px;
+  color: #fff; }
+
+/* NEWS - home */
+.news {
+  margin: 0 -5px 10px; }
+
+.news .profile_block_title {
+  margin: 0 5px 5px; }
+
+.news .gallery_box {
+  float: left;
+  position: relative;
+  width: 148px;
+  height: 98px;
+  margin: 5px;
+  overflow: hidden; }
+
+.news .gallery_box .name {
+  position: absolute;
+  bottom: 9px;
+  left: 8px;
+  color: #fff;
+  font-size: 0.9em;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+
+.news .gallery_photo {
+  width: 100%;
+  height: auto;
+  float: left; }
+
+.news .evaluated-mask {
+  position: absolute;
+  top: 0;
+  left: 0; }
 
 /* GROUP */
-#group_content {margin-top: 20px;}
-#group_photos .gallery_box {float: left; margin: 0 1px 1px 0; padding: 0; width: 99px;}
-#group_photos img {float: left; width: 100%;}
+#group_content {
+  margin-top: 20px; }
+
+#group_photos .gallery_box {
+  float: left;
+  margin: 0 1px 1px 0;
+  padding: 0;
+  width: 99px; }
+
+#group_photos img {
+  float: left;
+  width: 100%; }
 
 /* ALBUNS / ALBUM GALLERY */
-#album_bar { float: left; color: #7B7D7F; overflow: hidden; font-size: 11px; width: 193px; line-height: 19px; margin: 0 25px 0 0; border-right: 1px solid #404040; }
-#album_bar h1 { float: left; }
-#album_gallery_box { width: 736px; height: auto; overflow: hidden; float: left; color: #7B7D7F; }
-#album_bar .image { float: left; margin: 7px 7px !important; }
-.album_image_box { float: left; margin: 7px 0 7px 4px !important; }
-.album_image_box .image { margin: 0px !important; float: left; }
-.album_image_box { height: 79px; width: 128px }
-#new_album { display: block; float: right; margin: 0 16px 0 0; line-height: 19px; }
-.name_album { display: block; line-height: 19px; }
-#edit_album, #delete_album { margin: 0 0px 0px 5px; }
-#delete_image_button { display: inline-block; width: 16px; height: 16px; background: url("http://arquigrafia.org.br/img/delete.png"); margin-right: 5px;}
-#delete_image_button:hover { cursor: pointer; }
-a.paste { width: 115px; height: 79px; margin: 40px 7px 20px 20px; vertical-align: middle; text-align: center; }
+#album_bar {
+  float: left;
+  color: #7B7D7F;
+  overflow: hidden;
+  font-size: 0.9em;
+  width: 193px;
+  line-height: 1.2em;
+  margin: 0 25px 0 0;
+  border-right: 1px solid #404040; }
 
-/* IMAGE UPLOAD - MODAL
-.progressbar { width: 518px; float: left; }
-.url_bar { width: 490px; float: left; }
-#select_button { width: 73px; height: 20px; background: url(http://arquigrafia.org.br/img/sprite.png) -280px -195px no-repeat; border: 0px !important; margin: 3px 0px !important; float: right; }
-#select_button:hover { background: url(http://arquigrafia.org.br/img/sprite.png) -280px -216px no-repeat; cursor: pointer; }
-#state_selector { margin: 0 0 0 26px; }
-#upload_form textarea { width: 198px; height: 60px; border: solid 1px #EEE; padding: 3px; margin: 2px 0 2px 5px; }
-#upload_form select { width: 206px; padding: 3px; margin: 2px 0 2px 5px; }
-#upload_form input.text { width: 198px; }
-.creative_commons_form { display: block; float: left; width: 290px; margin: 0; }
-#creative_commons_left_form { margin: 0 20px 0 0; }
-#creative_commons_left_form label, #creative_commons_right_form label { margin: 0; display: inline; line-height: 18px; }
-.left_form_label_column { width: 67px !important; }
-#creative_commons_text_checkbox { margin: 0px !important; }
-*/
+#album_bar h1 {
+  float: left; }
 
-.form-row {clear: left; margin-bottom: 5px;}
-#upload_form_meta textarea {width: 100%; height: 60px;}
-#upload_form_meta #tags {width: 266px;}
-input[type=text] {font-size: 12px;}
+#album_gallery_box {
+  width: 736px;
+  height: auto;
+  overflow: hidden;
+  float: left;
+  color: #7B7D7F; }
+
+#album_bar .image {
+  float: left;
+  margin: 7px 7px !important; }
+
+.album_image_box {
+  float: left;
+  margin: 7px 0 7px 4px !important; }
+
+.album_image_box .image {
+  margin: 0px !important;
+  float: left; }
+
+.album_image_box {
+  height: 79px;
+  width: 128px; }
+
+#new_album {
+  display: block;
+  float: right;
+  margin: 0 16px 0 0;
+  line-height: 1.2em; }
+
+.name_album {
+  display: block;
+  line-height: 1.2em; }
+
+#edit_album, #delete_album {
+  margin: 0 0px 0px 5px; }
+
+#delete_image_button, .delete_image_button {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("../img/delete.png");
+  margin-right: 5px; }
+
+#delete_image_button:hover {
+  cursor: pointer; }
+
+a.paste {
+  width: 115px;
+  height: 79px;
+  margin: 40px 7px 20px 20px;
+  vertical-align: middle;
+  text-align: center; }
+
+textarea {
+  border: solid 1px #ddd; }
+
+.form-row {
+  clear: left;
+  margin-bottom: 5px; }
+
+#upload_form_meta textarea {
+  width: 100%;
+  height: 60px; }
+
+#upload_form_meta #tags {
+  width: 266px; }
+
+input[type="text"] {
+  font-size: 14px; }
 
 /* PASSWORD CHANGE - MODAL */
-#new_password_confirm_label { width: 150px !important; }
+#new_password_confirm_label {
+  width: 150px !important; }
+
 /* CONTACT US FORM - MODAL */
-#contact_us_form input.text { width: 200px !important; }
-#contact_us_form textarea { width: 200px; height: 100px; }
+#contact_us_form input.text {
+  width: 200px !important; }
+
+#contact_us_form textarea {
+  width: 200px;
+  height: 100px; }
+
 /* LOGIN BOX - MODAL */
-input#login_white_button { height: 20px; width: 58px; background: url(http://arquigrafia.org.br/img/sprite.png) -160px -237px; border: none !important; margin: 43px 0 0 0; float: right; }
-input#login_white_button:hover { background-position: -160px -258px; }
-#login_facebook_icon { display: block; width: 154px; height: 22px; background: url(http://arquigrafia.org.br/img/sprite.png) -363px -237px; margin: 10px 4px 0 0; float: left; }
-#login_facebook_icon:hover { background: url(http://arquigrafia.org.br/img/sprite.png) -363px -260px; }
-#login_twitter_icon { display: block; width: 138px; height: 22px; background: url(http://arquigrafia.org.br/img/sprite.png) -222px -237px; margin: 10px 0 0 0; float: left; clear: right; }
-#login_twitter_icon:hover { background: url(http://arquigrafia.org.br/img/sprite.png) -222px -260px; }
-#login_google_icon { display: block; width: 130px; height: 22px; background: url(http://arquigrafia.org.br/img/sprite.png) -522px -237px; margin: 10px 0 0 84px; clear: left; float: left; }
-#login_google_icon:hover { background: url(http://arquigrafia.org.br/img/sprite.png) -522px -260px; }
-#login_modal_box div { float: left; display: block; width: 300px; text-align: justify; }
+input#login_white_button {
+  height: 20px;
+  width: 58px;
+  background: url(../img/sprite.png) -160px -237px;
+  border: none !important;
+  margin: 43px 0 0 0;
+  float: right; }
+
+input#login_white_button:hover {
+  background-position: -160px -258px; }
+
+#login_facebook_icon {
+  display: block;
+  width: 154px;
+  height: 22px;
+  background: url(../img/sprite.png) -363px -237px;
+  margin: 10px 4px 0 0;
+  float: left; }
+
+#login_facebook_icon:hover {
+  background: url(../img/sprite.png) -363px -260px; }
+
+#login_twitter_icon {
+  display: block;
+  width: 138px;
+  height: 22px;
+  background: url(../img/sprite.png) -222px -237px;
+  margin: 10px 0 0 0;
+  float: left;
+  clear: right; }
+
+#login_twitter_icon:hover {
+  background: url(../img/sprite.png) -222px -260px; }
+
+#login_google_icon {
+  display: block;
+  width: 130px;
+  height: 22px;
+  background: url(../img/sprite.png) -522px -237px;
+  margin: 10px 0 0 84px;
+  clear: left;
+  float: left; }
+
+#login_google_icon:hover {
+  background: url(../img/sprite.png) -522px -260px; }
+
+#login_modal_box div {
+  float: left;
+  display: block;
+  width: 300px;
+  text-align: justify; }
+
 /* IMAGE TOOLTIP */
-.tooltip { display: none; background: transparent url(http://arquigrafia.org.br/img/tooltip.png); font-size: 12px; height: 70px; width: 160px; padding: 25px; color: #eee; }
-.owner_photo { height: 70px; }
-.folder { height: 35px; }
-.reminder { font-style: italic }
+.tooltip {
+  display: none;
+  background: transparent url(../img/tooltip.png);
+  font-size: 12px;
+  height: 70px;
+  width: 160px;
+  padding: 25px;
+  color: #eee; }
 
-.gallery_photo { width: 143px; height: 104px; }
+.owner_photo {
+  height: 70px; }
 
-.list { width: 600px; height: 350px; overflow-y: scroll; margin: 10px 0; }
-.list td { text-align: center; }
-.list p { color: #000; }
+.folder {
+  height: 35px; }
 
-.form.window a.close { float: right; text-align: center; margin-bottom: 10px; }
-.form.window a.close:hover { text-decoration: underline; }
+.reminder {
+  font-style: italic; }
 
-#delete_button { display: inline-block; width: 16px; height: 16px; background: url("http://arquigrafia.org.br/img/delete.png"); margin-left: 5px; }
-#delete_button:hover { cursor: pointer; }
-#edit_button { display: inline-block; width: 16px; height: 16px; background: url("http://arquigrafia.org.br/img/edit.png");  margin-left: 5px; }
-#edit_button:hover { cursor: pointer; }
+.gallery_photo {
+  width: 143px;
+  height: 104px; }
 
-#title_delete_button { display: inline-block; width: 12px; height: 12px; background: url("http://arquigrafia.org.br/img/white-delete-12.png"); margin-left: 8px; float: right; }
-#title_delete_button:hover { cursor: pointer; }
-#title_edit_button { display: inline-block; width: 12px; height: 12px; background: url("http://arquigrafia.org.br/img/white-edit-12.png");  margin-left: 8px; float: right; }
-#title_edit_button:hover { cursor: pointer; }
-#title_plus_button { display: inline-block; width: 12px; height: 12px; background: url("http://arquigrafia.org.br/img/white-plus-12.png");  margin-left: 8px; float: right; }
-#title_plus_button:hover { cursor: pointer; }
+.list {
+  width: 600px;
+  height: 350px;
+  overflow-y: scroll;
+  margin: 5px 0; }
 
-#confirmation_window { background: #fff; position: fixed; width: 300px; height: 80px;  top: 30%; left: 50%; margin: -40px 0 0 -150px; padding: 20px; -moz-border-radius: 5px; border-radius: 5px; display: none; z-index: 1001; font-size: 14px;}
-#confirmation_window p { color: black;}
-#confirmation_window #registration_buttons { position: absolute; right: 20px; bottom: 20px; }
-.no_cover { width: 100%; height: 100%; background-color: #aaa; }
-.no_cover p { width: 100%; text-align: center; font-size: 14px; margin: 0; position: absolute; left: 0; top: 40%; color: #eee;}
-.wrap .no_cover p { font-size: 18px; top: 50%; }
+.list td {
+  text-align: center; }
 
-#logins_externos { padding-top: 30px; }
-.login_externo { float: left; display: inline; margin: 5px 0; text-align: center; padding: 0; border: 1px solid #eee; height: 38px; }
-.login_externo.logo { width: 75px; }
-.login_externo.label { width: 142px; border-left: 0; }
-.login_externo .logo img { margin: 0; }
-.login_externo p { margin: 11px 10px; float: left; }
-#facebook_login { width: 28px; height: 28px; margin: 5px 0; }
-#registrationStoa { width: 320px; height: 270px; margin: 0 auto; }
+.list p {
+  color: #000; }
 
-#registration .two.columns {margin-bottom: 10px; height: 34px;}
-#registration .btn#add_tag {  margin: 3px 63px; width: 123px; height: 36px; text-transform: uppercase;}
-#registration input[type="text"], #registration input[type="password"] { border-color: #000; width: 180px; font-size: 14px; font-weight: 600; }
+.form.window a.close {
+  float: right;
+  text-align: center;
+  margin-bottom: 10px; }
 
-#form_login_window { background: #fff; position: fixed; width: 320px; height: 280px;  top: 30%; left: 50%; margin: -150px 0 0 -140px; padding: 20px; -moz-border-radius: 5px; border-radius: 5px; display: none; z-index: 1001; font-size: 14px; }
-#form_login_window input[type="text"], #form_login_window input[type="password"] { margin: 5px 0 10px; width: 198px; font-size: 12px; }
-#form_login_window .columns { display: block; margin: 0 auto; float: none; }
-#form_login_window .error { font-size: 10px; }
+.form.window a.close:hover {
+  text-decoration: underline; }
 
-.message_box { border: 1px solid; margin: 10px 0px; padding:15px 20px; position: fixed; top: 5%; left: 40%; max-width: 400px; margin-left: -75px; font-size: 14px; display: none; }
-.message_box.success { color: #4F8A10;	background-color: #DFF2BF; }
-.message_box.error { color: #D8000C; background-color: #FFBABA; }
-.message_box.info { color: #9F6000; background: #FEEFB3; }
+#delete_button {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("../img/delete.png");
+  margin-left: 5px; }
+
+#delete_button:hover {
+  cursor: pointer; }
+
+#edit_button {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("../img/edit.png");
+  margin-left: 5px; }
+
+#edit_button:hover {
+  cursor: pointer; }
+
+#title_delete_button {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url("../img/white-delete-12.png");
+  margin-left: 8px;
+  float: right; }
+
+#title_delete_button:hover {
+  cursor: pointer; }
+
+#title_edit_button {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url("../img/white-edit-12.png");
+  margin-left: 8px;
+  float: right; }
+
+#title_edit_button:hover {
+  cursor: pointer; }
+
+#title_plus_button {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: url("../img/white-plus-12.png");
+  margin-left: 8px;
+  float: right; }
+
+#title_plus_button:hover {
+  cursor: pointer; }
+
+#draft_window, #confirmation_window {
+  background: #fff;
+  position: fixed;
+  width: 350px;
+  height: 130px;
+  top: 30%;
+  left: 50%;
+  margin: -40px 0 0 -150px;
+  padding: 20px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001;
+  font-size: 14px; }
+
+#draft_window p, #confirmation_window p {
+  color: black; }
+
+#draft_window #registration_buttons,
+#confirmation_window #registration_buttons {
+  position: absolute;
+  right: 20px;
+  bottom: 20px; }
+
+.no_cover {
+  width: 100%;
+  height: 100%;
+  background-color: #aaa; }
+
+.no_cover p {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  top: 40%;
+  color: #eee; }
+
+.wrap .no_cover p {
+  font-size: 18px;
+  top: 50%; }
+
+#logins_externos {
+  padding-top: 30px; }
+
+.login_externo {
+  float: left;
+  display: inline;
+  margin: 5px 0;
+  text-align: center;
+  padding: 0;
+  height: 38px; }
+
+.login_externo.logo {
+  width: 80px;
+  clear: left; }
+
+.login_externo.label {
+  width: 60%;
+  border-left: 0; }
+
+.login_externo .logo img {
+  margin: 0; }
+
+.login_externo p {
+  margin: 11px 10px;
+  float: left; }
+
+#facebook_login {
+  width: 28px;
+  height: 28px;
+  margin: 5px 0; }
+
+#registrationStoa {
+  width: 320px;
+  height: 270px;
+  margin: 0 auto; }
+
+#form_login_window {
+  background: #fff;
+  position: fixed;
+  width: 320px;
+  height: 280px;
+  top: 30%;
+  left: 50%;
+  margin: -150px 0 0 -140px;
+  padding: 20px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001;
+  font-size: 14px; }
+
+#form_login_window input[type="text"], #form_login_window input[type="password"] {
+  margin: 5px 0 10px;
+  width: 198px;
+  font-size: 12px; }
+
+#form_login_window .columns {
+  display: block;
+  margin: 0 auto;
+  float: none; }
+
+#form_login_window .error {
+  font-size: 10px; }
+
+#form_login_inst_window {
+  background: #fff;
+  position: fixed;
+  width: 320px;
+  height: 280px;
+  top: 30%;
+  left: 50%;
+  margin: -150px 0 0 -140px;
+  padding: 20px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001;
+  font-size: 14px; }
+
+#form_login_inst_window input[type="text"], #form_login_window input[type="password"] {
+  margin: 5px 0 10px;
+  width: 198px;
+  font-size: 12px; }
+
+#form_login_inst_window .columns {
+  display: block;
+  margin: 0 auto;
+  float: none; }
+
+#form_login_inst_window .error {
+  font-size: 10px; }
+
+#registrationInstitution {
+  width: 320px;
+  height: 270px;
+  margin: 0 auto; }
+
+.message_box {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 15px 20px;
+  position: fixed;
+  top: 5%;
+  left: 40%;
+  max-width: 400px;
+  margin-left: -75px;
+  font-size: 14px;
+  display: none;
+  z-index: 3;
+  background: #fff; }
+
+.message_box.success {
+  color: #4F8A10;
+  /*background-color: #DFF2BF;*/ }
+
+.message_box.error {
+  color: #D8000C;
+  /*background-color: #FFBABA;*/ }
+
+.message_box.info {
+  color: #9F6000;
+  /*background: #FEEFB3;*/ }
+
 /* Similar images*/
-#image_similar { float: left; margin: 0 0 0 3px; }
-.image_similar {
+#image_similar {
+  float: left;
+  margin: 0 0 0 3px; }
 
-   margin:0px auto;
-   width:620px;
-   height:auto;
-   padding:10px;
-}
+.image_similar {
+  margin: 0px auto;
+  width: 620px;
+  height: auto;
+  padding: 10px; }
 
 .image_similar p {
-  background-color: rgb(129, 124, 124);
+  background-color: #817c7c;
   color: #fff;
   display: inline;
   padding: 0.5rem;
-  padding-top: 5px;
-}
+  padding-top: 5px; }
 
 a.hovertext {
-    position: relative;
-    width: 104px;
-    text-decoration: none !important;
-    text-align: center;
-  }
-  a.hovertext:after {
-    content: attr(title);
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    padding: 0.5em 20px;
-    width: 104px;
-    background: rgba(0,0,0,0.8);
-    text-decoration: none !important;
-    color: #fff;
-    opacity: 0;
-    -webkit-transition: 0.5s;
-    -moz-transition: 0.5s;
-    -o-transition: 0.5s;
-    -ms-transition: 0.5s;
-  }
-  a.hovertext:hover:after, a.hovertext:focus:after {
-    opacity: 1.0;
-  }
+  position: relative;
+  width: 103px;
+  text-decoration: none !important;
+  text-align: left;
+  font-size: 0.9em; }
 
-div.outerbox {position:relative; width:104px; height:130px;}
+a.hovertext:after {
+  content: attr(title);
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 0.5em 5px;
+  width: 134px;
+  background: rgba(0, 0, 0, 0.7);
+  text-decoration: none !important;
+  color: #fff;
+  opacity: 0;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -o-transition: 0.5s;
+  -ms-transition: 0.5s; }
+
+a.hovertext:hover:after, a.hovertext:focus:after {
+  opacity: 1.0; }
+
+div.outerbox {
+  position: relative;
+  width: 104px;
+  height: 130px; }
 
 div.innerbox {
-position:absolute;
-top:90px;
-left:10px;
-width:104px;
-height:130px;
-z-index:7;
+  position: absolute;
+  top: 90px;
+  left: 10px;
+  width: 104px;
+  height: 130px;
+  z-index: 7; }
 
-}
-/**/
-.profile_block_title span {float: right; margin-top:6px; margin-right: 10px;}
-#comments_block { margin: 40px 0; }
+.profile_block_title span {
+  float: right;
+  margin-top: 6px;
+  margin-right: 10px; }
 
-.text-button {
-	border: 2px solid #000 !important;
-  padding: 3px 15px 3px 6px !important;
-  margin: 0 4px 2px 0 !important;
-  font: 12px "Roboto", sans-serif !important;
-  font-weight: bold !important;
-  height: auto !important;
-}
+#comments_block {
+  margin: 40px 0; }
 
-#registration .four.columns#creative_commons_right_form label { display: inline; }
+#like_button {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  background-image: url("../img/like.png"); }
+
+#like_button.dislike {
+  background-image: url("../img/dislike.png"); }
+
+i#likes {
+  background-image: url("../img/dislikeNB.png");
+  padding: 2px 10px 0px; }
+
+/* Notifications area */
+#notification-icon-container {
+  position: relative; }
+
+#new-message-container {
+  position: relative; }
+
+#bubble {
+  position: absolute;
+  top: -8px;
+  left: 13px;
+  padding: 1px 2px 1px 2px;
+  background-color: #00D470;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75em;
+  border-radius: 30px;
+  box-shadow: 1px 1px 1px gray; }
+
+#bubble2 {
+  position: absolute;
+  top: 3px;
+  left: 13px;
+  padding: 1px 2px 1px 2px;
+  background-color: #00D470;
+  color: white;
+  font-weight: bold;
+  font-size: 0.75em;
+  border-radius: 30px;
+  box-shadow: 1px 1px 1px gray; }
+
+/* Notifications page */
+.notifications-title {
+  margin-bottom: 35px;
+  border-bottom: 1px solid black;
+  padding: 15px;
+  font-size: 20px; }
+
+#button-all-container {
+  display: inline;
+  float: right; }
+
+#read-all-sentence {
+  font-size: 10px;
+  float: left;
+  margin: 2px 0 0;
+  padding-right: 5px; }
+
+#no-notifications {
+  padding: 15px;
+  font-size: 20px; }
+
+.notes {
+  font-size: 15px;
+  border-bottom: 1px solid black;
+  padding: 20px;
+  padding-bottom: 25px;
+  position: relative; }
+
+.notes a {
+  font-weight: bold;
+  z-index: 2;
+  position: relative; }
+
+.notes .link-block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  text-decoration: none;
+  z-index: 1;
+  background-color: white;
+  opacity: 0;
+  filter: alpha(opacity=1); }
+
+.notes p {
+  margin: 0px;
+  font-size: 12px; }
+
+.notes:hover {
+  background: rgba(195, 195, 195, 0.2); }
+
+.not-read {
+  background: rgba(160, 160, 160, 0.3); }
+
+.mini {
+  float: left;
+  width: 40px;
+  height: 40px;
+  margin-right: 10px; }
+
+.read-button {
+  position: relative;
+  z-index: 2;
+  float: right;
+  border-radius: 50px/50px;
+  border: solid 4px #606060;
+  width: 6px;
+  height: 6px; }
+
+.read-button:hover {
+  background-color: #606060;
+  border: solid 4px #ffffff; }
+
+.read-button:active {
+  border: solid 4px #606060;
+  background-color: #A0A0A0; }
+
+.additional-users {
+  display: none; }
+
+.additional-user {
+  font-size: 15px; }
+
+#notification {
+  cursor: pointer; }
+
+#notes-box {
+  border: solid black 1px;
+  position: absolute;
+  right: 0px;
+  top: 60px;
+  width: 340px;
+  height: auto;
+  background: #FFF;
+  opacity: 0;
+  transition: opacity 0.3s linear 0s, right 0s linear 0s;
+  z-index: 1000;
+  display: none; }
+
+#notes-header {
+  background: rgba(160, 160, 160, 0.7);
+  width: inherit;
+  height: 20px;
+  line-height: 1.2em; }
+
+#notes-header p {
+  margin: 0px 10px;
+  height: inherit; }
+
+#box-title {
+  float: left;
+  font-weight: bold; }
+
+#read-all {
+  text-align: right; }
+
+#read-all a {
+  cursor: pointer; }
+
+#notes-footer {
+  background: rgba(160, 160, 160, 0.7);
+  width: inherit;
+  height: 20px;
+  line-height: 1.2em; }
+
+#notes-footer p {
+  text-align: center;
+  margin: 0px;
+  height: inherit;
+  top: 50%; }
+
+#no-notes {
+  margin: 10px 0px;
+  text-align: center; }
+
+/*Botão de unfollow*/
+#unfollow-button {
+  width: 120px;
+  float: left; }
+
+.label.success.new-label {
+  padding: 1px 3px 2px;
+  color: #ffffff;
+  white-space: nowrap;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  text-decoration: none; }
+
+#unfollow-button a p.new-label span {
+  position: relative;
+  color: #666; }
+
+#unfollow-button:hover a p.new-label span {
+  display: none; }
+
+#unfollow-button:hover a p.new-label:after {
+  content: 'Deixar de seguir';
+  color: #000; }
+
+/*Botão de importação de foto*/
+.facebook-logo {
+  width: 13px;
+  height: 13px;
+  margin-right: 2px; }
+
+.import-face {
+  display: block;
+  margin: 5px 0px;
+  background: rgba(109, 132, 180, 0);
+  width: 143px; }
+
+.inport-face span {
+  vertical-align: center; }
+
+/*Data*/
+.data_upload_text {
+  padding-left: 130px; }
+
+.data_upload {
+  font-size: 9px; }
+
+/*Tooltip to license*/
+a.tooltip_license {
+  outline: none; }
+
+a.tooltip_license strong {
+  line-height: 30px; }
+
+a.tooltip_license:hover {
+  text-decoration: none; }
+
+a.tooltip_license span {
+  z-index: 10;
+  display: none;
+  padding: 8px 20px;
+  margin-top: -6px;
+  margin-left: 28px;
+  width: 237px;
+  line-height: 15px;
+  text-align: justify; }
+
+a.tooltip_license:hover span {
+  display: inline;
+  position: absolute;
+  color: #111;
+  border: 1px solid #DCA;
+  background: #ffffff; }
+
+.callout {
+  z-index: 20;
+  position: absolute;
+  top: 30px;
+  border: 0;
+  left: -12px; }
+
+/*CSS3 extras*/
+a.tooltip_license span {
+  border-radius: 2px;
+  box-shadow: 5px; }
+
+#img_top_itens span {
+  margin-right: 5px; }
+
+#information_input {
+  display: none;
+  padding: 15px 0;
+  text-align: center;
+  background-color: #fff;
+  /*border-radius: 2px;*/
+  border: 1px solid rgba(0, 0, 0, 0.3); }
+
+#information_input input[type=text], #information_input textarea {
+  width: 250px;
+  margin: 8px 0;
+  border-color: #999; }
+
+#information_input textarea {
+  height: 120px; }
+
+#information_input .btn {
+  color: #444; }
+
+#information_input a.close {
+  float: right;
+  text-align: center;
+  margin: -10px 10px 0 0; }
+
+#leaderboard {
+  font-size: 14px;
+  position: relative; }
+
+#leaderboard a {
+  color: #666; }
+
+#leaderboard table {
+  color: #666;
+  border: 1px solid;
+  border-radius: 2px; }
+
+#leaderboard thead th {
+  padding: 10px;
+  color: #000; }
+
+#leaderboard table td {
+  font-size: 14px;
+  text-align: center;
+  padding: 5px;
+  vertical-align: middle;
+  border-top: 1px solid; }
+
+#leaderboard tr:hover, #leaderboard tr.selected:hover {
+  background-color: #d0d0d0; }
+
+#leaderboard tr.selected {
+  background-color: #e0e0e0; }
+
+#leaderboard table p {
+  color: #333;
+  margin: 5px; }
+
+#leaderboard .user_photo_thumbnail {
+  width: 48px;
+  height: auto; }
+
+p.position {
+  font-size: 20px; }
+
+#leaderboard .less-than, #leaderboard .greater-than {
+  font-weight: bold;
+  font-size: 14px; }
+
+#leaderboard a.disabled {
+  color: #aaa; }
+
+#leaderboard a.disabled:hover {
+  color: #aaa;
+  cursor: default;
+  text-decoration: none; }
+
+#leaderboard .loader {
+  position: absolute;
+  top: 50%;
+  left: 50%; }
+
+.opaque {
+  opacity: 0.7;
+  filter: alpha(opacity=70); }
+
+#leaderboard .edge {
+  width: 139px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#leaderboard .middle {
+  width: 500px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#leaderboard td.name {
+  text-align: left;
+  width: 300px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#leaderboard td.avatar {
+  text-align: right;
+  width: 200px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+#leaderboard tr.selected a {
+  color: #333; }
+
+.hidden {
+  display: none !important; }
+
+#information_input .loader {
+  display: none;
+  margin: 0 auto; }
+
+.date_help {
+  opacity: 0.7;
+  -ms-transform: translate(2px, 25%);
+  -webkit-transform: translate(2px, 25%);
+  transform: translate(2px, 25%); }
+
+.date_help:hover {
+  opacity: 1; }
+
+.date_box {
+  min-width: 100px;
+  max-width: 160px;
+  display: inline;
+  float: left;
+  text-align: center; }
+
+.date_box input {
+  text-align: center; }
+
+.date_container p, .date_container input[type="text"], .date_container select {
+  margin: 5px; }
+
+.date_container input[type="radio"], .date_container input[type="checkbox"] {
+  margin-left: 3px;
+  -ms-transform: translate(0, 2px);
+  -webkit-transform: translate(0, 2px);
+  transform: translate(0, 2px);
+  display: inline-block; }
+
+.date_container input[type="radio"] {
+  margin-right: 0px; }
+
+/** inst album **/
+#form_inst_album_window {
+  background: #fff;
+  position: fixed;
+  width: 320px;
+  height: 280px;
+  top: 30%;
+  left: 50%;
+  margin: -150px 0 0 -140px;
+  padding: 20px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001;
+  font-size: 14px; }
+
+#form_inst_album_window input[type="text"], #form_login_window input[type="password"] {
+  margin: 5px 0 10px;
+  width: 198px;
+  font-size: 12px; }
+
+#form_inst_album_window .columns {
+  display: block;
+  margin: 0 auto;
+  float: none; }
+
+#form_inst_album_window .error {
+  font-size: 10px; }
+
+#registInstAlbum {
+  width: 320px;
+  height: 270px;
+  margin: 0 auto; }
+
+/** dateWork **/
+.resultDateWork {
+  color: #666; }
+
+.resultDateWork strong {
+  font-size: 13px;
+  text-transform: uppercase; }
+
+.linkEdit {
+  color: #666;
+  text-decoration: underline;
+  font-weight: bold; }
+
+/*#4AA02C*/
+.btn_data_ok {
+  margin-left: 300px; }
+
+.separate_text {
+  padding-top: 25px; }
+
+.text_area_data {
+  width: 370px;
+  text-align: justify;
+  margin-top: 17px; }
+
+.space_txt_element {
+  margin-left: 8px; }
+
+.space_period {
+  margin-left: 8px;
+  width: 178px;
+  float: right;
+  padding-top: 3px; }
+
+.container .fivemid.columns {
+  width: 374px; }
+
+.container .fivemidUpdateForm.columns {
+  width: 377px; }
+
+.container .fivemidUpdateInst.columns {
+  width: 400px; }
+
+.div_institutional {
+  width: 405px; }
+
+.div_institutional_edit {
+  width: 380px; }
+
+.container .oneUpload.columns {
+  width: 117px; }
+
+.container .fourUpload.columns {
+  width: 380px; }
+
+.container .fourUploadInst.columns {
+  width: 388px; }
+
+.container .sevenUpload.columns {
+  width: 258px;
+  padding-left: 137px; }
+
+.container .sevenUploadInst.columns {
+  width: 460px; }
+
+.author_area_size_int {
+  width: 460px; }
+
+.author_area_size {
+  width: 380px; }
+
+.gallery_box_inst {
+  float: left;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  margin: 2px; }
+
+.name_text_follow {
+  position: absolute;
+  bottom: 1px;
+  z-index: 9;
+  font-size: 10px;
+  color: #fff;
+  left: 1px;
+  text-align: center;
+  width: 40px; }
+
+.txt_stl_pass {
+  padding-left: 168px; }
+
+.div_avatar_size {
+  height: 62px;
+  max-width: 120px;
+  display: block;
+  float: left; }
+
+.class_img_avatar {
+  max-height: 100%;
+  width: auto;
+  padding: 0px 5px 0px 0px; }
+
+.label_following {
+  margin: -7px 0px 0px -2px; }
+
+.position_info {
+  position: relative; }
+
+.div_avatar_size_inst {
+  height: 75px;
+  max-width: 120px;
+  display: block;
+  float: left; }
+
+/** search page **/
+.cls_image_search {
+  height: 83px;
+  width: 124px;
+  padding: 0px;
+  margin: 2px;
+  cursor: pointer;
+  border: 1px solid #fff;
+  position: absolute;
+  z-index: 2; }
+
+.gallery_photo2 {
+  width: 144px;
+  height: 104px; }
+
+.container.twelveMid.columns {
+  width: 960px; }
+
+div.draft {
+  font-size: 14px !important; }
+
+.form-table.drafts {
+  text-align: left; }
+
+.form-table.drafts td, .form-table.drafts th {
+  padding: 5px;
+  border-bottom: 1px solid; }
+
+/* lightbox - report */
+#form_window_report {
+  width: 400px;
+  min-height: 200px;
+  background: #fff;
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  margin: -240px 0 0 -340px;
+  padding: 25px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  display: none;
+  z-index: 1001; }
+
+/* position: absolute; */
+/*#form_window label { width: 100px; display: inline-block; color: #777; text-align: left; vertical-align: top; line-height: 1.2em; }*/
+#form_window_report textarea {
+  border: solid 1px #EEEEEE;
+  padding: 3px;
+  margin: 2px 0 2px 5px;
+  font-size: 0.9em; }
+
+#form_window_report input {
+  border: solid 1px #eee;
+  padding: 3px;
+  margin: 2px 0 2px 5px; }
+
+#form_window_report select {
+  margin: 3px; }
+
+#form_window_report input.text {
+  width: 123px; }
+
+#form_window_report .date {
+  width: 29px; }
+
+/*#form_window_notify a.close { float: right; text-align: center; margin-bottom: 10px; }
+#form_window_notify a.close:hover { background-position: -160px -216px; text-decoration: underline; }
+*/
+#form_window_report .email, #form_window_report .website {
+  width: 123px; }
+
+#form_window_report input.submit {
+  background: url(../img/sprite.png) -222px -195px;
+  height: 20px;
+  width: 54px;
+  padding: 0;
+  margin: 0;
+  border: none;
+  float: right; }
+
+#form_window_report input.submit:hover {
+  background-position: -222px -216px; }
+
+#denounce_photo {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+  background-image: url("../img/i-denounce.png"); }
+
+ul.pagination li {
+  width: auto;
+  float: left;
+  height: 50px;
+  line-height: 1.2em;
+  list-style-type: none;
+  margin-right: 8px;
+  vertical-align: middle; }
+
+li.active {
+  color: #000;
+  font-size: 15px;
+  font-weight: bold; }
+
+ul.pagination li a {
+  font-size: 14px;
+  text-decoration: underline; }
+
+ul .new-message {
+  display: flex;
+  font-size: 10px; }
+
+ul .new-message a {
+  padding: 13px 3px 8px 28px;
+  background: url(/img/new-message.png) left center no-repeat transparent;
+  border-radius: 2px; }
+
+ul .new-message a:hover {
+  border-radius: 2px;
+  color: #000;
+  text-decoration: underline; }
+
+.img_avatar_result {
+  width: 90px;
+  height: 90px;
+  display: block;
+  border-radius: 50%;
+  margin: 0 10px 5px;
+  opacity: 0.7; }
+
+.img_avatar_result:hover {
+  opacity: 1; }
+
+.users-result-table {
+  margin-bottom: 40px; }
+
+/* skeleton */
+.one-xs.column,
+.one-xs.columns {
+  width: 4.66666666667%; }
+
+.two-xs.columns {
+  width: 13.3333333333%; }
+
+.three-xs.columns {
+  width: 22%; }
+
+.four-xs.columns {
+  width: 30.6666666667%; }
+
+.five-xs.columns {
+  width: 39.3333333333%; }
+
+.six-xs.columns {
+  width: 48%; }
+
+.seven-xs.columns {
+  width: 56.6666666667%; }
+
+.eight-xs.columns {
+  width: 65.3333333333%; }
+
+.nine-xs.columns {
+  width: 74.0%; }
+
+.ten-xs.columns {
+  width: 82.6666666667%; }
+
+.eleven-xs.columns {
+  width: 91.3333333333%; }
+
+.twelve-xs.columns {
+  width: 100%;
+  margin-left: 0; }
+
+.one-third-xs.column {
+  width: 30.6666666667%; }
+
+.two-thirds-xs.column {
+  width: 65.3333333333%; }
+
+.one-half-xs.column {
+  width: 48%; }
+
+/* Offsets */
+.offset-by-one-xs.column,
+.offset-by-one-xs.columns {
+  margin-left: 8.66666666667%; }
+
+.offset-by-two-xs.column,
+.offset-by-two-xs.columns {
+  margin-left: 17.3333333333%; }
+
+.offset-by-three-xs.column,
+.offset-by-three-xs.columns {
+  margin-left: 26%; }
+
+.offset-by-four-xs.column,
+.offset-by-four-xs.columns {
+  margin-left: 34.6666666667%; }
+
+.offset-by-five-xs.column,
+.offset-by-five-xs.columns {
+  margin-left: 43.3333333333%; }
+
+.offset-by-six-xs.column,
+.offset-by-six-xs.columns {
+  margin-left: 52%; }
+
+.offset-by-seven-xs.column,
+.offset-by-seven-xs.columns {
+  margin-left: 60.6666666667%; }
+
+.offset-by-eight-xs.column,
+.offset-by-eight-xs.columns {
+  margin-left: 69.3333333333%; }
+
+.offset-by-nine-xs.column,
+.offset-by-nine-xs.columns {
+  margin-left: 78.0%; }
+
+.offset-by-ten-xs.column,
+.offset-by-ten-xs.columns {
+  margin-left: 86.6666666667%; }
+
+.offset-by-eleven-xs.column,
+.offset-by-eleven-xs.columns {
+  margin-left: 95.3333333333%; }
+
+.offset-by-one-third-xs.column,
+.offset-by-one-third-xs.columns {
+  margin-left: 34.6666666667%; }
+
+.offset-by-two-thirds-xs.column,
+.offset-by-two-thirds-xs.columns {
+  margin-left: 69.3333333333%; }
+
+.offset-by-one-half-xs.column,
+.offset-by-one-half-xs.columns {
+  margin-left: 52%; }
+
+/* header */
+.header #logo {
+  background: url("../img/logo.chou.2018.png") no-repeat;
+  background-size: contain; }
+
+/* busca */
+#search_buttons_area {
+  float: left;
+  height: auto;
+  width: 100%;
+  display: flex;
+  margin-top: 17px; }
+
+input.search_bar {
+  height: 24px;
+  width: 100%;
+  padding: 3px 5px;
+  float: left;
+  border: solid 1px #ddd;
+  border-right: none;
+  -webkit-border-top-left-radius: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -moz-border-radius-topleft: 5px;
+  -moz-border-radius-bottomleft: 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px; }
+
+/* Menu hamburger */
+.menu-hamburger {
+  position: relative;
+  overflow: hidden;
+  display: block; }
+  .menu-hamburger i.switch {
+    background: url("../img/hamburger.svg") no-repeat center right;
+    height: 60px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0 0 0; }
+  .menu-hamburger.open i.switch {
+    background: url("../img/close-menu.png") no-repeat center right;
+    height: 60px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 5px 0 0 0;
+    vertical-align: middle; }
+
+.menu {
+  display: none; }
+  .menu.active {
+    display: block;
+    z-index: 5;
+    position: absolute;
+    width: 80%;
+    right: 0; }
+
+.menu-collapse {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding-top: 19px;
+  opacity: 0;
+  z-index: -1;
+  height: 100vh;
+  padding-left: 30px; }
+  .menu-collapse a {
+    text-decoration: none; }
+  .menu-collapse h5 {
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 40px;
+    padding-bottom: 19px; }
+  .menu-collapse.show {
+    z-index: 1;
+    opacity: 1;
+    transition: .4s; }
+
+/* painel */
+.panel-back, .panel-next {
+  height: 580px;
+  width: 120px; }
+
+#panel .h1, #panel .h1 .layer {
+  width: 156px;
+  height: 104px; }
+#panel .h1 img {
+  width: 186px;
+  height: auto;
+  margin: -10px 0 0 -93px;
+  position: absolute;
+  left: 50%; }
+#panel .h2, #panel .h2 .layer {
+  width: 322px;
+  height: 218px; }
+#panel .h2 img {
+  width: 352px;
+  height: auto;
+  margin: -10px 0 0 -176px;
+  position: absolute;
+  left: 50%; }
+#panel .h3, #panel .h3 .layer {
+  width: 488px;
+  height: 332px; }
+#panel .h3 img {
+  width: 518px;
+  height: auto;
+  margin: -10px 0 0 -259px;
+  position: absolute;
+  left: 50%; }
+#panel .v1, #panel .v1 .layer {
+  width: 156px;
+  height: 218px; }
+#panel .v1 img {
+  width: 186px;
+  height: auto;
+  margin: -10px 0 0 -93px;
+  position: absolute;
+  left: 50%; }
+
+#credits .footer-links {
+  text-align: center;
+  width: 100%;
+  height: auto;
+  padding: 0 0 16px;
+  margin: 8px 0 8px 0;
+  border-bottom: 1px solid #ddd; }
+#credits .footer-links a {
+  font-weight: bold;
+  display: inline; }
+#credits .footer-links li {
+  display: inline; }
+#credits .footer-last {
+  clear: both;
+  padding-top: 0; }
+#credits .footer-logos {
+  display: none; }
+
+/* photo upload */
+.photo-upload input[type="text"], .photo-upload input[type="password"] {
+  width: 98%; }
+
+@media (min-width: 550px) {
+  /* skeleton */
+  .container {
+    width: 80%; }
+
+  .column,
+  .columns {
+    margin-left: 4%; }
+
+  .column:first-child,
+  .columns:first-child {
+    margin-left: 0; }
+
+  .one.column,
+  .one.columns {
+    width: 4.66666666667%; }
+
+  .two.columns {
+    width: 13.3333333333%; }
+
+  .three.columns {
+    width: 22%; }
+
+  .four.columns {
+    width: 30.6666666667%; }
+
+  .five.columns {
+    width: 39.3333333333%; }
+
+  .six.columns {
+    width: 48%; }
+
+  .seven.columns {
+    width: 56.6666666667%; }
+
+  .eight.columns {
+    width: 65.3333333333%; }
+
+  .nine.columns {
+    width: 74.0%; }
+
+  .ten.columns {
+    width: 82.6666666667%; }
+
+  .eleven.columns {
+    width: 91.3333333333%; }
+
+  .twelve.columns {
+    width: 100%;
+    margin-left: 0; }
+
+  .one-third.column {
+    width: 30.6666666667%; }
+
+  .two-thirds.column {
+    width: 65.3333333333%; }
+
+  .one-half.column {
+    width: 48%; }
+
+  /* Offsets */
+  .offset-by-one.column,
+  .offset-by-one.columns {
+    margin-left: 8.66666666667%; }
+
+  .offset-by-two.column,
+  .offset-by-two.columns {
+    margin-left: 17.3333333333%; }
+
+  .offset-by-three.column,
+  .offset-by-three.columns {
+    margin-left: 26%; }
+
+  .offset-by-four.column,
+  .offset-by-four.columns {
+    margin-left: 34.6666666667%; }
+
+  .offset-by-five.column,
+  .offset-by-five.columns {
+    margin-left: 43.3333333333%; }
+
+  .offset-by-six.column,
+  .offset-by-six.columns {
+    margin-left: 52%; }
+
+  .offset-by-seven.column,
+  .offset-by-seven.columns {
+    margin-left: 60.6666666667%; }
+
+  .offset-by-eight.column,
+  .offset-by-eight.columns {
+    margin-left: 69.3333333333%; }
+
+  .offset-by-nine.column,
+  .offset-by-nine.columns {
+    margin-left: 78.0%; }
+
+  .offset-by-ten.column,
+  .offset-by-ten.columns {
+    margin-left: 86.6666666667%; }
+
+  .offset-by-eleven.column,
+  .offset-by-eleven.columns {
+    margin-left: 95.3333333333%; }
+
+  .offset-by-one-third.column,
+  .offset-by-one-third.columns {
+    margin-left: 34.6666666667%; }
+
+  .offset-by-two-thirds.column,
+  .offset-by-two-thirds.columns {
+    margin-left: 69.3333333333%; }
+
+  .offset-by-one-half.column,
+  .offset-by-one-half.columns {
+    margin-left: 52%; }
+
+  /* header */
+  #loggin_area {
+    display: block; }
+
+  .header #logo {
+    background: url("../img/logo.chou.arquigrafia.png") no-repeat;
+    background-size: contain;
+    width: 223px;
+    height: 33px; }
+    .header #logo.mini {
+      background-image: url("../img/logo.chou.a.png"); }
+
+  #search_buttons_area {
+    margin-top: 8px;
+    float: left;
+    height: auto;
+    width: 280px;
+    display: block; }
+
+  input.search_bar {
+    width: 210px; }
+
+  /* menu-hamburger */
+  .menu-hamburger {
+    display: none; }
+
+  .menu.active {
+    display: none; }
+
+  /* painel */
+  .panel-back, .panel-next {
+    position: absolute;
+    top: 0;
+    height: 580px;
+    width: 120px;
+    cursor: pointer; }
+
+  #panel .h1, #panel .h1 .layer {
+    width: 156px;
+    height: 104px; }
+  #panel .h1 img {
+    width: 186px;
+    height: auto;
+    margin: -10px 0 0 -93px;
+    position: absolute;
+    left: 50%; }
+  #panel .h2, #panel .h2 .layer {
+    width: 322px;
+    height: 218px; }
+  #panel .h2 img {
+    width: 352px;
+    height: auto;
+    margin: -10px 0 0 -176px;
+    position: absolute;
+    left: 50%; }
+  #panel .h3, #panel .h3 .layer {
+    width: 488px;
+    height: 332px; }
+  #panel .h3 img {
+    width: 518px;
+    height: auto;
+    margin: -10px 0 0 -259px;
+    position: absolute;
+    left: 50%; }
+  #panel .v1, #panel .v1 .layer {
+    width: 156px;
+    height: 218px; }
+  #panel .v1 img {
+    width: 186px;
+    height: auto;
+    margin: -10px 0 0 -93px;
+    position: absolute;
+    left: 50%; }
+
+  /* footer */
+  #credits ul {
+    width: 19%;
+    height: auto; }
+  #credits .footer-links {
+    text-align: left;
+    width: 150px;
+    height: auto;
+    margin: 4px 31px -10px 0;
+    border-bottom: none;
+    border-right: 1px solid #ddd; }
+  #credits .footer-links a {
+    font-weight: normal;
+    height: 23px; }
+  #credits .footer-links li {
+    display: block;
+    margin-left: 0; }
+  #credits .footer-last {
+    clear: both;
+    padding-top: 10px; }
+  #credits .footer-logos {
+    display: block; } }
+
+/*# sourceMappingURL=style.css.map */

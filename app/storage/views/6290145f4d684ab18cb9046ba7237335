@@ -1,0 +1,65 @@
+<div class="three columns alpha omega">
+  <p>
+    <?php if($drafts->getCurrentPage() <= 1): ?>
+      <a id="less" href="#" class="disabled less-than" onclick="return false;"> &lt; </a>
+    <?php else: ?>
+      <a id="less" href="#" class="less-than"> &lt; </a>
+    <?php endif; ?>
+    &nbsp;
+    <?php echo Form::text('page', $drafts->getCurrentPage(),
+      array('style' => 'width: 30px;', 'class' => 'page_number')); ?>
+
+    / <span class="draft_last_page"><?php echo $drafts->getLastPage(); ?></span>
+    &nbsp;
+    <?php if($drafts->getCurrentPage() >= $drafts->getLastPage()): ?>
+      <a id="greater" href="#" class="disabled greater-than" onclick="return false;"> &gt; </a>
+    <?php else: ?>
+      <a id="greater" href="#" class="greater-than"> &gt; </a>
+    <?php endif; ?>
+  </p>
+</div>
+<table class="form-table drafts" width="100%" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Tombo</th>
+      <th>Suporte</th>
+      <th>Título</th>
+      <th><i class="upload"></i></th>
+      <th><span class="delete_image_button"></span></th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php echo $__env->make('draft_list', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  </tbody>
+</table>
+<div class="three columns alpha omega">
+  <p>
+    <?php if($drafts->getCurrentPage() <= 1): ?>
+      <a id="less" href="#" class="disabled less-than" onclick="return false;"> &lt; </a>
+    <?php else: ?>
+      <a id="less" href="#" class="less-than"> &lt; </a>
+    <?php endif; ?>
+    &nbsp;
+    <?php echo Form::text('page', $drafts->getCurrentPage(),
+      array('style' => 'width: 30px;', 'class' => 'page_number')); ?>
+
+    / <span class="draft_last_page"><?php echo $drafts->getLastPage(); ?></span>
+    &nbsp;
+    <?php if($drafts->getCurrentPage() >= $drafts->getLastPage()): ?>
+      <a id="greater" href="#" class="disabled greater-than" onclick="return false;"> &gt; </a>
+    <?php else: ?>
+      <a id="greater" href="#" class="greater-than"> &gt; </a>
+    <?php endif; ?>
+  </p>
+</div>
+<script type="text/javascript">
+  var paginator = {
+    current_page: <?php echo $drafts->getCurrentPage(); ?>,
+    last_page: <?php echo $drafts->getLastPage(); ?>,
+    number_items: <?php echo $drafts->count(); ?>,
+    per_page: <?php echo $drafts->getPerPage(); ?>,
+    url: "<?php echo URL::to('/drafts/paginate/'); ?>"
+  };
+  var delete_url = "<?php echo URL::to('/drafts/delete'); ?>";
+</script>
+<script src="<?php echo URL::to('/js/drafts.js'); ?>"></script>

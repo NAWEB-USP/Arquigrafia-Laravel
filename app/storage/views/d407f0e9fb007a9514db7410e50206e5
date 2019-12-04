@@ -1,0 +1,9 @@
+<?php foreach($drafts as $draft): ?>
+  <tr id="draft_<?php echo $draft->id; ?>" class="draft">
+    <td><?php echo $draft->tombo; ?></td>
+    <td><?php echo $draft->support; ?></td>
+    <td><?php echo $draft->name; ?></td>
+    <td><a href="<?php echo URL::to('/drafts/' . $draft->id); ?>">Completar</a></td>
+    <td><a href="#" data-draft="<?php echo $draft->id; ?>" class="delete_draft">Excluir</a></td>
+  </tr>
+<?php endforeach; ?>

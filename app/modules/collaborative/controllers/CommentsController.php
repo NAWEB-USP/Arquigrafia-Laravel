@@ -13,6 +13,10 @@ use Auth;
 use User;
 use Notification;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use DB;
 
 
 class CommentsController extends \BaseController {

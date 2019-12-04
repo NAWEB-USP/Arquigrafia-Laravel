@@ -1,0 +1,24 @@
+<?php $__env->startSection('head'); ?>
+
+<title>Arquigrafia - Usuários</title>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+
+  <div class="container">
+  
+    <h1>Todos Users</h1>
+    
+    <ul>
+    
+    <?php foreach($users as $user): ?>
+    	<li><?php echo link_to("/users/".$user->id, $user->name) ?></li>
+    <?php endforeach; ?>
+    
+    </ul>
+    
+  </div>
+  
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.default', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

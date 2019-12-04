@@ -1,0 +1,13 @@
+<?php foreach($photos as $photo): ?>
+  <div class="item h1"><div class="layer" data-depth="0.2">
+      <a href="<?php echo URL::to('/arquigrafia-images/' . $photo->id); ?>">
+      	<?php if($photo->type == "video"): ?>
+      		<img src="<?php echo $photo->nome_arquivo); ?>" 
+        	width="600" height="405" title="<?php echo $photo->name; ?>">
+      	<?php else: ?>
+        	<img src="<?php echo URL::to('/arquigrafia-images/' . $photo->id . '_view.jpg'); ?>" 
+        	width="600" height="405" title="<?php echo $photo->name; ?>">
+        <?php endif; ?>
+      </a>
+  </div></div>
+<?php endforeach; ?>
